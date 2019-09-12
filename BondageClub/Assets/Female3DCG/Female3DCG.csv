@@ -241,7 +241,7 @@ ItemPelvis,MetalChastityBelt,Metal Chastity Belt
 ItemPelvis,LoveChastityBelt,Love Chastity Belt
 ItemPelvis,LeatherCrop,Leather Crop
 ItemPelvis,LeatherWhip,Leather Whip
-ItemPelvis,SpankingToys,Spanking Toy
+ItemPelvis,SpankingToys,Spanking Toys
 ItemTorso,,Torso
 ItemTorso,NylonRopeHarness,Nylon Rope Harness
 ItemTorso,HempRopeHarness,Hemp Rope Harness
@@ -271,14 +271,14 @@ ItemArms,StraitLeotard,Latex Strait Leotard
 ItemArms,StraitJacket,Straitjacket
 ItemArms,Bolero,Bolero Straitjacket
 ItemArms,DuctTape,Duct Tape
-ItemArms,PetSuit,Petsuit
+ItemArms,BitchSuit,Pet Suit
 ItemArms,CollarLeashHolding,Holding Leash
 ItemArms,StraitDress,Strait Dress
 ItemHands,,Hands
 ItemHands,PaddedMittens,Padded Mittens
 ItemHands,PawMittens,Paw Mittens
 ItemHands,DuctTape,Duct Tape
-ItemHands,SpankingToys,Spanking Toy
+ItemHands,SpankingToys,Spanking Toys
 ItemHands,SpankingToysCrop,Crop
 ItemHands,SpankingToysFlogger,Flogger
 ItemHands,SpankingToysCane,Cane
@@ -305,7 +305,6 @@ ItemNeckAccessories,CollarChainLong,Long Chain
 ItemNeckAccessories,CollarChainShort,Short Chain
 ItemNeckAccessories,CollarLeash,Leash
 ItemNeckAccessories,CollarLeashTaken,Pulled Leash
-ItemNeckAccessories,CollarNameTag,Name Tag
 ItemMouth,,Mouth
 ItemMouth,ClothGag,Cloth Gag
 ItemMouth,WiffleGag,Wiffle Ball Gag
@@ -330,12 +329,12 @@ ItemHead,,Head
 ItemHead,ClothBlindfold,Cloth Blindfold
 ItemHead,LeatherBlindfold,Leather Blindfold
 ItemHead,LeatherHood,Leather Hood
-ItemHead,LeatherHoodOpenEyes,Leather Hood with eyehole
+ItemHead,LeatherHoodOpenEyes,Leather Hood Eyes
 ItemHead,StuddedBlindfold,Studded Blindfold
 ItemHead,KittyBlindfold,Kitty Blindfold
 ItemHead,DuctTape,Duct Tape
 ItemHead,SmallBlindfold,Small Blindfold
-ItemHead,LeatherHoodOpenMouth,Leather Hood with open mouth
+ItemHead,LeatherHoodOpenMouth,Leather Hood Mouth
 ItemEars,,Ears
 ItemEars,LightDutyEarPlugs,Light Duty Ear Plugs
 ItemEars,HeavyDutyEarPlugs,Heavy Duty Ear Plugs
@@ -351,12 +350,11 @@ ItemMisc,OwnerPadlockKey,Owner Padlock Key
 ItemMisc,MistressPadlockKey,Mistress Padlock Key
 ItemMisc,MetalCuffsKey,Metal Cuffs Key
 ItemMisc,WoodenMaidTray,Wooden Maid Tray
-ItemMisc,WoodenMaidTrayFull,Full Wooden Maid Tray
+ItemMisc,WoodenMaidTrayFull,Wooden Maid Tray Full
 ItemMisc,WoodenPaddle,Wooden Paddle
 ItemDevices,,Body
 ItemDevices,WoodenBox,Wooden Box
-ItemDevices,SmallWoodenBox,Small Wooden Box
 ItemDevices,MilkCan,Water filled milk can 
-ItemDevices,WaterCell,Water tank
-ItemDevices,Cage,Cage
-ItemDevices,Kennel,Kennel
+ItemDevices,WaterCell,Water torture Cell
+ItemDevices,Cage,Stand up cage
+ItemDevices,LowCage,Kennel
