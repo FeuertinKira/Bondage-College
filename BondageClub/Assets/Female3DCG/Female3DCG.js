@@ -880,7 +880,7 @@ var AssetFemale3DCG = [
 			{ Name: "KittyBlindfold", Effect: ["BlindLight", "Prone"], Hide: ["Glasses"], Value: 25, Time: 5, AllowLock: true },
 			{ Name: "DuctTape", Extended: true, AllowEffect: ["BlindNormal", "Prone", "GagNormal"], AllowBlock: ["ItemMouth", "ItemEars"], Hide: ["Glasses"], Value: 50, Time: 10, RemoveTime: 5, BuyGroup: "DuctTape", AllowType: ["Double", "Wrap", "Mummy"] },
 			{ Name: "SmallBlindfold", Effect: ["BlindLight", "Prone"], Hide: ["Glasses"], Value: 40, Time: 5, AllowLock: true },
-			{ Name: "LeatherHoodOpenMouth", Effect: ["Prone", "BlindHeavy", "Deaf Light"], Block: ["ItemEars"], Hide: ["HairFront", "HairBack", "Glasses"], Difficulty: 50, Value: 60, Time: 15, AllowLock: true }
+			{ Name: "LeatherHoodOpenMouth", Effect: ["Prone", "BlindHeavy", "DeafLight"], Block: ["ItemEars"], Hide: ["HairFront", "HairBack", "Glasses"], Difficulty: 50, Value: 60, Time: 15, AllowLock: true }
 		]
 	},
 
