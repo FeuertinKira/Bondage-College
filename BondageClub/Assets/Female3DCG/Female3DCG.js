@@ -38,8 +38,6 @@ var AssetFemale3DCG = [
 			{ Name: "NurseUniform", Hide: ["ClothLower"], Value: -1 },
 			{ Name: "BunnyCollarCuffs", Value: 10, Expose: ["ItemNipples", "ItemBreast", "ItemTorso"] },
 			{ Name: "Robe1", Value: 50 },
-			{ Name: "FlowerDress", Value: 100, Hide: ["ClothLower"] },
-			{ Name: "Dress2", Value: 100 },
 			{ Name: "SuspenderTop1", Priority: 16, Value: 100, Expose: ["ItemNipples", "ItemBreast"], Hide: ["Panties"] },
 			{ Name: "LeatherCorsetTop1", Priority: 20, Value: 80 },
 			{
@@ -116,6 +114,7 @@ var AssetFemale3DCG = [
 			{ Name: "CuteBikini1", Priority: 20, Value: 40, Expose: ["ItemNipples", "ItemBreast"], HideItem: ["ItemVulvaVibratingDildo"] },
 			{ Name: "CorsetBikini1", Value: 40, Hide: ["Panties", "ItemNipples"], HideItem: ["ItemVulvaVibratingDildo"] },
 			{ Name: "OuvertPerl1", Priority: 20, Value: 40, Expose: ["ItemNipples", "ItemBreast"] },
+			{ Name: "Sarashi1", Value: 30, Hide: ["ItemNipples"] }
 		]
 	},
 
@@ -670,6 +669,7 @@ var AssetFemale3DCG = [
 			{ Name: "ChainTassles", Value: 45, Prerequisite: "AccessBreast", Time: 10, ExpressionTrigger: [{ Group: "Eyebrows", Name: "Soft", Timer: 5 }] },
 			{ Name: "HeartPasties", DefaultColor: "#800000" ,Value: 20, Prerequisite: "AccessBreast", Time: 10, ExpressionTrigger: [{ Group: "Eyebrows", Name: "Soft", Timer: 5 }] },
 			{ Name: "NippleAccessory1", Value: 15, Prerequisite: "AccessBreast", Time: 5, },
+			{ Name: "TapedVibeEggs", Value: 30, Effect: ["Egged"], Prerequisite: "AccessBreast", Time: 5, AllowEffect: ["Egged", "Vibrating"] },
 			AssetSpankingToys
 		]
 	},
