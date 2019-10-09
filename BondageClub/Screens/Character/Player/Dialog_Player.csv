@@ -173,11 +173,11 @@ HempRopeHarnessTypeBasic,,,Basic Tie
 HempRopeHarnessTypeDiamond,,,Diamond Tie
 HempRopeHarnessSetBasic,,,SourceCharacter uses the rope on DestinationCharacter's to do a basic harness.
 HempRopeHarnessSetDiamond,,,SourceCharacter uses the rope on DestinationCharacter's to do a Diamond style harness.
-Intensity-1,,,Vibration intensity: Disabled
-Intensity0,,,Vibration intensity: Low
-Intensity1,,,Vibration intensity: Medium
-Intensity2,,,Vibration intensity: High
-Intensity3,,,Vibration intensity: Maximum
+Intensity-1,,,Item intensity: Disabled
+Intensity0,,,Item intensity: Low
+Intensity1,,,Item intensity: Medium
+Intensity2,,,Item intensity: High
+Intensity3,,,Item intensity: Maximum
 Increase,,,Increase
 Decrease,,,Decrease
 ShockCollarShowChat,,,Show chat message
