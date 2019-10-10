@@ -58,7 +58,7 @@ function InventoryItemVulvaInflatableVibeDildoClick() {
 }
 
 // Sets the inflatable vibe dildo pump Level
-function InventoryItemVulvaInflatableVibeDildoInflation(Modifier) {console.log("XXX");
+function InventoryItemVulvaInflatableVibeDildoInflation(Modifier) {
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
 	DialogFocusItem.Property.InflateLevel = DialogFocusItem.Property.InflateLevel + Modifier;
 	if (DialogFocusItem.Property.InflateLevel == 0);
@@ -73,7 +73,7 @@ function InventoryItemVulvaInflatableVibeDildoInflation(Modifier) {console.log("
 }
 
 // Sets the inflatable vibe dildo vibration Level
-function InventoryItemVulvaInflatableVibeDildoSetIntensity(Modifier) {console.log("XXX");
+function InventoryItemVulvaInflatableVibeDildoSetIntensity(Modifier) {
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
 	DialogFocusItem.Property.Intensity = DialogFocusItem.Property.Intensity + Modifier;
 	if (DialogFocusItem.Property.Intensity == -1) DialogFocusItem.Property.Effect = ["Egged"];
