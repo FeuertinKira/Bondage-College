@@ -869,7 +869,8 @@ var AssetFemale3DCG = [
 				]
 			},
 			{ Name: "LeatherChoker", Value: 40, Time: 5, Difficulty: 50, AllowLock: true },
-			{ Name: "PetCollar", Time: 5, Difficulty: 50, AllowLock: true }
+			{ Name: "PetCollar", Time: 5, Difficulty: 50, AllowLock: true },
+			{ Name: "MaidCollar", Value: 40, Time: 5, Difficulty: 50, AllowLock: true }
 		]
 	},
 
@@ -974,7 +975,8 @@ var AssetFemale3DCG = [
 					{ Name: "Rope", AllowColorize: true }
 				]
 			},
-                        {Name: "HarnessBallGag1", Effect: ["GagHeavy"], Difficulty: 4, Value: 85, Time: 20, AllowLock: true}
+			{Name: "HarnessBallGag1", Effect: ["GagHeavy"], Difficulty: 4, Value: 85, Time: 20, AllowLock: true},
+			{Name: "PumpkinGag", Effect: ["GagHeavy"], Difficulty: 1, Value: 50, Time: 10, AllowLock: true}
 		]
 	},
 
