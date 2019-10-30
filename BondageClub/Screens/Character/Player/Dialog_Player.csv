@@ -130,6 +130,24 @@ StraitJacketRestrainNone,,,SourceCharacter loosens the straps on DestinationChar
 StraitJacketRestrainNormal,,,SourceCharacter adjusts the straps normally on DestinationCharacter's straitjacket.
 StraitJacketRestrainSnug,,,SourceCharacter snugs the straps on DestinationCharacter's straitjacket.
 StraitJacketRestrainTight,,,SourceCharacter tightens the straps on DestinationCharacter's straitjacket.
+LeatherStraitJacketSelectTightness,,,How tight do you want to strap the jacket?
+LeatherStraitJacketPoseLoose,,,Loose
+LeatherStraitJacketPoseNormal,,,Normal
+LeatherStraitJacketPoseSnug,,,Snug
+LeatherStraitJacketPoseTight,,,Tight
+LeatherStraitJacketRestrainNone,,,SourceCharacter loosens the straps on DestinationCharacter's leather straitjacket.
+LeatherStraitJacketRestrainNormal,,,SourceCharacter adjusts the straps normally on DestinationCharacter's leather straitjacket.
+LeatherStraitJacketRestrainSnug,,,SourceCharacter snugs the straps on DestinationCharacter's leather straitjacket.
+LeatherStraitJacketRestrainTight,,,SourceCharacter tightens the straps on DestinationCharacter's leather straitjacket.
+InflatableBodyBagSelectTightness,,,How much do you want to inflate the body bag?
+InflatableBodyBagPoseLight,,,Light
+InflatableBodyBagPoseInflated,,,Inflated
+InflatableBodyBagPoseBloated,,,Bloated
+InflatableBodyBagPoseMax,,,Max
+InflatableBodyBagRestrainNone,,,SourceCharacter adjusts DestinationCharacter's inflatable body bag to be only lightly filled.
+InflatableBodyBagRestrainInflated,,,SourceCharacter adjusts DestinationCharacter's inflatable body bag to be half filled.
+InflatableBodyBagRestrainBloated,,,SourceCharacter adjusts DestinationCharacter's inflatable body bag to three quarters filled.
+InflatableBodyBagRestrainMax,,,SourceCharacter adjusts DestinationCharacter's inflatable body bag to fill the maximum amount.
 DuctTapePoseHands,,,Hands
 DuctTapePoseArms,,,Arms
 DuctTapePoseBottom,,,Skirt
@@ -352,8 +370,9 @@ SpankingToysTypeHeartCrop,,,Heart Crop
 SpankingToysTypePaddle,,,Paddle
 SpankingToysTypeWhipPaddle,,,Whip Paddle
 SpankingToysTypeWhip,,,Whip
+SpankingToysTypeCattleProd,,,Cattle Prod
 SpankingToysSetPlayer,,,SourceCharacter takes out a Item
-SpankingToysSetOthers,,,SourceCharacter give DestinationCharacter a Item
+SpankingToysSetOthers,,,SourceCharacter gives DestinationCharacter a Item
 TurnOff,,,TurnOff
 Low,,,Low
 Medium,,,Medium
