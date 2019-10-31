@@ -40,6 +40,7 @@ ClothLower,Waspie3,Straps Waspie
 ClothLower,LatexPants1,Latex Pants
 ClothLower,LatexSkirt1,Latex Skirt
 ClothLower,LatexSkirt2,Long Latex Skirt
+ClothLower,ClothSkirt1,Patterned Skirt
 ClothLower,Jeans2,Ripped Jeans
 Bra,,Bra
 Bra,Bra1,Style 1
@@ -334,6 +335,7 @@ ItemButt,AnalBeads,Anal Beads
 ItemButt,ButtPump,Butt Pump
 ItemButt,VibratingButtPlug,Vibrating Butt Plug
 ItemButt,InflVibeButtPlug,Inflatable Vibrating Butt Plug
+ItemButt,AnalHook,Anal Hook
 ItemPelvis,,Pelvis
 ItemPelvis,StraponPanties,Strap-On Panties
 ItemPelvis,LeatherChastityBelt,Leather Chastity Belt
@@ -368,6 +370,7 @@ ItemNipples,NippleTape,Pair Of Nipple Tapes
 ItemNipples,BarbellPiercing,Barbell Piercing
 ItemNipples,ChopStickNippleClamps,Chopstick Nipple Clamps
 ItemNipples,KittyPasties,Kitty Pasties
+ItemNipples,Clothespins,Clothespins
 ItemBreast,,Breast
 ItemBreast,MetalChastityBra,Metal Chastity Bra
 ItemBreast,PolishedChastityBra,Polished Chastity Bra
@@ -468,6 +471,7 @@ ItemMouth,HarnessBallGag1,Harness Ball Gag XL
 ItemMouth,PumpkinGag,Pumpkin Gag
 ItemMouth,LipGag,Lips Gag
 ItemMouth,SpiderGag,Spider Gag
+ItemMouth,ClothStuffing,Cloth Stuffing
 ItemMouth,LewdGag,Lewd Gag
 ItemHead,,Head
 ItemHead,ClothBlindfold,Cloth Blindfold
@@ -489,6 +493,7 @@ ItemHead,LewdBlindfold,Lewd Blindfold
 ItemEars,,Ears
 ItemEars,LightDutyEarPlugs,Light Duty Ear Plugs
 ItemEars,HeavyDutyEarPlugs,Heavy Duty Ear Plugs
+ItemEars,HeadphoneEarPlugs,Headphone Ear Plugs
 ItemMisc,,Misc Items
 ItemMisc,MetalPadlock,Metal Padlock
 ItemMisc,IntricatePadlock,Intricate Padlock
@@ -519,3 +524,6 @@ ItemBoots,,Feet
 ItemBoots,PonyBoots,Pony Boots
 ItemBoots,BalletHeels,Ballet Heels
 ItemBoots,BalletWedges,Ballet Wedges
+ItemBoots,ToeCuffs,Metal Toe Cuffs
+ItemBoots,LeatherToeCuffs,Leather Toe Cuffs
+ItemBoots,ToeTie,Toe Tie
