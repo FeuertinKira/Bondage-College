@@ -55,7 +55,7 @@ function InventoryItemArmsLeatherStraitJacketSetPose(NewPose) {
 		delete DialogFocusItem.Property.Difficulty;
 		delete DialogFocusItem.Property.Type;
 	} else {
-		DialogFocusItem.Property = {SetPose: ["BackElbowTouch"], Type: NewPose};
+		DialogFocusItem.Property.SetPose = ["BackElbowTouch"]; DialogFocusItem.Property.Type = NewPose;
 		if (NewPose == "Normal") DialogFocusItem.Property.Difficulty = 3;
 		if (NewPose == "Snug") DialogFocusItem.Property.Difficulty = 6;
 		if (NewPose == "Tight") DialogFocusItem.Property.Difficulty = 9;

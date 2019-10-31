@@ -26,6 +26,7 @@ Cloth,LaceBabydoll,Lace Babydoll
 Cloth,SleevelessTop,Sleeveless Top
 Cloth,DressFur,Dress with Fur
 Cloth,BodyTowel1,Towel
+Cloth,Yukata1,Yukata
 ClothLower,,Bottom
 ClothLower,Skirt1,Skirt
 ClothLower,TennisSkirt1,Tennis
@@ -282,6 +283,7 @@ ItemFeet,,Feet
 ItemFeet,NylonRope,Nylon Rope
 ItemFeet,HempRope,Hemp Rope
 ItemFeet,LeatherBelt,Leather Belt
+ItemFeet,SturdyLeatherBelts,Sturdy Leather Belt
 ItemFeet,Irish8Cuffs,Irish 8 Feet Cuffs
 ItemFeet,SuspensionHempRope,Suspension Hemp Rope
 ItemFeet,DuctTape,Duct Tape
@@ -294,6 +296,7 @@ ItemLegs,,Legs
 ItemLegs,NylonRope,Nylon Rope
 ItemLegs,HempRope,Hemp Rope
 ItemLegs,LeatherBelt,Leather Belt
+ItemLegs,SturdyLeatherBelts,Sturdy Leather Belt
 ItemLegs,DuctTape,Duct Tape
 ItemLegs,MermaidRopeTie,Upper Mermaid Tie
 ItemLegs,LeatherLegCuffs,Leather Leg Cuffs
@@ -378,6 +381,7 @@ ItemArms,,Arms
 ItemArms,NylonRope,Nylon Rope
 ItemArms,HempRope,Hemp Rope
 ItemArms,MetalCuffs,Metal Cuffs
+ItemArms,SturdyLeatherBelts,Sturdy Leather Belt
 ItemArms,LeatherArmbinder,Leather Armbinder
 ItemArms,ArmbinderJacket,Armbinder Jacket
 ItemArms,LeatherCuffs,Leather Cuffs
@@ -513,7 +517,6 @@ ItemDevices,LowCage,Kennel
 ItemDevices,SaddleStand,Saddle Stand
 ItemDevices,BurlapSack,Burlap Sack
 ItemDevices,InflatableBodyBag,Inflatable Body Bag
-ItemDevices,BondageBench,Bondage Bench
 ItemDevices,TeddyBear,Teddy Bear Set
 ItemDevices,OneBarPrison,One Bar Prison
 ItemBoots,,Feet
