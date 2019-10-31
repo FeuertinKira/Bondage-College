@@ -287,7 +287,6 @@ ItemFeet,SturdyLeatherBelts,Sturdy Leather Belt
 ItemFeet,Irish8Cuffs,Irish 8 Feet Cuffs
 ItemFeet,SuspensionHempRope,Suspension Hemp Rope
 ItemFeet,DuctTape,Duct Tape
-ItemFeet,MermaidRopeTie,Mermaid Rope Tie
 ItemFeet,LeatherAnkleCuffs,Leather Ankle Cuffs
 ItemFeet,SpreaderMetal, Metal Leg Spreader
 ItemFeet,BallChain,Ball And Chain
@@ -298,7 +297,6 @@ ItemLegs,HempRope,Hemp Rope
 ItemLegs,LeatherBelt,Leather Belt
 ItemLegs,SturdyLeatherBelts,Sturdy Leather Belt
 ItemLegs,DuctTape,Duct Tape
-ItemLegs,MermaidRopeTie,Upper Mermaid Tie
 ItemLegs,LeatherLegCuffs,Leather Leg Cuffs
 ItemLegs,LegBinder,Leg Binder
 ItemLegs,HobbleSkirt,Hobble Skirt
@@ -347,10 +345,8 @@ ItemPelvis,LeatherCrop,Leather Crop
 ItemPelvis,LeatherWhip,Leather Whip
 ItemPelvis,SpankingToys,Spanking Toys
 ItemTorso,,Torso
-ItemTorso,NylonRopeHarness,Nylon Rope Harness
-ItemTorso,HempRopeHarness,Hemp Rope Harness
-ItemTorso,NylonCrotchRope,Nylon Crotch Rope
-ItemTorso,HempCrotchRope,Hemp Crotch Rope
+ItemTorso,NylonRopeHarness,Nylon Rope
+ItemTorso,HempRopeHarness,Hemp Rope
 ItemTorso,LeatherHarness,Leather Harness
 ItemTorso,AdultBabyHarness,Adult Baby Harness
 ItemNipples,,Nipples
