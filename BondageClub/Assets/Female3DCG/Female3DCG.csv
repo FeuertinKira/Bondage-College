@@ -27,6 +27,7 @@ Cloth,SleevelessTop,Sleeveless Top
 Cloth,DressFur,Dress with Fur
 Cloth,BodyTowel1,Towel
 Cloth,Yukata1,Yukata
+Cloth,SteampunkCorsetTop1,Steampunk Corset
 ClothLower,,Bottom
 ClothLower,Skirt1,Skirt
 ClothLower,TennisSkirt1,Tennis
@@ -312,15 +313,16 @@ ItemVulva,VibratingDildo,Vibrating Dildo
 ItemVulva,InflatableVibeDildo,Inflatable Vibrating Dildo
 ItemVulva,ClitSuctionCup,Clit Suction Cup
 ItemVulva,TapeStrips,Tape Strips
-ItemVulva,StraightClitPiercing,Straight Clit Piercing
-ItemVulva,RoundClitPiercing,Round Clit Piercing
-ItemVulva,WeightedClitPiercing,Weighted Clit Piercing
-ItemVulva,BarbellClitPiercing,Barbell Clit Piercing
-ItemVulva,ChastityClitPiercing,Chastity Clit Piercing
-ItemVulva,ChastityClitShield,Chastity Clit Shield
 ItemVulva,BenWaBalls,Pair Of Ben Wa Balls
-ItemVulva,JewelClitPiercing,Jewel Clit Piercing
-ItemVulva,AdornedClitPiercing,Adorned Clit Piercing
+ItemVulvaPiercings,,Clit
+ItemVulvaPiercings,StraightClitPiercing,Straight Clit Piercing
+ItemVulvaPiercings,RoundClitPiercing,Round Clit Piercing
+ItemVulvaPiercings,WeightedClitPiercing,Weighted Clit Piercing
+ItemVulvaPiercings,BarbellClitPiercing,Barbell Clit Piercing
+ItemVulvaPiercings,ChastityClitPiercing,Chastity Clit Piercing
+ItemVulvaPiercings,ChastityClitShield,Chastity Clit Shield
+ItemVulvaPiercings,JewelClitPiercing,Jewel Clit Piercing
+ItemVulvaPiercings,AdornedClitPiercing,Adorned Clit Piercing
 ItemButt,,Butt
 ItemButt,BlackButtPlug,Black Butt Plug
 ItemButt,TailButtPlug,Kitty Butt Plug
