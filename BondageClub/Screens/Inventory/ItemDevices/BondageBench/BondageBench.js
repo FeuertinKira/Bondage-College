@@ -29,6 +29,9 @@ function InventoryItemDevicesBondageBenchDraw() {
 	DrawButton(1750, 550, 225, 225, "", ((DialogFocusItem.Property.Restrain != null) && (DialogFocusItem.Property.Restrain == "Full")) ? "#888888" : "White");
 	DrawImage("Screens/Inventory/" + DialogFocusItem.Asset.Group.Name + "/" + DialogFocusItem.Asset.Name + "/Full.png", 1750, 550);
 	DrawText(DialogFind(Player, "BondageBenchPoseFull"), 1875, 800, "white", "gray");
+
+	// Draw the message if present
+	if (InventoryItemDevicesBondageBenchMessage != null) DrawTextWrap(DialogFind(Player, InventoryItemDevicesBondageBenchMessage), 1100, 850, 800, 160, "White");
 }
 
 // Catches the item extension clicks
@@ -44,20 +47,24 @@ function InventoryItemDevicesBondageBenchClick() {
 function InventoryItemDevicesBondageBenchSetPose(NewPose) {
 	// Gets the current item and character
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if ((NewPose == null) || (InventoryGet(C, "Cloth") == null) && (InventoryGet(C, "ClothLower") == null)) {
-		if ((CurrentScreen == "ChatRoom") || (DialogFocusItem == null)) {
+	if ((CurrentScreen == "ChatRoom") || (DialogFocusItem == null)) {
 		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
 		InventoryItemDevicesBondageBenchLoad();
-		}
+	}
+
+	if ((NewPose == null) || (InventoryGet(C, "Cloth") == null) && (InventoryGet(C, "ClothLower") == null)) {
 		if (NewPose == null) {
+			InventoryRemove(C, "ItemMisc");
 		} else {
-			if (InventoryGet(C, "ItemHands") == null)
 			if (NewPose == "Light") InventoryWear(C, "BondageBenchStraps1", "ItemMisc");
 			if (NewPose == "Normal") InventoryWear(C, "BondageBenchStraps2", "ItemMisc");
 			if (NewPose == "Heavy") InventoryWear(C, "BondageBenchStraps3", "ItemMisc");
 			if (NewPose == "Full") InventoryWear(C, "BondageBenchStraps4", "ItemMisc");
 		}
-	} else InventoryItemDevicesBondageBenchMessage = "RemoveClothesForItem";
+	} else {
+		InventoryItemDevicesBondageBenchMessage = "RemoveClothesForItem";
+		return;
+	}
 //	if (InventoryGet(C, "ItemHands") == null) {
 //		InventoryWear(C, "MittenChain1", "ItemArms");
 //		if (C.ID == 0) ServerPlayerAppearanceSync();
@@ -95,5 +102,4 @@ function InventoryItemDevicesBondageBenchSetPose(NewPose) {
 		DialogFocusItem = null;
 		DialogMenuButtonBuild(C);
 	}
-
 }
