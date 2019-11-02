@@ -1167,10 +1167,10 @@ var AssetFemale3DCG = [
 			{ Name: "WoodenMaidTray", Enable: false, Value: -1 },
 			{ Name: "WoodenMaidTrayFull", Enable: false, Value: -1 },
 			{ Name: "WoodenPaddle", Enable: false, Value: -1 },
-			{ Name: "BondageBenchStraps1", Block: ["ItemDevices"], Hide: ["HairBack", "Wings", "TailStraps", "ItemButt"], SelfBondage: false, AllowLock: true, Value: -1, SetPose: ["BackElbowTouch", "LegsClosed"], Effect: ["Block", "Prone"], Time: 5, Difficulty: 2 },
-			{ Name: "BondageBenchStraps2", Block: ["ItemDevices"], Hide: ["HairBack", "Wings", "TailStraps", "ItemButt"], SelfBondage: false, AllowLock: true, Value: -1, SetPose: ["BackElbowTouch", "LegsClosed"], Effect: ["Block", "Prone"], Time: 10, Difficulty: 4 },
-			{ Name: "BondageBenchStraps3", Block: ["ItemDevices"], Hide: ["HairBack", "Wings", "TailStraps", "ItemButt"], SelfBondage: false, AllowLock: true, Value: -1, SetPose: ["BackElbowTouch", "LegsClosed"], Effect: ["Block", "Prone"], Time: 15, Difficulty: 6 },
-			{ Name: "BondageBenchStraps4", Block: ["ItemDevices"], Alpha: [[1, 80, 162, 900], [332, 80, 205, 900]], Hide: ["HairBack", "Wings", "TailStraps", "ItemButt"], SelfBondage: false, AllowLock: true, Value: -1, SetPose: ["BackElbowTouch", "LegsClosed"], Effect: ["Block", "Prone"], Time: 20, Difficulty: 8 }
+			{ Name: "BondageBenchStraps1", IsRestraint: true, Block: ["ItemDevices"], Hide: ["HairBack", "Wings", "TailStraps", "ItemButt"], SelfBondage: false, AllowLock: true, Value: -1, SetPose: ["BackElbowTouch", "LegsClosed"], Effect: ["Block", "Prone"], Time: 5, Difficulty: 2 },
+			{ Name: "BondageBenchStraps2", IsRestraint: true, Block: ["ItemDevices"], Hide: ["HairBack", "Wings", "TailStraps", "ItemButt"], SelfBondage: false, AllowLock: true, Value: -1, SetPose: ["BackElbowTouch", "LegsClosed"], Effect: ["Block", "Prone"], Time: 10, Difficulty: 4 },
+			{ Name: "BondageBenchStraps3", IsRestraint: true, Block: ["ItemDevices"], Hide: ["HairBack", "Wings", "TailStraps", "ItemButt"], SelfBondage: false, AllowLock: true, Value: -1, SetPose: ["BackElbowTouch", "LegsClosed"], Effect: ["Block", "Prone"], Time: 15, Difficulty: 6 },
+			{ Name: "BondageBenchStraps4", IsRestraint: true, Block: ["ItemDevices"], Alpha: [[1, 80, 162, 900], [332, 80, 205, 900]], Hide: ["HairBack", "Wings", "TailStraps", "ItemButt"], SelfBondage: false, AllowLock: true, Value: -1, SetPose: ["BackElbowTouch", "LegsClosed"], Effect: ["Block", "Prone"], Time: 20, Difficulty: 8 }
 		]
 	},
 
