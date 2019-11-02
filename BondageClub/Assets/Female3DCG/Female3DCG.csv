@@ -511,6 +511,10 @@ ItemMisc,MetalCuffsKey,Metal Cuffs Key
 ItemMisc,WoodenMaidTray,Wooden Maid Tray
 ItemMisc,WoodenMaidTrayFull,Wooden Maid Tray Full
 ItemMisc,WoodenPaddle,Wooden Paddle
+ItemMisc,BondageBenchStraps1,Leather Belt Straps
+ItemMisc,BondageBenchStraps2,Leather Belt Straps
+ItemMisc,BondageBenchStraps3,Leather Belt Straps
+ItemMisc,BondageBenchStraps4,Leather Belt Straps
 ItemDevices,,Body
 ItemDevices,WoodenBox,Wooden Box
 ItemDevices,SmallWoodenBox,Small Wooden Box

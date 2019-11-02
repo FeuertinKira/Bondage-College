@@ -41,29 +41,22 @@ function InventoryItemDevicesBondageBenchClick() {
 
 // Sets the cuffs pose (wrist, elbow, both or none)
 function InventoryItemDevicesBondageBenchSetPose(NewPose) {
-
 	// Gets the current item and character
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if ((CurrentScreen == "ChatRoom") || (DialogFocusItem == null)) {
+	if ((NewPose == null) || (InventoryGet(C, "Cloth") == null) && (InventoryGet(C, "ClothLower") == null)) {
+		if ((CurrentScreen == "ChatRoom") || (DialogFocusItem == null)) {
 		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
 		InventoryItemDevicesBondageBenchLoad();
-	}
-
-	
-	
-	// Chain/Unchain function
-function InventoryItemDevicesBondageBenchSetPose(NewPose) {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	DialogFocusItem.Property.Restrain = NewPose;
-	if (NewPose == null) { }
-	else {
-		if (InventoryGet(C, "ItemHands") == null)
-			if (NewPose == "Normal") InventoryWear(C, "MittenChain1", "ItemHands");
-			if (NewPose == "Heavy") InventoryWear(C, "MittenChain1", "ItemArms");
-			if (NewPose == "Full") InventoryWear(C, "MittenChain1", "ItemArms");
-		else InventoryItemDevicesBondageBenchMsg = "FreeHands";
 		}
-	}		
+		if (NewPose == null) {
+		} else {
+			if (InventoryGet(C, "ItemHands") == null)
+			if (NewPose == "Light") InventoryWear(C, "BondageBenchStraps1", "ItemMisc");
+			if (NewPose == "Normal") InventoryWear(C, "BondageBenchStraps2", "ItemMisc");
+			if (NewPose == "Heavy") InventoryWear(C, "BondageBenchStraps3", "ItemMisc");
+			if (NewPose == "Full") InventoryWear(C, "BondageBenchStraps4", "ItemMisc");
+		}
+	} else InventoryItemDevicesBondageBenchMessage = "RemoveClothesForItem";
 //	if (InventoryGet(C, "ItemHands") == null) {
 //		InventoryWear(C, "MittenChain1", "ItemArms");
 //		if (C.ID == 0) ServerPlayerAppearanceSync();
