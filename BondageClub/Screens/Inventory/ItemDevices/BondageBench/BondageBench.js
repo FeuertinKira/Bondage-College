@@ -1,4 +1,5 @@
 "use strict";
+var InventoryItemDevicesBondageBenchMessage = "";
 
 // Loads the item extension properties
 function InventoryItemDevicesBondageBenchLoad() {
