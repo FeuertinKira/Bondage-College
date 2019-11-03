@@ -235,7 +235,7 @@ var AssetFemale3DCG = [
 			{ Name: "Boots1", Height: 9 },
 			{ Name: "MistressBoots", Height: 35, Value: -1, HideItem: ["SocksSocks4", "SocksSocks5"], Alpha: [[75, 800, 140, 200],[290, 800, 140, 200]] },
 			{ Name: "PonyBoots", Height: 35, Value: -1, Alpha: [[75, 800, 140, 200],[290, 800, 140, 200]] },
-			{ Name: "Sandals", Priority: 20, Height: 3, Value: 30, Hide: ["Socks"] },
+			{ Name: "Sandals", Priority: 21, Height: 3, Value: 30, HideItem: ["SocksSocks0", "SocksSocks1", "SocksSocks2", "SocksSocks3", "SocksSocks4", "SocksSocks5", "SocksSocks6", "SocksSocksFur"] },
 			{ Name: "PawBoots", Height: 3, Value: 45 },
 			{ Name: "WoollyBootsTall", Height: 9, Value: 60 }
 		]
@@ -346,7 +346,7 @@ var AssetFemale3DCG = [
 
 	{
 		Group: "Glasses",
-		Priority: 29,
+		Priority: 28,
 		Default: false,
 		Clothing: true,
 		Underwear: true,
@@ -422,7 +422,7 @@ var AssetFemale3DCG = [
 
 	{
 		Group: "Hands",
-		Priority: 24,
+		Priority: 25,
 		AllowNone: false,
 		AllowColorize: false,
 		ParentColor: "BodyUpper",
@@ -588,7 +588,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "WoodenHorse", Random: false, Alpha: [[160, 720, 200, 240]], Priority: 30, Value: 200, Time: 10, Difficulty: 4, SetPose: ["Horse"], ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 5 }], Effect: ["Prone", "Freeze", "Mounted"], Block: ["ItemFeet"], Hide: ["Shoes", "Socks", "ItemBoots"], HideItem: ["ClothLowerPajama1", "ClothLowerShorts1", "ClothLowerJeans1", "ClothLowerJeans2", "ClothLowerWaspie1", "ClothLowerWaspie2", "ClothLowerWaspie3", "ClothLowerLatexPants1", "ItemDevicesTeddyBear"], Prerequisite: "Horse",
+				Name: "WoodenHorse", Random: false, Alpha: [[160, 720, 200, 240]], Priority: 30, Value: 200, Time: 10, Difficulty: 2, SetPose: ["Horse"], ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 5 }], Effect: ["Prone", "Freeze", "Mounted"], Block: ["ItemFeet", "ItemBoots"], Hide: ["Shoes", "Socks", "ItemBoots"], HideItem: ["ClothLowerPajama1", "ClothLowerShorts1", "ClothLowerJeans1", "ClothLowerJeans2", "ClothLowerWaspie1", "ClothLowerWaspie2", "ClothLowerWaspie3", "ClothLowerLatexPants1", "ItemDevicesTeddyBear"], Prerequisite: "Horse",
 				Layer: [
 					{ Name: "Frame", AllowColorize: true },
 					{ Name: "Wood", AllowColorize: false }
@@ -701,7 +701,7 @@ var AssetFemale3DCG = [
 		Top: 375,
 		Zone: [[150, 420, 200, 80]],
 		Asset: [
-			{ Name: "StraponPanties", Effect: ["Chaste"], Block: ["ItemVulva", "ItemButt", "ItemClit"], HideItem: ["ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo"], Value: -1, Prerequisite: "AccessVulva", Time: 15 },
+			{ Name: "StraponPanties", DefaultColor: "#505050", Effect: ["Chaste"], Block: ["ItemVulva", "ItemButt", "ItemClit"], HideItem: ["ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo"], Value: -1, Prerequisite: "AccessVulva", Time: 15 },
 			{ Name: "LeatherChastityBelt", Effect: ["Chaste"], Block: ["ItemVulva", "ItemButt", "ItemClit"], HideItem: ["ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo"], Value: 30, Prerequisite: "AccessVulva", AllowLock: true, Difficulty: 8, Time: 20, RemoveTime: 10, ExpressionTrigger: [{ Group: "Eyebrows", Name: "Soft", Timer: 10 }] },
 			{ Name: "StuddedChastityBelt", Effect: ["Chaste"], Block: ["ItemVulva", "ItemButt", "ItemClit"], HideItem: ["ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo"], Value: 60, Prerequisite: "AccessVulva", AllowLock: true, Difficulty: 14, Time: 20, RemoveTime: 10, ExpressionTrigger: [{ Group: "Eyebrows", Name: "Soft", Timer: 10 }] },
 			{ Name: "MetalChastityBelt", Effect: ["Chaste"], Block: ["ItemVulva", "ItemButt", "ItemClit"], HideItem: ["ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo"], Value: 100, Prerequisite: "AccessVulva", AllowLock: true, Difficulty: 20, Time: 20, RemoveTime: 10, ExpressionTrigger: [{ Group: "Eyebrows", Name: "Soft", Timer: 10 }] },
@@ -884,7 +884,7 @@ var AssetFemale3DCG = [
 		Group: "ItemHands",
 		ParentGroup: "BodyUpper",
 		Category: "Item",
-		Priority: 28,
+		Priority: 29,
 		Default: false,
 		IsRestraint: true,
 		Color: ["Default"],
@@ -924,10 +924,10 @@ var AssetFemale3DCG = [
 				Name: "SpankingToysWhip", Value: 50, PrerequisiteBuyGroups: ["SpankingToys"], Random: false,
 				DynamicAllowInventoryAdd: () => { return false }
 			}, {
-				Name: "SpankingToysTennisRacket", Value: -1, PrerequisiteBuyGroups: ["SpankingToys"], Random: false,
+				Name: "SpankingToysCattleProd", Value: 45, PrerequisiteBuyGroups: ["SpankingToys"], Random: false,
 				DynamicAllowInventoryAdd: () => { return false }
 			}, {
-				Name: "SpankingToysCattleProd", Value: 45, PrerequisiteBuyGroups: ["SpankingToys"], Random: false,
+				Name: "SpankingToysTennisRacket", Value: -1, PrerequisiteBuyGroups: ["SpankingToys"], Random: false,
 				DynamicAllowInventoryAdd: () => { return false }
 			}
 		]
@@ -964,7 +964,8 @@ var AssetFemale3DCG = [
 			{ Name: "LeatherChoker", Value: 10, Time: 5, Difficulty: 50, AllowLock: true },
 			{ Name: "PetCollar", Value: -1, Time: 5, Difficulty: 50, AllowLock: true },
 			{ Name: "MaidCollar", Value: 30, Time: 5, Difficulty: 50, AllowLock: true },
-			{ Name: "BordelleCollar", Value: 30, Time: 5, Difficulty: 50, AllowLock: true }
+			{ Name: "BordelleCollar", Value: 30, Time: 5, Difficulty: 50, AllowLock: true },
+			{ Name: "LoveLeatherCollar", Value: 60, Time: 5, Difficulty: 50, AllowLock: true }
 		]
 	},
 
@@ -1118,7 +1119,7 @@ var AssetFemale3DCG = [
 			{ Name: "DuctTape", Extended: true, AllowEffect: ["BlindNormal", "Prone", "GagNormal"], AllowBlock: ["ItemMouth", "ItemEars"], Hide: ["Glasses"], Value: 50, Time: 10, RemoveTime: 5, BuyGroup: "DuctTape", AllowType: ["Double", "Wrap", "Mummy"] },
 			{ Name: "SmallBlindfold", DefaultColor: "#404040", Effect: ["BlindLight", "Prone"], Hide: ["Glasses"], Value: 40, Time: 5, AllowLock: true },
 			{ Name: "LeatherHoodOpenMouth", DefaultColor: "#404040", Effect: ["Prone", "BlindHeavy"], Block: ["ItemEars"], Hide: ["HairFront", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2"], Difficulty: 50, Value: 50, Time: 15, AllowLock: true },
-			{ Name: "FullBlindfold", DefaultColor: "#353535", Effect: ["BlindHeavy", "Prone"], Hide: ["Glasses"], Difficulty: 6, Value: 40, Time: 5, AllowLock: true },
+			{ Name: "FullBlindfold", Priority: 31, DefaultColor: "#353535", Effect: ["BlindHeavy", "Prone"], Hide: ["Glasses"], Difficulty: 6, Value: 40, Time: 5, AllowLock: true },
 			{ Name: "LeatherHoodSensDep", DefaultColor: "#555555", Effect: ["BlindHeavy", "DeafHeavy", "Prone", "GagTotal"], Hide: ["HairFront", "HairBack", "Glasses", "ItemMouth", "Eyes", "Hat", "HairAccessory1", "HairAccessory2"], Block: ["ItemMouth", "ItemEars", "ItemNeck"], Difficulty: 50, Value: 100, Time: 15, AllowLock: true, Alpha: [[150, 50, 200, 50]] },
 			{ Name: "LatexHoodOpenHair", DefaultColor: "#555555", Block: ["ItemEars"], Hide: ["HairFront", "HairBack", "Hat", "HairAccessory1", "HairAccessory2"], Difficulty: 50, Value: 45, Time: 15, AllowLock: true, Alpha: [[150, 50, 200, 87]] },
 			{ Name: "LeatherHoodSealed", DefaultColor: "#555555", Effect: ["BlindHeavy", "Prone", "GagLight"], Hide: ["HairFront", "HairBack", "Glasses", "ItemMouth", "Eyes", "Hat", "HairAccessory1", "HairAccessory2"], Block: ["ItemMouth", "ItemEars", "ItemNeck"], Difficulty: 50, Value: 70, Time: 15, AllowLock: true, Alpha: [[150, 50, 200, 100]] },
@@ -1194,6 +1195,18 @@ var AssetFemale3DCG = [
 			{ Name: "BondageBench", Priority: 1, RemoveAtLogin: true, Extended: true, SetPose: ["LegsClosed"], Effect: ["Block", "Prone", "Enclose", "Freeze"], Value: 250, Time: 10, RemoveTime: 10, Prerequisite: "NotSuspendedOrHorsed" },
 			{ Name: "TeddyBear", Priority: 27, IsRestraint: false, Extended: true, Difficulty: -10, Value: 50, Time: 5, Effect: [], AllowPose: ["TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Bolero", "Horse", "StraitDressOpen"], AllowType: ["Bear", "Fox", "Kitty", "Pup", "Bunny", "Pony"] },
 			{ Name: "OneBarPrison", Priority: 15, Value: 75, Time: 20, Difficulty: 8, AllowLock: false, SetPose: ["LegsOpen"], Prerequisite: "OBP", RemoveAtLogin: true, Block: ["ItemPelvis", "ItemLegs", "ItemVulva", "ItemFeet"], Effect: ["Prone", "Freeze", "Mounted"],
+			{ Name: "WoodenBox", RemoveAtLogin: true, Alpha: [[1, 80, 105, 900], [410, 80, 105, 900]], Effect: ["Prone", "Enclose", "BlindNormal", "GagLight", "Freeze"], Value: 60, Time: 15, RemoveTime: 10, Difficulty: -2, AllowLock: true, Prerequisite: "NotSuspended" },
+			{ Name: "SmallWoodenBox", RemoveAtLogin: true, Alpha: [[1, 80, 75, 900], [400, 80, 95, 900]], SetPose: ["Kneel"], Effect: ["ForceKneel", "Prone", "Enclose", "BlindNormal", "GagLight", "Freeze"], Value: 40, Time: 15, RemoveTime: 10, Difficulty: -2, AllowLock: true, Prerequisite: "NotSuspendedOrHorsed" },
+			{ Name: "MilkCan", RemoveAtLogin: true, Effect: ["BlindHeavy", "Prone", "Enclose", "GagHeavy", "Freeze"], SetPose: ["Kneel"], Value: -1, Time: 15, RemoveTime: 10, Difficulty: 1 },
+			{ Name: "WaterCell", RemoveAtLogin: true, Effect: ["Prone", "Enclose", "GagHeavy", "Freeze"], SetPose: ["Suspension", "LegsClosed"], Block: ["ItemFeet"], Value: -1, Time: 15, RemoveTime: 15, Difficulty: 1 },
+			{ Name: "Cage", RemoveAtLogin: true,  Alpha: [[1, 80, 105, 900], [410, 80, 105, 900]], Effect: ["Prone", "Enclose", "Freeze"], Value: 120, Time: 15, RemoveTime: 10, Difficulty: 4, AllowLock: true, Prerequisite: "NotKneeling" },
+			{ Name: "LowCage", RemoveAtLogin: true, Alpha: [[1, 80, 75, 900], [400, 80, 95, 900]], SetPose: ["Kneel"], Effect: ["ForceKneel", "Prone", "Enclose", "Freeze"], Value: 80, Time: 15, RemoveTime: 10, Difficulty: 4, AllowLock: true, Prerequisite: "NotSuspendedOrHorsed" },
+			{ Name: "SaddleStand", RemoveAtLogin: true, Height: 30, Value: 100, Time: 10, Difficulty: -2, AllowLock: false, SetPose: ["LegsOpen"], Prerequisite: "LegsOpen1", Block: ["ItemPelvis", "ItemLegs"], Effect: ["Prone", "Freeze", "Mounted"] },
+			{ Name: "BurlapSack", RemoveAtLogin: true, SelfBondage: false, Priority : 29, Block: ["ItemArms", "ItemBreast", "ItemButt", "ItemFeet", "ItemHands", "ItemLegs", "ItemMisc", "ItemNeck", "ItemNeckAccessories", "ItemNipples", "ItemPelvis", "ItemTorso", "ItemVulva", "ItemBoots"], SetPose: ["Kneel", "BackElbowTouch"], Effect: ["ForceKneel", "Block", "Prone", "Enclose", "Freeze"], Value: 35, Time: 15, RemoveTime: 6, Prerequisite: "NotSuspendedOrHorsed" },
+			{ Name: "InflatableBodyBag", Priority: 29, Extended: true, SelfBondage: false, SelfUnlock: false, Block: ["ItemArms", "ItemBreast", "ItemButt", "ItemFeet", "ItemHands", "ItemLegs", "ItemNipples", "ItemPelvis", "ItemTorso", "ItemVulva", "ItemBoots"], SetPose: ["LegsClosed", "BackElbowTouch"], AllowPose: ["Kneel"], Effect: ["Block", "Prone", "Enclose", "Freeze"], Hide: ["Cloth", "ClothLower", "Shoes", "ItemBoots", "ItemLegs", "ItemFeet", "ItemArms", "TailStrap", "Wings", "BodyLower"], AllowType: ["Light", "Inflated", "Bloated", "Max"], Difficulty: 1, Value: 225, Time: 30, RemoveTime: 50, AllowLock: true, Prerequisite: "NotSuspendedOrHorsed" },
+			{ Name: "BondageBench", Priority: 1, RemoveAtLogin: true, Extended: true, SetPose: ["LegsClosed"], Effect: ["Block", "Prone", "Enclose", "Freeze"], Value: 250, Time: 10, RemoveTime: 10, Prerequisite: "NotSuspendedOrHorsed" },
+			{ Name: "TeddyBear", RemoveAtLogin: true, Priority: 28, IsRestraint: false, Extended: true, Difficulty: -10, Value: 50, Time: 5, Effect: [], AllowPose: ["TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Bolero", "Horse", "StraitDressOpen"], AllowType: ["Bear", "Fox", "Kitty", "Pup", "Bunny", "Pony"] },
+			{ Name: "OneBarPrison", RemoveAtLogin: true, Priority: 15, Value: 75, Time: 20, Difficulty: 8, AllowLock: false, SetPose: ["LegsOpen"], Prerequisite: "OBP", Block: ["ItemPelvis", "ItemLegs", "ItemVulva", "ItemFeet"], Effect: ["Prone", "Freeze", "Mounted"],
 				Layer: [
 					{ Name: "Bar", AllowColorize: true },
 					{ Name: "Pussy", AllowColorize: false }
@@ -1218,9 +1231,9 @@ var AssetFemale3DCG = [
 			{ Name: "PonyBoots", Height: 35, Value: -1, Time: 10, RemoveTime: 15, Difficulty: 6, AllowLock: true, Alpha: [[75, 800, 140, 200],[290, 800, 140, 200]], Hide: ["Shoes"] },
 			{ Name: "BalletHeels", Height: 35, Value: 75, Time: 10, RemoveTime: 15, Difficulty: 6, AllowLock: true, Alpha: [[75, 770, 140, 200],[290, 770, 140, 200]], Hide: ["Shoes"] },
 			{ Name: "BalletWedges", Height: 35, Value: 50, Time: 10, RemoveTime: 15, Difficulty: 6, AllowLock: true, Alpha: [[75, 810, 140, 200],[290, 810, 140, 200]], Hide: ["Shoes"] },
-			{ Name: "ToeCuffs", Height: 35, Value: 35, Time: 10, RemoveTime: 5, Difficulty: 4, Effect: ["Freeze", "Prone"], SetPose: ["LegsClosed"], AllowLock: true, Hide: ["Shoes"] },
-			{ Name: "LeatherToeCuffs", Height: 30, Value: 50, Time: 10, RemoveTime: 5, Difficulty: 3, Effect: ["Freeze", "Prone"], SetPose: ["LegsClosed"], AllowLock: true, Hide: ["Shoes"] },
-			{ Name: "ToeTie", Height: 35, Value: 15, Time: 10, RemoveTime: 5, Difficulty: 1, Effect: ["Freeze", "Prone"], SetPose: ["LegsClosed"], Hide: ["Shoes"] }
+			{ Name: "ToeCuffs", Value: 35, Time: 10, RemoveTime: 5, Difficulty: 4, Effect: ["Freeze", "Prone"], SetPose: ["LegsClosed"], AllowLock: true, Hide: ["Shoes"] },
+			{ Name: "LeatherToeCuffs", Value: 50, Time: 10, RemoveTime: 5, Difficulty: 3, Effect: ["Freeze", "Prone"], SetPose: ["LegsClosed"], AllowLock: true, Hide: ["Shoes"] },
+			{ Name: "ToeTie", DefaultColor: "#605020", Value: 15, Time: 10, RemoveTime: 5, Difficulty: 2, Effect: ["Freeze", "Prone"], SetPose: ["LegsClosed"], Hide: ["Shoes"] }
 		]
 	}
 	
