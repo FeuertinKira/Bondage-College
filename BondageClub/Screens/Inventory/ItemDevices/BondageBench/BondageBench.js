@@ -17,18 +17,9 @@ function InventoryItemDevicesBondageBenchDraw() {
 
 	// Draw the possible poses
 	DrawText(DialogFind(Player, "BondageBenchSelectTightness"), 1500, 500, "white", "gray");
-	DrawButton(1000, 550, 225, 225, "", (DialogFocusItem.Property.Restrain == null) ? "#888888" : "White");
-	DrawImage("Screens/Inventory/" + DialogFocusItem.Asset.Group.Name + "/" + DialogFocusItem.Asset.Name + "/Unstrap.png", 1000, 550);
-	DrawText(DialogFind(Player, "BondageBenchPoseUnstrap"), 1125, 800, "white", "gray");
-	DrawButton(1250, 550, 225, 225, "", ((DialogFocusItem.Property.Restrain != null) && (DialogFocusItem.Property.Restrain == "StrapUp")) ? "#888888" : "White");
-	DrawImage("Screens/Inventory/" + DialogFocusItem.Asset.Group.Name + "/" + DialogFocusItem.Asset.Name + "/StrapUp.png", 1250, 550);
+	DrawButton(1500, 550, 225, 225, "", ((DialogFocusItem.Property.Restrain != null) && (DialogFocusItem.Property.Restrain == "StrapUp")) ? "#888888" : "White");
+	DrawImage("Screens/Inventory/" + DialogFocusItem.Asset.Group.Name + "/" + DialogFocusItem.Asset.Name + "/StrapUp.png", 1500, 550);
 	DrawText(DialogFind(Player, "BondageBenchPoseStrapUp"), 1375, 800, "white", "gray");
-//	DrawButton(1500, 550, 225, 225, "", ((DialogFocusItem.Property.Restrain != null) && (DialogFocusItem.Property.Restrain == "Heavy")) ? "#888888" : "White");
-//	DrawImage("Screens/Inventory/" + DialogFocusItem.Asset.Group.Name + "/" + DialogFocusItem.Asset.Name + "/Heavy.png", 1500, 550);
-//	DrawText(DialogFind(Player, "BondageBenchPoseHeavy"), 1625, 800, "white", "gray");
-//	DrawButton(1750, 550, 225, 225, "", ((DialogFocusItem.Property.Restrain != null) && (DialogFocusItem.Property.Restrain == "Full")) ? "#888888" : "White");
-//	DrawImage("Screens/Inventory/" + DialogFocusItem.Asset.Group.Name + "/" + DialogFocusItem.Asset.Name + "/Full.png", 1750, 550);
-//	DrawText(DialogFind(Player, "BondageBenchPoseFull"), 1875, 800, "white", "gray");
 
 	// Draw the message if present
 	if (InventoryItemDevicesBondageBenchMessage != null) DrawTextWrap(DialogFind(Player, InventoryItemDevicesBondageBenchMessage), 1100, 850, 800, 160, "White");
@@ -36,11 +27,7 @@ function InventoryItemDevicesBondageBenchDraw() {
 
 // Catches the item extension clicks
 function InventoryItemDevicesBondageBenchClick() {
-	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) DialogFocusItem = null;
-	if ((MouseX >= 1000) && (MouseX <= 1225) && (MouseY >= 550) && (MouseY <= 775) && (DialogFocusItem.Property.Restrain != null)) InventoryItemDevicesBondageBenchSetPose(null);
-	if ((MouseX >= 1250) && (MouseX <= 1475) && (MouseY >= 550) && (MouseY <= 775) && ((DialogFocusItem.Property.Restrain == null) || (DialogFocusItem.Property.Restrain != "StrapUp"))) InventoryItemDevicesBondageBenchSetPose("StrapUp");
-//	if ((MouseX >= 1500) && (MouseX <= 1725) && (MouseY >= 550) && (MouseY <= 775) && ((DialogFocusItem.Property.Restrain == null) || (DialogFocusItem.Property.Restrain != "Heavy"))) InventoryItemDevicesBondageBenchSetPose("Heavy");
-//	if ((MouseX >= 1750) && (MouseX <= 1975) && (MouseY >= 550) && (MouseY <= 775) && ((DialogFocusItem.Property.Restrain == null) || (DialogFocusItem.Property.Restrain != "Full"))) InventoryItemDevicesBondageBenchSetPose("Full");
+	if (CommonIsClickAt(1500, 550, 225, 225) && ((DialogFocusItem.Property.Restrain == null) || (DialogFocusItem.Property.Restrain != "StrapUp"))) InventoryItemDevicesBondageBenchSetPose("StrapUp");
 }
 
 // Sets the cuffs pose (wrist, elbow, both or none)
@@ -52,20 +39,26 @@ function InventoryItemDevicesBondageBenchSetPose(NewPose) {
 		InventoryItemDevicesBondageBenchLoad();
 	}
 
+	var nextFocusItem = DialogFocusItem;
 	if ((NewPose == null) || (InventoryGet(C, "Cloth") == null) && (InventoryGet(C, "ClothLower") == null)) {
 		if (NewPose == null) {
 			InventoryRemove(C, "ItemMisc");
 		} else {
 			if (NewPose == "Unstrap") InventoryDelete(C, "ItemMisc");
-			if (NewPose == "StrapUp") InventoryWear(C, "BondageBenchStraps", "ItemMisc");
-//			if (NewPose == "Heavy") InventoryWear(C, "BondageBenchStraps3", "ItemMisc");
-//			if (NewPose == "Full") InventoryWear(C, "BondageBenchStraps4", "ItemMisc");
+			if (NewPose == "StrapUp") {
+				InventoryWear(C, "BondageBenchStraps", "ItemMisc");
+
+				// Switch to the straps item
+				nextFocusItem = InventoryGet(C, "ItemMisc");
+			}
 		}
 		DialogFocusItem.Property.Restrain = NewPose;
 	} else {
 		InventoryItemDevicesBondageBenchMessage = "RemoveClothesForItem";
 		return;
 	}
+
+	DialogFocusItem = nextFocusItem;
 //	if (InventoryGet(C, "ItemHands") == null) {
 //		InventoryWear(C, "MittenChain1", "ItemArms");
 //		if (C.ID == 0) ServerPlayerAppearanceSync();
@@ -73,18 +66,6 @@ function InventoryItemDevicesBondageBenchSetPose(NewPose) {
 //		} else InventoryItemDevicesBondageBenchMsg = "FreeHands";
 	
 	
-//	DialogFocusItem.Property.Restrain = NewPose;
-//	if (NewPose == null) {
-//		delete DialogFocusItem.Property.Difficulty;
-//		delete DialogFocusItem.Property.Type;
-//	} else {
-//		DialogFocusItem.Property = {SetPose: ["BackElbowTouch"], Type: NewPose};
-//		if (NewPose == "StrapUp") DialogFocusItem.Property.Difficulty = 3;
-//		if (NewPose == "Snug") DialogFocusItem.Property.Difficulty = 6;
-//		if (NewPose == "Tight") DialogFocusItem.Property.Difficulty = 9;
-//	}
-//	DialogFocusItem.Property.Restrain = NewPose;
-
 //	// Adds the lock effect back if it was padlocked
 //	if ((DialogFocusItem.Property.LockedBy != null) && (DialogFocusItem.Property.LockedBy != "")) {
 //		if (DialogFocusItem.Property.Effect == null) DialogFocusItem.Property.Effect = [];
