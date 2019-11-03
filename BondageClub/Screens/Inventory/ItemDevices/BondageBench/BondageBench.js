@@ -10,14 +10,14 @@ function InventoryItemDevicesBondageBenchLoad() {
 // Draw the item extension screen
 function InventoryItemDevicesBondageBenchDraw() {
 	
+	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
 	// Draw the header and item
 	DrawRect(1387, 125, 225, 275, "white");
 	DrawImageResize("Assets/" + DialogFocusItem.Asset.Group.Family + "/" + DialogFocusItem.Asset.Group.Name + "/Preview/" + DialogFocusItem.Asset.Name + ".png", 1389, 127, 221, 221);
 	DrawTextFit(DialogFocusItem.Asset.Description, 1500, 375, 221, "black");
 
-	// Draw the possible poses
 	DrawText(DialogFind(Player, "BondageBenchSelectTightness"), 1500, 500, "white", "gray");
-	DrawButton(1500, 550, 225, 225, "", ((DialogFocusItem.Property.Restrain != null) && (DialogFocusItem.Property.Restrain == "StrapUp")) ? "#888888" : "White");
+	DrawButton(1500, 550, 225, 225, "", (InventoryGet(C, "ItemMisc") == null) ? "#888888" : "White");
 	DrawImage("Screens/Inventory/" + DialogFocusItem.Asset.Group.Name + "/" + DialogFocusItem.Asset.Name + "/StrapUp.png", 1500, 550);
 	DrawText(DialogFind(Player, "BondageBenchPoseStrapUp"), 1375, 800, "white", "gray");
 
@@ -27,7 +27,8 @@ function InventoryItemDevicesBondageBenchDraw() {
 
 // Catches the item extension clicks
 function InventoryItemDevicesBondageBenchClick() {
-	if (CommonIsClickAt(1500, 550, 225, 225) && ((DialogFocusItem.Property.Restrain == null) || (DialogFocusItem.Property.Restrain != "StrapUp"))) InventoryItemDevicesBondageBenchSetPose("StrapUp");
+	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	if (CommonIsClickAt(1500, 550, 225, 225) && InventoryGet(C, "ItemMisc") == null) InventoryItemDevicesBondageBenchSetPose("StrapUp");
 }
 
 // Sets the cuffs pose (wrist, elbow, both or none)
@@ -39,32 +40,22 @@ function InventoryItemDevicesBondageBenchSetPose(NewPose) {
 		InventoryItemDevicesBondageBenchLoad();
 	}
 
-	var nextFocusItem = DialogFocusItem;
-	if ((NewPose == null) || (InventoryGet(C, "Cloth") == null) && (InventoryGet(C, "ClothLower") == null)) {
-		if (NewPose == null) {
-			InventoryRemove(C, "ItemMisc");
-		} else {
-			if (NewPose == "Unstrap") InventoryDelete(C, "ItemMisc");
-			if (NewPose == "StrapUp") {
-				InventoryWear(C, "BondageBenchStraps", "ItemMisc");
-
-				// Switch to the straps item
-				nextFocusItem = InventoryGet(C, "ItemMisc");
-			}
-		}
-		DialogFocusItem.Property.Restrain = NewPose;
-	} else {
+	if (InventoryGet(C, "Cloth") != null || InventoryGet(C, "ClothLower") != null) {
 		InventoryItemDevicesBondageBenchMessage = "RemoveClothesForItem";
 		return;
 	}
 
-	DialogFocusItem = nextFocusItem;
-//	if (InventoryGet(C, "ItemHands") == null) {
-//		InventoryWear(C, "MittenChain1", "ItemArms");
-//		if (C.ID == 0) ServerPlayerAppearanceSync();
-//		ChatRoomPublishCustomAction(Player.Name + " " + DialogFind(Player, "chains") + " " + C.Name + " " + DialogFind(Player, "mittenstoharness") + ".", true);
-//		} else InventoryItemDevicesBondageBenchMsg = "FreeHands";
-	
+	if(InventoryGet(C, "ItemMisc") != null){
+		//InventoryItemDevicesBondageBenchMessage = "ALREADY_OCCUPIED";
+		return;
+	}
+
+	if (NewPose == "StrapUp") {
+		InventoryWear(C, "BondageBenchStraps", "ItemMisc");
+
+		// Switch to the straps item
+		DialogFocusItem = InventoryGet(C, "ItemMisc");
+	}
 	
 //	// Adds the lock effect back if it was padlocked
 //	if ((DialogFocusItem.Property.LockedBy != null) && (DialogFocusItem.Property.LockedBy != "")) {
