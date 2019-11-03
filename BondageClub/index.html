@@ -202,6 +202,9 @@ window.onload = function() {
 	CommonSetScreen("Character", "Login");
 	ServerInit();
 	MainRun(0);
+
+	var msg = new SpeechSynthesisUtterance('Hello Kira, it is me!! Eve bot');
+	window.speechSynthesis.speak(msg);
 };
 
 // Main game running state, runs the drawing
