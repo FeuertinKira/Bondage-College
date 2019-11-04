@@ -16,10 +16,10 @@ function InventoryItemDevicesBondageBenchDraw() {
 	DrawImageResize("Assets/" + DialogFocusItem.Asset.Group.Family + "/" + DialogFocusItem.Asset.Group.Name + "/Preview/" + DialogFocusItem.Asset.Name + ".png", 1389, 127, 221, 221);
 	DrawTextFit(DialogFocusItem.Asset.Description, 1500, 375, 221, "black");
 
-	DrawText(DialogFind(Player, "BondageBenchSelectTightness"), 1500, 500, "white", "gray");
+	DrawText(DialogFind(Player, "BondageBenchSelectType"), 1500, 500, "white", "gray");
 	DrawButton(1500, 550, 225, 225, "", (InventoryGet(C, "ItemMisc") == null) ? "#888888" : "White");
 	DrawImage("Screens/Inventory/" + DialogFocusItem.Asset.Group.Name + "/" + DialogFocusItem.Asset.Name + "/StrapUp.png", 1500, 550);
-	DrawText(DialogFind(Player, "BondageBenchPoseStrapUp"), 1375, 800, "white", "gray");
+	DrawText(DialogFind(Player, "BondageBenchPoseStrapUp"), 1500, 800, "white", "gray");
 
 	// Draw the message if present
 	if (InventoryItemDevicesBondageBenchMessage != null) DrawTextWrap(DialogFind(Player, InventoryItemDevicesBondageBenchMessage), 1100, 850, 800, 160, "White");

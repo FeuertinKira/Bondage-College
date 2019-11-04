@@ -54,17 +54,19 @@ function InventoryItemMiscBondageBenchStrapsSetPose(NewPose) {
 
 	if ((NewPose == null) || (InventoryGet(C, "Cloth") == null) && (InventoryGet(C, "ClothLower") == null)) {
 		if (NewPose == null) {
-			InventoryRemove(C, "ItemMisc");
+			delete DialogFocusItem.Property.Difficulty;
+			delete DialogFocusItem.Property.Type;
 		} else {
-			if (NewPose == "Light") InventoryWear(C, "BondageBenchStrapsStraps1", "ItemMisc");
-			if (NewPose == "Normal") InventoryWear(C, "BondageBenchStrapsStraps2", "ItemMisc");
-			if (NewPose == "Heavy") InventoryWear(C, "BondageBenchStrapsStraps3", "ItemMisc");
-			if (NewPose == "Full") InventoryWear(C, "BondageBenchStrapsStraps4", "ItemMisc");
+			DialogFocusItem.Property = {SetPose: ["LegsClosed"], Type: NewPose};
+			if (NewPose == "Normal") DialogFocusItem.Property.Difficulty = 3;
+			if (NewPose == "Heavy") DialogFocusItem.Property.Difficulty = 6;
+			if (NewPose == "Full") DialogFocusItem.Property.Difficulty = 9;
 		}
 	} else {
 		InventoryItemMiscBondageBenchStrapsMessage = "RemoveClothesForItem";
 		return;
 	}
+	DialogFocusItem.Property.Restrain = NewPose;
 //	if (InventoryGet(C, "ItemHands") == null) {
 //		InventoryWear(C, "MittenChain1", "ItemArms");
 //		if (C.ID == 0) ServerPlayerAppearanceSync();
@@ -84,11 +86,11 @@ function InventoryItemMiscBondageBenchStrapsSetPose(NewPose) {
 //	}
 //	DialogFocusItem.Property.Restrain = NewPose;
 
-//	// Adds the lock effect back if it was padlocked
-//	if ((DialogFocusItem.Property.LockedBy != null) && (DialogFocusItem.Property.LockedBy != "")) {
-//		if (DialogFocusItem.Property.Effect == null) DialogFocusItem.Property.Effect = [];
-//		DialogFocusItem.Property.Effect.push("Lock");
-//	}
+	// Adds the lock effect back if it was padlocked
+	if ((DialogFocusItem.Property.LockedBy != null) && (DialogFocusItem.Property.LockedBy != "")) {
+		if (DialogFocusItem.Property.Effect == null) DialogFocusItem.Property.Effect = [];
+		DialogFocusItem.Property.Effect.push("Lock");
+	}
 
 	// Refreshes the character and chatroom
 	CharacterRefresh(C);
