@@ -51,7 +51,7 @@ function InventoryItemDevicesBondageBenchSetPose(NewPose) {
 	}
 
 	if (NewPose == "StrapUp") {
-		InventoryWear(C, "BondageBenchStraps", "ItemMisc");
+		InventoryWear(C, "BondageBenchStraps", "ItemMisc", DialogColorSelect);
 
 		// Switch to the straps item
 		DialogFocusItem = InventoryGet(C, "ItemMisc");
