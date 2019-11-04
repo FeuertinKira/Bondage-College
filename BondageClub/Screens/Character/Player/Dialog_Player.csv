@@ -176,6 +176,8 @@ BondageBenchStrapsRestrainHeavy,,,SourceCharacter strictly restrains Destination
 BondageBenchStrapsRestrainFull,,,SourceCharacter fully restrains DestinationCharacter to the bondage bench with a large amount of leather belts.
 BondageBenchSelectType,,,How do you want to restrain them?
 BondageBenchPoseStrapUp,,,Leather Belt Straps
+BondageBenchRestrainNone,,,SourceCharacter removes the leather belts from DestinationCharacter's body.
+BondageBenchRestrainStrapUp,,,SourceCharacter loosely restrains DestinationCharacter to the bondage bench with few leather belts.
 DuctTapePoseHands,,,Hands
 DuctTapePoseArms,,,Arms
 DuctTapePoseBottom,,,Skirt
