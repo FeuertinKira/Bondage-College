@@ -179,7 +179,7 @@ var AssetFemale3DCG = [
 			{ Name: "ZipPanties1", Value: 15, HideItem: ["ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup"] },
 			{ Name: "HarnessPanties1", Value: 40, Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], AllowPose: ["LegsClosed", "Kneel"] },
 			{ Name: "KittyPanties1", Value: 20, HideItem: ["ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup"] },
-			{ Name: "PearlPanties1", Value: 20, HideItem: ["ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup"] },
+			{ Name: "PearlPanties1", Value: 20, Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"] },
 			{ Name: "SunstripePanties1", Value: 20, HideItem: ["ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup"] }
 		]
 	},
