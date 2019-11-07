@@ -1213,7 +1213,7 @@ var AssetFemale3DCG = [
 		Top: -250,
 		Zone: [[25, 580, 1, 1], [400, 580, 1, 1]],
 		Asset: [
-			{ Name: "BondageBenchStraps", RemoveAtLogin: false, IsRestraint: true, Extended: true, AllowType: ["Light", "Normal", "Heavy", "Full"], Block: ["ItemDevices"], Hide: ["HairBack", "Wings", "TailStraps", "ItemButt"], SelfBondage: false, AllowLock: true, Value: -1, SetPose: ["LegsClosed"], Effect: ["Block", "Prone"], Time: 5, Difficulty: 2 }
+			{ Name: "BondageBenchStraps", RemoveAtLogin: false, IsRestraint: true, Extended: true, AllowType: ["Light", "Normal", "Heavy", "Full"], Hide: ["HairBack", "Wings", "TailStraps", "ItemButt"], SelfBondage: false, AllowLock: true, Value: -1, SetPose: ["LegsClosed"], Effect: ["Block", "Prone"], Time: 5, Difficulty: 2 }
 		]
 	},
 
