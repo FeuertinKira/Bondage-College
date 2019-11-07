@@ -56,8 +56,8 @@ function InventoryItemDevicesInflatableBodyBagSetPose(NewPose) {
 		delete DialogFocusItem.Property.Type;
 	} else {
 		DialogFocusItem.Property.SetPose = ["BackElbowTouch"]; DialogFocusItem.Property.Type = NewPose;
-		if (NewPose == "Bloated") DialogFocusItem.Property.Difficulty = 3;
-		if (NewPose == "Inflated") DialogFocusItem.Property.Difficulty = 6;
+		if (NewPose == "Inflated") DialogFocusItem.Property.Difficulty = 3;
+		if (NewPose == "Bloated") DialogFocusItem.Property.Difficulty = 6;
 		if (NewPose == "Max") DialogFocusItem.Property.Difficulty = 9;
 	}
 	DialogFocusItem.Property.Restrain = NewPose;
