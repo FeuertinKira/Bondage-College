@@ -3,6 +3,13 @@ var InventoryItemDevicesBondageBenchMessage = "";
 
 // Loads the item extension properties
 function InventoryItemDevicesBondageBenchLoad() {
+	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var addonItem = InventoryGet(C, "ItemAddon");
+	if (addonItem != null) {
+		DialogExtendItem(addonItem);
+		return;
+	}
+
 	if (DialogFocusItem.Property == null) DialogFocusItem.Property = { Restrain: null };
 	DialogFocusItem.Property.SelfUnlock = false;
 }
@@ -17,7 +24,7 @@ function InventoryItemDevicesBondageBenchDraw() {
 	DrawTextFit(DialogFocusItem.Asset.Description, 1500, 375, 221, "black");
 
 	DrawText(DialogFind(Player, "BondageBenchSelectType"), 1500, 500, "white", "gray");
-	DrawButton(1500, 550, 225, 225, "", (InventoryGet(C, "ItemMisc") == null) ? "#888888" : "White");
+	DrawButton(1500, 550, 225, 225, "", (InventoryGet(C, "ItemAddon") == null) ? "#888888" : "White");
 	DrawImage("Screens/Inventory/" + DialogFocusItem.Asset.Group.Name + "/" + DialogFocusItem.Asset.Name + "/StrapUp.png", 1500, 550);
 	DrawText(DialogFind(Player, "BondageBenchPoseStrapUp"), 1500, 800, "white", "gray");
 
@@ -27,8 +34,9 @@ function InventoryItemDevicesBondageBenchDraw() {
 
 // Catches the item extension clicks
 function InventoryItemDevicesBondageBenchClick() {
+	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) DialogFocusItem = null;
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (CommonIsClickAt(1500, 550, 225, 225) && InventoryGet(C, "ItemMisc") == null) InventoryItemDevicesBondageBenchSetPose("StrapUp");
+	if (CommonIsClickAt(1500, 550, 225, 225) && InventoryGet(C, "ItemAddon") == null) InventoryItemDevicesBondageBenchSetPose("StrapUp");
 }
 
 // Sets the cuffs pose (wrist, elbow, both or none)
@@ -45,16 +53,16 @@ function InventoryItemDevicesBondageBenchSetPose(NewPose) {
 		return;
 	}
 
-	if(InventoryGet(C, "ItemMisc") != null){
+	if(InventoryGet(C, "ItemAddon") != null){
 		//InventoryItemDevicesBondageBenchMessage = "ALREADY_OCCUPIED";
 		return;
 	}
 
 	if (NewPose == "StrapUp") {
-		InventoryWear(C, "BondageBenchStraps", "ItemMisc", DialogColorSelect);
+		InventoryWear(C, "BondageBenchStraps", "ItemAddon", DialogColorSelect);
 
 		// Switch to the straps item
-		DialogFocusItem = InventoryGet(C, "ItemMisc");
+		DialogFocusItem = InventoryGet(C, "ItemAddon");
 	}
 	
 //	// Adds the lock effect back if it was padlocked
