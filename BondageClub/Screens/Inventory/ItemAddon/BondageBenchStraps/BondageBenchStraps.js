@@ -5,6 +5,7 @@ var InventoryItemAddonBondageBenchStrapsMessage = "";
 function InventoryItemAddonBondageBenchStrapsLoad() {
 	if (DialogFocusItem.Property == null) DialogFocusItem.Property = { Restrain: null };
 	DialogFocusItem.Property.SelfUnlock = false;
+	InventoryItemAddonBondageBenchStrapsMessage = null;
 }
 
 // Draw the item extension screen
@@ -52,21 +53,19 @@ function InventoryItemAddonBondageBenchStrapsSetPose(NewPose) {
 		InventoryItemAddonBondageBenchStrapsLoad();
 	}
 
+	InventoryItemAddonBondageBenchStrapsMessage = null;
+
 	if (InventoryGet(C, "Cloth") != null || InventoryGet(C, "ClothLower") != null) {
 		InventoryItemAddonBondageBenchStrapsMessage = "RemoveClothesForItem";
 		return;
 	}
 	
-	if (NewPose == null) {
-		delete DialogFocusItem.Property.Difficulty;
-		delete DialogFocusItem.Property.Type;
-	} else {
-		DialogFocusItem.Property.SetPose = ["LegsClosed"];
-		DialogFocusItem.Property.Type = NewPose;
-		if (NewPose == "Normal") DialogFocusItem.Property.Difficulty = 3;
-		if (NewPose == "Heavy") DialogFocusItem.Property.Difficulty = 6;
-		if (NewPose == "Full") DialogFocusItem.Property.Difficulty = 9;
-	}
+	DialogFocusItem.Property.SetPose = ["LegsClosed"];
+	DialogFocusItem.Property.Type = NewPose;
+	if (NewPose == null) DialogFocusItem.Property.Difficulty = 1;
+	if (NewPose == "Normal") DialogFocusItem.Property.Difficulty = 3;
+	if (NewPose == "Heavy") DialogFocusItem.Property.Difficulty = 6;
+	if (NewPose == "Full") DialogFocusItem.Property.Difficulty = 9;
 	DialogFocusItem.Property.Restrain = NewPose;
 
 	// Adds the lock effect back if it was padlocked
