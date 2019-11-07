@@ -1,14 +1,14 @@
 "use strict";
-var InventoryItemMiscBondageBenchStrapsMessage = "";
+var InventoryItemAddonBondageBenchStrapsMessage = "";
 
 // Loads the item extension properties
-function InventoryItemMiscBondageBenchStrapsLoad() {
+function InventoryItemAddonBondageBenchStrapsLoad() {
 	if (DialogFocusItem.Property == null) DialogFocusItem.Property = { Restrain: null };
 	DialogFocusItem.Property.SelfUnlock = false;
 }
 
 // Draw the item extension screen
-function InventoryItemMiscBondageBenchStrapsDraw() {
+function InventoryItemAddonBondageBenchStrapsDraw() {
 	
 	// Draw the header and item
 	DrawRect(1387, 125, 225, 275, "white");
@@ -31,29 +31,29 @@ function InventoryItemMiscBondageBenchStrapsDraw() {
 	DrawText(DialogFind(Player, "BondageBenchStrapsPoseFull"), 1875, 800, "white", "gray");
 
 	// Draw the message if present
-	if (InventoryItemMiscBondageBenchStrapsMessage != null) DrawTextWrap(DialogFind(Player, InventoryItemMiscBondageBenchStrapsMessage), 1100, 850, 800, 160, "White");
+	if (InventoryItemAddonBondageBenchStrapsMessage != null) DrawTextWrap(DialogFind(Player, InventoryItemAddonBondageBenchStrapsMessage), 1100, 850, 800, 160, "White");
 }
 
 // Catches the item extension clicks
-function InventoryItemMiscBondageBenchStrapsClick() {
+function InventoryItemAddonBondageBenchStrapsClick() {
 	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) DialogFocusItem = null;
-	if (CommonIsClickAt(1000, 550, 225, 225) && (DialogFocusItem.Property.Restrain != null)) InventoryItemMiscBondageBenchStrapsSetPose(null);
-	if (CommonIsClickAt(1250, 550, 225, 225) && ((DialogFocusItem.Property.Restrain == null) || (DialogFocusItem.Property.Restrain != "Normal"))) InventoryItemMiscBondageBenchStrapsSetPose("Normal");
-	if (CommonIsClickAt(1500, 550, 225, 225) && ((DialogFocusItem.Property.Restrain == null) || (DialogFocusItem.Property.Restrain != "Heavy"))) InventoryItemMiscBondageBenchStrapsSetPose("Heavy");
-	if (CommonIsClickAt(1750, 550, 225, 225) && ((DialogFocusItem.Property.Restrain == null) || (DialogFocusItem.Property.Restrain != "Full"))) InventoryItemMiscBondageBenchStrapsSetPose("Full");
+	if (CommonIsClickAt(1000, 550, 225, 225) && (DialogFocusItem.Property.Restrain != null)) InventoryItemAddonBondageBenchStrapsSetPose(null);
+	if (CommonIsClickAt(1250, 550, 225, 225) && ((DialogFocusItem.Property.Restrain == null) || (DialogFocusItem.Property.Restrain != "Normal"))) InventoryItemAddonBondageBenchStrapsSetPose("Normal");
+	if (CommonIsClickAt(1500, 550, 225, 225) && ((DialogFocusItem.Property.Restrain == null) || (DialogFocusItem.Property.Restrain != "Heavy"))) InventoryItemAddonBondageBenchStrapsSetPose("Heavy");
+	if (CommonIsClickAt(1750, 550, 225, 225) && ((DialogFocusItem.Property.Restrain == null) || (DialogFocusItem.Property.Restrain != "Full"))) InventoryItemAddonBondageBenchStrapsSetPose("Full");
 }
 
 // Sets the cuffs pose (wrist, elbow, both or none)
-function InventoryItemMiscBondageBenchStrapsSetPose(NewPose) {
+function InventoryItemAddonBondageBenchStrapsSetPose(NewPose) {
 	// Gets the current item and character
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
 	if ((CurrentScreen == "ChatRoom") || (DialogFocusItem == null)) {
 		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
-		InventoryItemMiscBondageBenchStrapsLoad();
+		InventoryItemAddonBondageBenchStrapsLoad();
 	}
 
 	if (InventoryGet(C, "Cloth") == null || InventoryGet(C, "ClothLower") == null) {
-		InventoryItemMiscBondageBenchStrapsMessage = "RemoveClothesForItem";
+		InventoryItemAddonBondageBenchStrapsMessage = "RemoveClothesForItem";
 		return;
 	}
 	
