@@ -24,8 +24,8 @@ function InventoryItemDevicesBondageBenchDraw() {
 	DrawTextFit(DialogFocusItem.Asset.Description, 1500, 375, 221, "black");
 
 	DrawText(DialogFind(Player, "BondageBenchSelectType"), 1500, 500, "white", "gray");
-	DrawButton(1500, 550, 225, 225, "", (InventoryGet(C, "ItemAddon") == null) ? "#888888" : "White");
-	DrawImage("Screens/Inventory/" + DialogFocusItem.Asset.Group.Name + "/" + DialogFocusItem.Asset.Name + "/StrapUp.png", 1500, 550);
+	DrawButton(1389, 550, 225, 225, "", (InventoryGet(C, "ItemAddon") == null) ? "#888888" : "White");
+	DrawImage("Screens/Inventory/" + DialogFocusItem.Asset.Group.Name + "/" + DialogFocusItem.Asset.Name + "/StrapUp.png", 1389, 550);
 	DrawText(DialogFind(Player, "BondageBenchPoseStrapUp"), 1500, 800, "white", "gray");
 
 	// Draw the message if present
@@ -36,7 +36,7 @@ function InventoryItemDevicesBondageBenchDraw() {
 function InventoryItemDevicesBondageBenchClick() {
 	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) DialogFocusItem = null;
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (CommonIsClickAt(1500, 550, 225, 225) && InventoryGet(C, "ItemAddon") == null) InventoryItemDevicesBondageBenchSetPose("StrapUp");
+	if (CommonIsClickAt(1389, 550, 225, 225) && InventoryGet(C, "ItemAddon") == null) InventoryItemDevicesBondageBenchSetPose("StrapUp");
 }
 
 // Sets the cuffs pose (wrist, elbow, both or none)
