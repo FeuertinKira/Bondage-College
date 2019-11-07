@@ -52,7 +52,7 @@ function InventoryItemAddonBondageBenchStrapsSetPose(NewPose) {
 		InventoryItemAddonBondageBenchStrapsLoad();
 	}
 
-	if (InventoryGet(C, "Cloth") == null || InventoryGet(C, "ClothLower") == null) {
+	if (InventoryGet(C, "Cloth") != null || InventoryGet(C, "ClothLower") != null) {
 		InventoryItemAddonBondageBenchStrapsMessage = "RemoveClothesForItem";
 		return;
 	}
