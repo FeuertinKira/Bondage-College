@@ -37,10 +37,10 @@ function InventoryItemMiscBondageBenchStrapsDraw() {
 // Catches the item extension clicks
 function InventoryItemMiscBondageBenchStrapsClick() {
 	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) DialogFocusItem = null;
-	if ((MouseX >= 1000) && (MouseX <= 1225) && (MouseY >= 550) && (MouseY <= 775) && (DialogFocusItem.Property.Restrain != null)) InventoryItemMiscBondageBenchStrapsSetPose(null);
-	if ((MouseX >= 1250) && (MouseX <= 1475) && (MouseY >= 550) && (MouseY <= 775) && ((DialogFocusItem.Property.Restrain == null) || (DialogFocusItem.Property.Restrain != "Normal"))) InventoryItemMiscBondageBenchStrapsSetPose("Normal");
-	if ((MouseX >= 1500) && (MouseX <= 1725) && (MouseY >= 550) && (MouseY <= 775) && ((DialogFocusItem.Property.Restrain == null) || (DialogFocusItem.Property.Restrain != "Heavy"))) InventoryItemMiscBondageBenchStrapsSetPose("Heavy");
-	if ((MouseX >= 1750) && (MouseX <= 1975) && (MouseY >= 550) && (MouseY <= 775) && ((DialogFocusItem.Property.Restrain == null) || (DialogFocusItem.Property.Restrain != "Full"))) InventoryItemMiscBondageBenchStrapsSetPose("Full");
+	if (CommonIsClickAt(1000, 550, 225, 225) && (DialogFocusItem.Property.Restrain != null)) InventoryItemMiscBondageBenchStrapsSetPose(null);
+	if (CommonIsClickAt(1250, 550, 225, 225) && ((DialogFocusItem.Property.Restrain == null) || (DialogFocusItem.Property.Restrain != "Normal"))) InventoryItemMiscBondageBenchStrapsSetPose("Normal");
+	if (CommonIsClickAt(1500, 550, 225, 225) && ((DialogFocusItem.Property.Restrain == null) || (DialogFocusItem.Property.Restrain != "Heavy"))) InventoryItemMiscBondageBenchStrapsSetPose("Heavy");
+	if (CommonIsClickAt(1750, 550, 225, 225) && ((DialogFocusItem.Property.Restrain == null) || (DialogFocusItem.Property.Restrain != "Full"))) InventoryItemMiscBondageBenchStrapsSetPose("Full");
 }
 
 // Sets the cuffs pose (wrist, elbow, both or none)
@@ -52,39 +52,22 @@ function InventoryItemMiscBondageBenchStrapsSetPose(NewPose) {
 		InventoryItemMiscBondageBenchStrapsLoad();
 	}
 
-	if ((NewPose == null) || (InventoryGet(C, "Cloth") == null) && (InventoryGet(C, "ClothLower") == null)) {
-		if (NewPose == null) {
-			delete DialogFocusItem.Property.Difficulty;
-			delete DialogFocusItem.Property.Type;
-		} else {
-			DialogFocusItem.Property = {SetPose: ["LegsClosed"], Type: NewPose};
-			if (NewPose == "Normal") DialogFocusItem.Property.Difficulty = 3;
-			if (NewPose == "Heavy") DialogFocusItem.Property.Difficulty = 6;
-			if (NewPose == "Full") DialogFocusItem.Property.Difficulty = 9;
-		}
-	} else {
+	if (InventoryGet(C, "Cloth") == null || InventoryGet(C, "ClothLower") == null) {
 		InventoryItemMiscBondageBenchStrapsMessage = "RemoveClothesForItem";
 		return;
 	}
+	
+	if (NewPose == null) {
+		delete DialogFocusItem.Property.Difficulty;
+		delete DialogFocusItem.Property.Type;
+	} else {
+		DialogFocusItem.Property.SetPose = ["LegsClosed"];
+		DialogFocusItem.Property.Type = NewPose;
+		if (NewPose == "Normal") DialogFocusItem.Property.Difficulty = 3;
+		if (NewPose == "Heavy") DialogFocusItem.Property.Difficulty = 6;
+		if (NewPose == "Full") DialogFocusItem.Property.Difficulty = 9;
+	}
 	DialogFocusItem.Property.Restrain = NewPose;
-//	if (InventoryGet(C, "ItemHands") == null) {
-//		InventoryWear(C, "MittenChain1", "ItemArms");
-//		if (C.ID == 0) ServerPlayerAppearanceSync();
-//		ChatRoomPublishCustomAction(Player.Name + " " + DialogFind(Player, "chains") + " " + C.Name + " " + DialogFind(Player, "mittenstoharness") + ".", true);
-//		} else InventoryItemMiscBondageBenchStrapsMsg = "FreeHands";
-	
-	
-//	DialogFocusItem.Property.Restrain = NewPose;
-//	if (NewPose == null) {
-//		delete DialogFocusItem.Property.Difficulty;
-//		delete DialogFocusItem.Property.Type;
-//	} else {
-//		DialogFocusItem.Property = {SetPose: ["BackElbowTouch"], Type: NewPose};
-//		if (NewPose == "Normal") DialogFocusItem.Property.Difficulty = 3;
-//		if (NewPose == "Snug") DialogFocusItem.Property.Difficulty = 6;
-//		if (NewPose == "Tight") DialogFocusItem.Property.Difficulty = 9;
-//	}
-//	DialogFocusItem.Property.Restrain = NewPose;
 
 	// Adds the lock effect back if it was padlocked
 	if ((DialogFocusItem.Property.LockedBy != null) && (DialogFocusItem.Property.LockedBy != "")) {
