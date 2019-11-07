@@ -57,7 +57,7 @@ function InventoryItemAddonBondageBenchStrapsSetPose(NewPose) {
 			delete DialogFocusItem.Property.Difficulty;
 			delete DialogFocusItem.Property.Type;
 		} else {
-			DialogFocusItem.Property = {SetPose: ["LegsClosed"], Type: NewPose};
+			DialogFocusItem.Property.SetPose = {SetPose: ["LegsClosed"]; DialogFocusItem.Property.Type = NewPose};
 			if (NewPose == "Normal") DialogFocusItem.Property.Difficulty = 3;
 			if (NewPose == "Heavy") DialogFocusItem.Property.Difficulty = 6;
 			if (NewPose == "Full") DialogFocusItem.Property.Difficulty = 9;
