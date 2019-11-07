@@ -1153,7 +1153,7 @@ var AssetFemale3DCG = [
 		Default: false,
 		Color: ["Default"],
 		Top: -250,
-		Zone: [[25, 35, 75, 210], [400, 35, 75, 210]],
+		Zone: [[25, 35, 75, 210]],
 		Asset: [
 			{ Name: "MetalPadlock", Wear: false, Value: 15, Time: 10, IsLock: true, Effect: [] },
 			{ Name: "IntricatePadlock", Wear: false, Value: 50, Time: 30, IsLock: true, Effect: [] },
@@ -1211,7 +1211,7 @@ var AssetFemale3DCG = [
 		Color: ["Default"],
 		Left: 0,
 		Top: -250,
-		Zone: [[25, 580, 1, 1], [400, 580, 1, 1]],
+		Zone: [[400, 35, 75, 210]],
 		Asset: [
 			{ Name: "BondageBenchStraps", RemoveAtLogin: false, IsRestraint: true, Extended: true, AllowType: ["Light", "Normal", "Heavy", "Full"], Hide: ["HairBack", "Wings", "TailStraps", "ItemButt"], SelfBondage: false, AllowLock: true, Value: -1, SetPose: ["LegsClosed"], Effect: ["Block", "Prone"], Time: 5, Difficulty: 2 }
 		]
