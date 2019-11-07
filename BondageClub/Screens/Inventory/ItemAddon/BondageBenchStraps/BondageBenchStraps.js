@@ -63,8 +63,20 @@ function InventoryItemAddonBondageBenchStrapsSetPose(NewPose) {
 			if (NewPose == "Full") DialogFocusItem.Property.Difficulty = 9;
 		}
 	} else {
+	if (InventoryGet(C, "Cloth") != null || InventoryGet(C, "ClothLower") != null) {
 		InventoryItemAddonBondageBenchStrapsMessage = "RemoveClothesForItem";
 		return;
+	}
+	
+	if (NewPose == null) {
+		delete DialogFocusItem.Property.Difficulty;
+		delete DialogFocusItem.Property.Type;
+	} else {
+		DialogFocusItem.Property.SetPose = ["LegsClosed"];
+		DialogFocusItem.Property.Type = NewPose;
+		if (NewPose == "Normal") DialogFocusItem.Property.Difficulty = 3;
+		if (NewPose == "Heavy") DialogFocusItem.Property.Difficulty = 6;
+		if (NewPose == "Full") DialogFocusItem.Property.Difficulty = 9;
 	}
 	DialogFocusItem.Property.Restrain = NewPose;
 
