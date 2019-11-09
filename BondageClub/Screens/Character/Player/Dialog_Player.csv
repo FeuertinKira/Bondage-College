@@ -504,3 +504,10 @@ TeddyBearSetKitty,,,SourceCharacter gives DestinationCharacter a cute kitty tedd
 TeddyBearSetPup,,,SourceCharacter gives DestinationCharacter a cute puppy teddy.
 TeddyBearSetBunny,,,SourceCharacter gives DestinationCharacter a cute Bunny teddy.
 TeddyBearSetPony,,,SourceCharacter gives DestinationCharacter a cute Pony teddy.
+HeadphoneEarPlugsSelectTightness,,,Turn the headphones on/off and adjust their volume.
+HeadphoneEarPlugsPoseOff,,,Off
+HeadphoneEarPlugsPoseLight,,,Light
+HeadphoneEarPlugsPoseHeavy,,,Heavy
+HeadphoneEarPlugsRestrainNone,,,SourceCharacter turns off DestinationCharacter's headphone earplugs.
+HeadphoneEarPlugsRestrainLight,,,SourceCharacter turns the volume to low on DestinationCharacter's headphone earplugs.
+HeadphoneEarPlugsRestrainHeavy,,,SourceCharacter turns the volume up to high on DestinationCharacter's headphone earplugs.

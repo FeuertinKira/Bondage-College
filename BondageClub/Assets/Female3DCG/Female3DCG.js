@@ -1159,7 +1159,7 @@ var AssetFemale3DCG = [
 		Asset: [
 			{ Name: "LightDutyEarPlugs", Visible: false, Effect: ["DeafLight"], Difficulty: 50, Value: 15, Time: 5 },
 			{ Name: "HeavyDutyEarPlugs", Visible: false, Effect: ["DeafHeavy"], Difficulty: 50, Value: 30, Time: 5 },
-			{ Name: "HeadphoneEarPlugs", Visible: false, Effect: ["DeafLight"], Difficulty: 50, Value: 20, Time: 5 }
+			{ Name: "HeadphoneEarPlugs", Visible: false, Effect: [""], AllowEffect: ["DeafLight", "DeafHeavy"], Difficulty: 50, Value: 50, Time: 5, Extended: true, AllowType: ["Off", "Light", "Heavy"] }
 		]
 	},
 
