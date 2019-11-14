@@ -100,6 +100,9 @@ function InventoryAllow(C, Prerequisite) {
 	if (Prerequisite == "CollaredNotSuspended" && (InventoryGet(C, "ItemNeck") == null || C.Pose.indexOf("Suspension") >= 0)) { DialogSetText("MustCollaredFirstAndRemoveSuspension"); return false; }
 	if (Prerequisite == "LegsOpen" && C.Pose.indexOf("LegsClosed") >= 0)  { DialogSetText("LegsCannotOpen"); return false; }
 	
+	//Layered Gags, Prevent more than one gag of the same 'type' being equipped
+	if (Prerequisite == "GagUnique" && C.Pose.indexOf("GagUnique") >= 0) { DialogSetText("CanOnlyEquipOneOfThisGag"); return false; }
+	
 	//One Bar Prison
 	if (Prerequisite == "OBP" && C.Pose.indexOf("LegsClosed") >= 0)  { DialogSetText("LegsCannotOpen"); return false; }
 	if (Prerequisite == "OBP" && C.Pose.indexOf("Suspension") >= 0)  { DialogSetText("TheyMustBeStandingFirst"); return false; }

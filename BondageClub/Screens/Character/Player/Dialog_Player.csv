@@ -13,6 +13,7 @@ MustCollaredFirstAndRemoveSuspension1,,,Must be collared and not suspended/mount
 LegsCannotOpen,,,Legs cannot open.
 MustFreeFeetFirst,,,Must free feet frist.
 RemoveShacklesFirst,,,Must remove shackles first.
+CanOnlyEquipOneOfThisGag,,,Gag of this type already present.
 Cancel,,,Cancel
 Exit,,,Back to character
 Next,,,View next items
