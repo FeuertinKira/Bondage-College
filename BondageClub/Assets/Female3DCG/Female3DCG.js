@@ -1166,7 +1166,7 @@ var AssetFemale3DCG = [
 			{ Name: "LeatherHoodSealed", DefaultColor: "#555555", Effect: ["BlindHeavy", "Prone", "GagLight"], Hide: ["HairFront", "HairBack", "Glasses", "ItemMouth", "Eyes", "Hat", "HairAccessory1", "HairAccessory2"], Block: ["ItemMouth", "ItemEars", "ItemNeck"], Difficulty: 50, Value: 70, Time: 15, AllowLock: true, Alpha: [[150, 50, 200, 100]] },
 			{ Name: "PolishedSteelHood", Effect: ["BlindHeavy", "DeafLight", "Prone", "GagHeavy"], Hide: ["HairFront", "HairBack", "Glasses", "ItemMouth", "Eyes", "HairAccessory1", "HairAccessory2"], Block: ["ItemMouth", "ItemEars", "ItemNeck"], Difficulty: 50, Value: 85, Time: 15, AllowLock: true },
 			{ Name: "SackHood", Effect: ["Prone", "BlindHeavy"], Block: ["ItemEars", "ItemMouth"], Hide: ["HairFront", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "Hat"], Difficulty: 3, Value: 20, Time: 5 },
-			{ Name: "LewdBlindfold", Random: false, Effect: ["BlindLight", "Prone"], Hide: ["Glasses"], Value: 45, Time: 5, AllowLock: true, ExpressionTrigger: [{ Group: "Blush", Name: "Light", Timer: 5 }, { Group: "Eyes", Name: "Closed", Timer: 5 }] },
+			{ Name: "LewdBlindfold", Priority: 31, Random: false, Effect: ["BlindLight", "Prone"], Hide: ["Glasses"], Value: 45, Time: 5, AllowLock: true, ExpressionTrigger: [{ Group: "Blush", Name: "Light", Timer: 5 }, { Group: "Eyes", Name: "Closed", Timer: 5 }] },
 			{ Name: "LatexBlindfold", Effect: ["BlindNormal", "Prone"], Hide: ["Glasses"], Value: 35, Time: 5, AllowLock: true }
 		]
 	},
