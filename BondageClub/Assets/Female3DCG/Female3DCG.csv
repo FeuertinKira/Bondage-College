@@ -462,6 +462,7 @@ ItemNeck,StrictPostureCollar,Strict Posture Collar
 ItemNeck,NobleCorsetCollar,Noble Corset Collar
 ItemNeck,HeartCollar,Heart Collar
 ItemNeck,LatexPostureCollar,Latex Posture Collar
+ItemNeck,LeatherCorsetCollar,Leather Corset Collar
 ItemNeckAccessories,,Collar
 ItemNeckAccessories,CollarBell,Bell
 ItemNeckAccessories,CollarBow,Bow
@@ -489,7 +490,6 @@ ItemMouth,KittyGag,Kitty Mask Gag
 ItemMouth,KittenHarnessPanelGag,Kitty Harness Gag
 ItemMouth,CarrotGag,Rubber Carrot Gag
 ItemMouth,MuzzleGag,Muzzle Gag
-ItemMouth,NeckCorsetGag,Neck Corset Gag
 ItemMouth,RegularSleepingPill,Sleeping Pill
 ItemMouth,PantiesMask,Panties Mask
 ItemMouth,PlugGag,Plug Gag

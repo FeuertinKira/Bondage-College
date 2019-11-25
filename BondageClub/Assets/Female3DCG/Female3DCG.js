@@ -695,7 +695,7 @@ var AssetFemale3DCG = [
 			{ Name: "VibratingButtplug", Effect: ["Egged"], Value: 60, Prerequisite: "AccessVulva", Time: 10, ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }], AllowEffect: ["Egged", "Vibrating"], Visible: false },
 			{ Name: "InflVibeButtPlug", Effect: ["Egged"], Value: 90, Prerequisite: "AccessVulva", Time: 10, ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }], AllowEffect: ["Egged", "Vibrating"], Visible: false },
 			{ Name: "AnalHook", Value: 20, Prerequisite: "AccessVulva", Time: 10, ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }], Visible: false },
-			{ Name: "ButtPlugLock", Effect: ["Chaste"], Block: ["ItemButt"], Value: 75, Prerequisite: "AccessVulva", AllowLock: true, Difficulty: 50, Time: 30, RemoveTime: 50, ExpressionTrigger: [{ Group: "Blush", Name: "High", Timer: 10}, { Group: "Eyes", Name: "Closed", Timer: 5 }, { Group: "Eyebrows", Name: "Soft", Timer: 5 }], Visible: false },
+			{ Name: "ButtPlugLock", Effect: ["Chaste"], Value: 75, Prerequisite: "AccessVulva", AllowLock: true, Difficulty: 50, Time: 30, RemoveTime: 50, ExpressionTrigger: [{ Group: "Blush", Name: "High", Timer: 10}, { Group: "Eyes", Name: "Closed", Timer: 5 }, { Group: "Eyebrows", Name: "Soft", Timer: 5 }], Visible: false },
 			AssetSpankingToys
 		]
 	},
@@ -1004,17 +1004,18 @@ var AssetFemale3DCG = [
 			{ Name: "MaidCollar", Value: 30, Time: 5, Difficulty: 50, AllowLock: true },
 			{ Name: "BordelleCollar", Value: 30, Time: 5, Difficulty: 50, AllowLock: true },
 			{ Name: "LoveLeatherCollar", Value: 50, Time: 5, Difficulty: 50, AllowLock: true },
-			{ Name: "StrictPostureCollar", Value: 60, Time: 5, Difficulty: 50, AllowLock: true },
+			{ Name: "StrictPostureCollar", Priority: 33, Value: 60, Time: 5, Difficulty: 50, AllowLock: true },
 			{ Name: "NobleCorsetCollar", Value: 45, Time: 5, Difficulty: 50, AllowLock: true },
 			{ Name: "HeartCollar", Value: 50, Time: 5, Difficulty: 50, AllowLock: true },
-			{ Name: "LatexPostureCollar", Block: ["ItemMouth"], Effect: ["GagNormal"], Value: 65, Time: 5, Difficulty: 50, AllowLock: true }
+			{ Name: "LatexPostureCollar", Priority: 33, Block: ["ItemMouth"], Effect: ["GagNormal"], Value: 65, Time: 5, Difficulty: 50, AllowLock: true },
+			{ Name: "LeatherCorsetCollar", DefaultColor: "#404040", Priority: 33, Block: ["ItemMouth"], Effect: ["GagNormal"], Value: 60, Time: 5, Difficulty: 50, AllowLock: true }
 		]
 	},
 
 	{
 		Group: "ItemNeckAccessories",
 		Category: "Item",
-		Priority: 31,
+		Priority: 34,
 		Default: false,
 		IsRestraint: true,
 		Color: ["Default"],
@@ -1080,7 +1081,6 @@ var AssetFemale3DCG = [
 			{ Name: "KittenHarnessPanelGag", DefaultColor: "#A0A0A0", Effect: ["GagHeavy"], Difficulty: 6, Value: 80, Time: 20, AllowLock: true },
 			{ Name: "CarrotGag", Effect: ["GagHeavy"], Random: false, Value: 40, Time: 15 },
 			{ Name: "MuzzleGag", DefaultColor: "#404040", Difficulty: 6, Value: 70, Time: 20, AllowLock: true },
-			{ Name: "NeckCorsetGag", DefaultColor: "#404040", Difficulty: 8, Value: 80, Time: 25, Block: ["ItemNeck"], AllowLock: true },
 			{ Name: "RegularSleepingPill", Enable: false, Wear: false, Value: -1, Bonus: [{ Type: "KidnapSneakiness", Factor: 3 }] },
 			{ Name: "PantiesMask", Effect: [], Random: false, Value: 20, Time: 15 },
 			{
