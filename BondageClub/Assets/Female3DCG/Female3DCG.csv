@@ -242,6 +242,8 @@ HairBack,HairBack5,Style 12
 HairBack,HairBack8,Style 13
 HairBack,HairBack11,Style 14
 HairBack,HairBack6,Style 15
+HairBack,HairBack21,Style 16
+HairBack,HairBack22,Style 17
 HairFront,,Front Hair
 HairFront,HairFront1,Style 1
 HairFront,HairFront2,Style 2
@@ -451,6 +453,7 @@ ItemNeck,ShockCollarRemote,Shock Collar Remote
 ItemNeck,BatCollar,Bat Collar
 ItemNeck,PostureCollar,Posture Collar
 ItemNeck,SteelPostureCollar,Steel Collar
+ItemNeck,DogCollar,Dog Collar
 ItemNeck,SpikeCollar,Spike Collar
 ItemNeck,HighCollar,High Collar
 ItemNeck,LeatherChoker,Leather Choker
@@ -463,6 +466,7 @@ ItemNeck,NobleCorsetCollar,Noble Corset Collar
 ItemNeck,HeartCollar,Heart Collar
 ItemNeck,LatexPostureCollar,Latex Posture Collar
 ItemNeck,LeatherCorsetCollar,Leather Corset Collar
+ItemNeck,HighSecurityCollar,High Security Collar
 ItemNeckAccessories,,Collar
 ItemNeckAccessories,CollarBell,Bell
 ItemNeckAccessories,CollarBow,Bow
@@ -504,6 +508,7 @@ ItemMouth,SpiderGag,Spider Gag
 ItemMouth,ClothStuffing,Cloth Stuffing
 ItemMouth,ScarfGag,Scarf
 ItemMouth,LewdGag,Lewd Gag
+ItemMouth,DeepthroatGag,Deepthroat Penis Gag
 ItemHead,,Head
 ItemHead,ClothBlindfold,Cloth Blindfold
 ItemHead,LeatherBlindfold,Leather Blindfold
@@ -522,11 +527,12 @@ ItemHead,PolishedSteelHood,Polished Steel Hood
 ItemHead,SackHood,Sack Hood
 ItemHead,LewdBlindfold,Lewd Blindfold
 ItemHead,LatexBlindfold,Latex Blindfold
+ItemHead,DogHood,Dog Hood
 ItemEars,,Ears
 ItemEars,LightDutyEarPlugs,Light Duty Ear Plugs
 ItemEars,HeavyDutyEarPlugs,Heavy Duty Ear Plugs
 ItemEars,HeadphoneEarPlugs,Headphone Ear Plugs
-ItemMisc,,Misc Items
+ItemMisc,,Body
 ItemMisc,MetalPadlock,Metal Padlock
 ItemMisc,IntricatePadlock,Intricate Padlock
 ItemMisc,TimerPadlock,Five Minutes Padlock
@@ -550,8 +556,13 @@ ItemDevices,LowCage,Kennel
 ItemDevices,SaddleStand,Saddle Stand
 ItemDevices,BurlapSack,Burlap Sack
 ItemDevices,InflatableBodyBag,Inflatable Body Bag
+ItemDevices,BondageBench,Bondage Bench
 ItemDevices,TeddyBear,Teddy Bear Set
 ItemDevices,OneBarPrison,One Bar Prison
+ItemDevices,TheDisplayFrame,Display Frame
+ItemDevices,Sybian,Sybian
+ItemAddon,,Body
+ItemAddon,BondageBenchStraps,Leather Belt Straps
 ItemBoots,,Feet
 ItemBoots,PonyBoots,Pony Boots
 ItemBoots,BalletHeels,Ballet Heels
