@@ -1007,7 +1007,7 @@ var AssetFemale3DCG = [
 			{ Name: "NobleCorsetCollar", Value: 45, Time: 5, Difficulty: 50, AllowLock: true },
 			{ Name: "HeartCollar", Value: 50, Time: 5, Difficulty: 50, AllowLock: true },
 			{ Name: "LatexPostureCollar", Priority: 33, Block: ["ItemMouth"], Effect: ["GagNormal"], Value: 65, Time: 5, Difficulty: 50, AllowLock: true },
-			{ Name: "LeatherCorsetCollar", DefaultColor: "#404040", Priority: 33, Block: ["ItemMouth"], Effect: ["GagNormal"], Value: 60, Time: 5, Difficulty: 50, AllowLock: true }
+			{ Name: "LeatherCorsetCollar", DefaultColor: "#404040", Priority: 33, Block: ["ItemMouth"], Effect: ["GagNormal"], Value: 60, Time: 5, Difficulty: 50, AllowLock: true },
 			{ Name: "HighSecurityCollar", Value: 70, Time: 5, Difficulty: 50, AllowLock: true }
 		]
 	},
