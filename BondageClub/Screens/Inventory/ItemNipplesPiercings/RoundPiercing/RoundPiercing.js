@@ -44,7 +44,7 @@ function InventoryItemNipplesPiercingsRoundPiercingSetPose(NewPose) {
 		else {
 			DialogFocusItem.Property.Restrain = NewPose;
 			DialogFocusItem.Property.Type = NewPose;
-			if (NewPose == "Chain") DialogFocusItem.Property.Hide = ["Cloth"];
+			if (NewPose == "Chain") DialogFocusItem.Property.Hide = [""];
 		}
 		CharacterRefresh(C);
 		var msg = DialogFind(Player, "RoundPiercingRestrain" + ((NewPose == null) ? "Base" : NewPose));
