@@ -476,8 +476,8 @@ ItemNeck,LoveLeatherCollar,Lover Leather Collar
 ItemNeck,StrictPostureCollar,Strict Posture Collar
 ItemNeck,NobleCorsetCollar,Noble Corset Collar
 ItemNeck,HeartCollar,Heart Collar
-ItemNeck,LatexPostureCollar,Latex Posture Collar
-ItemNeck,LeatherCorsetCollar,Leather Corset Collar
+ItemNeck,LatexPostureCollar,Latex Posture Collar Gag
+ItemNeck,LeatherCorsetCollar,Leather Corset Collar Gag
 ItemNeck,HighSecurityCollar,High Security Collar
 ItemNeckAccessories,,Collar
 ItemNeckAccessories,CollarBell,Bell
@@ -489,6 +489,9 @@ ItemNeckAccessories,CollarChainShort,Short Chain
 ItemNeckAccessories,CollarLeash,Leash
 ItemNeckAccessories,CollarLeashTaken,Pulled Leash
 ItemNeckAccessories,CollarNameTag,Name Tag
+ItemNeckAccessories,CollarNameTagOval,Oval Name Tag
+ItemNeckAccessories,CollarNameTagPet,Pet Name Tag
+ItemNeckAccessories,CollarNameTagLover,Lover Name Tag
 ItemNeckAccessories,CollarMoon,Moon
 ItemMouth,,Mouth
 ItemMouth,ClothGag,Cloth Gag
@@ -518,9 +521,12 @@ ItemMouth,PumpkinGag,Pumpkin Gag
 ItemMouth,LipGag,Lips Gag
 ItemMouth,SpiderGag,Spider Gag
 ItemMouth,ClothStuffing,Cloth Stuffing
+ItemMouth,ChloroformCloth,Chloroform Cloth
 ItemMouth,ScarfGag,Scarf
 ItemMouth,LewdGag,Lewd Gag
 ItemMouth,DeepthroatGag,Deepthroat Penis Gag
+ItemMouth,LeatherCorsetCollar,Leather Corset Collar Gag
+ItemMouth,LatexPostureCollar,Latex Posture Collar Gag
 ItemHead,,Head
 ItemHead,ClothBlindfold,Cloth Blindfold
 ItemHead,LeatherBlindfold,Leather Blindfold
