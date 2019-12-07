@@ -500,7 +500,13 @@ ItemNeckAccessories,CollarNameTag,Name Tag
 ItemNeckAccessories,CollarNameTagOval,Oval Name Tag
 ItemNeckAccessories,CollarNameTagPet,Pet Name Tag
 ItemNeckAccessories,CollarNameTagLover,Lover Name Tag
-ItemNeckAccessories,CollarMoon,Moon
+ItemNeckAccessories,CollarMoon,Moon Pendant
+ItemNeckAccessories,CollarSun,Sun Pendant
+ItemNeckAccessories,CollarLapis,Lapis Pendant
+ItemNeckAccessories,CollarCross,Cross Pendant
+ItemNeckAccessories,CollarPentagram,Pentagram Pendant
+ItemNeckAccessories,CollarFlower,Flower
+ItemNeckAccessories,CollarRose,Rose
 ItemMouth,,Mouth
 ItemMouth,ClothGag,Cloth Gag
 ItemMouth,WiffleGag,Wiffle Ball Gag
