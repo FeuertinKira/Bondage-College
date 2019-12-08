@@ -220,7 +220,8 @@ var AssetFemale3DCG = [
 					{ Name: "Fabric", AllowColorize: true },
 					{ Name: "Fur", AllowColorize: false }
 				]
-			}
+			},
+			{ Name: "SocksStriped1", Value: 10 }
 		]
 	},
 
@@ -1208,7 +1209,9 @@ var AssetFemale3DCG = [
 			{ Name: "DeepthroatGag", DefaultColor: "#404040", Difficulty: 5, Effect: ["GagHeavy"], Value: 55, Time: 15, AllowLock: true, ExpressionTrigger: [{ Group: "Eyebrows", Name: "Raised", Timer: 10 }] },
 			{ Name: "LeatherCorsetCollar", DefaultColor: "#404040", Priority: 35, BuyGroup: ["LeatherCorsetCollar"], Block: ["ItemNeck"], Value: 75, Time: 20, RemoveTime: 30, Difficulty: 50, AllowLock: true },
 			{ Name: "LatexPostureCollar", Priority: 35, BuyGroup: ["LatexPostureCollar"], Block: ["ItemNeck"], Value: 80, Time: 20, RemoveTime: 30, Difficulty: 50, AllowLock: true },
-			{ Name: "BitGag", Difficulty: 4, Effect: ["GagHeavy"], Value: 40, Time: 20, AllowLock: true }
+			{ Name: "BitGag", Difficulty: 4, Effect: ["GagHeavy"], Value: 40, Time: 20, AllowLock: true },
+			{ Name: "XLBoneGag", Difficulty: 6, Value: 60, Time: 10, Effect: ["GagHeavy"], AllowLock: true },
+			{ Name: "DogMuzzleExposed", Difficulty: 7, Value: 50, Time: 10, Effect: ["GagNormal"], AllowLock: true }
 		]
 	},
 
