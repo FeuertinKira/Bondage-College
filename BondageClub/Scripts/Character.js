@@ -154,6 +154,7 @@ function CharacterArchetypeClothes(C, Archetype, ForceColor) {
 		InventoryAdd(C, "MaidOutfit2", "Cloth", false);
 		InventoryRemove(C, "HairAccessory1");
 		InventoryRemove(C, "HairAccessory2");
+		InventoryRemove(C, "ClothLower");
 		C.AllowItem = (LogQuery("LeadSorority", "Maid"));
 	}
 
@@ -399,7 +400,10 @@ function CharacterRefresh(C, Push) {
 	CharacterLoadEffect(C);
 	CharacterLoadPose(C);
 	CharacterLoadCanvas(C);
-	if ((C.ID == 0) && (C.OnlineID != null) && ((Push == null) || (Push == true))) ServerPlayerAppearanceSync();
+	if ((C.ID == 0) && (C.OnlineID != null) && ((Push == null) || (Push == true))) {
+		ChatRoomRefreshChatSettings(C);
+		ServerPlayerAppearanceSync();
+	}
 }
 
 // Returns TRUE if a character has no item (the slave collar doesn't count)

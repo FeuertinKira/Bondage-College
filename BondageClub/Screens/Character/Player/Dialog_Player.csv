@@ -10,7 +10,9 @@ RemoveChainForItem,,,Remove the chain to the floor first
 MustCollaredFirst,,,A collar must be fitted first to attach accessories to.
 MustCollaredFirstAndRemoveSuspension,,,Must be collared and not suspended first.
 MustCollaredFirstAndRemoveSuspension1,,,Must be collared and not suspended/mounted first.
+NoClothAndCollared,,,Remove some clothes and requires a collar.
 LegsCannotOpen,,,Legs cannot open.
+LegsCannotClose,,,Legs cannot close.
 MustFreeFeetFirst,,,Must free feet frist.
 RemoveShacklesFirst,,,Must remove shackles first.
 CanOnlyEquipOneOfThisGag,,,Gag of this type already present.
@@ -20,6 +22,8 @@ Next,,,View next items
 Remove,,,Remove the item
 Use,,,Use this item
 Struggle,,,Try to struggle out
+Dismount,,,Dismount
+Escape,,,Escape from the item
 Lock,,,Use a lock
 Unlock,,,Unlock the item
 InspectLock,,,Inspect the lock
@@ -35,6 +39,8 @@ Swapping,,,Swapping...
 Struggling,,,Struggling...
 Unlocking,,,Unlocking...
 Removing,,,Removing...
+Dismounting,,,Dismounting...
+Escaping,,,Escaping...
 Locking,,,Locking...
 Adding,,,Adding...
 Impossible,,,Impossible to escape!
@@ -93,6 +99,9 @@ ServerMessageOwnerRuleWhisperBlock,,,Your owner is now preventing you from whisp
 ServerMessageOwnerRuleKeyAllow,,,Your owner is now allowing you to have keys.  You can buy keys from the club shop.
 ServerMessageOwnerRuleKeyConfiscate,,,Your owner has confiscated your keys.  All your regular keys are lost.
 ServerMessageOwnerRuleKeyBlock,,,Your owner is now preventing you from getting new keys.  The club shop will not sell keys to you anymore.
+ServerMessageOwnerRuleRemoteAllow,,,Your owner is now allowing you to have remotes.  You can buy remotes from the club shop.
+ServerMessageOwnerRuleRemoteConfiscate,,,Your owner has confiscated your remotes.  All your remotes are lost.
+ServerMessageOwnerRuleRemoteBlock,,,Your owner is now preventing you from getting new remotes.  The club shop will not sell remotes to you anymore.
 ServerMessageWhisperBlocked,,,You're on SourceCharacter blacklist.  Your message was blocked by the server.
 LockMemberNumber,,,Member number on lock:
 TimerLeft,,,Time left:
@@ -103,6 +112,8 @@ WillRemoveItemWithTimer,,,The item will be removed when the lock timer runs out
 WontRemoveItemWithTimer,,,The item will stay when the lock timer runs out
 SelectBondagePosition,,,Select the bondage position
 SelectTapeWrapping,,,Select the tape wrapping
+SelectAttachmentState,,,Select an item attachment
+SelectPiercingState,,,Select the piercing attachment
 CannotUnlockIfElbowBound,,,A victim cannot unlock herself if her elbows are bound
 ItemMiscMetalPadlockIntro,,,"""From your friendly hardware store"""
 ItemMiscIntricatePadlockIntro,,,"""To keep your loved one secure"""
@@ -126,6 +137,22 @@ LeatherLegCuffsRestrainNone,,,SourceCharacter detaches the chain from Destinatio
 LeatherLegCuffsRestrainClosed,,,SourceCharacter attaches the leather leg cuffs chain on DestinationCharacter's legs.
 LeatherAnkleCuffsRestrainNone,,,SourceCharacter detaches the chain from DestinationCharacter's leather ankle cuffs.
 LeatherAnkleCuffsRestrainClosed,,,SourceCharacter attaches the leather ankle cuffs chain on DestinationCharacter's ankles.
+OrnateCuffsPoseNone,,,Detached
+OrnateCuffsPoseWrist,,,Bind wrists
+OrnateCuffsPoseElbow,,,Bind elbows
+OrnateCuffsPoseBoth,,,Bind both
+OrnateCuffsRestrainNone,,,SourceCharacter detaches the chain from DestinationCharacter's Ornate cuffs.
+OrnateCuffsRestrainWrist,,,SourceCharacter attaches the Ornate cuffs wrist chain behind DestinationCharacter's back.
+OrnateCuffsRestrainElbow,,,SourceCharacter attaches the Ornate cuffs elbow chain behind DestinationCharacter's back.
+OrnateCuffsRestrainBoth,,,SourceCharacter attaches the Ornate cuffs wrist and elbow chains behind DestinationCharacter's back.
+OrnateLegCuffsPoseNone,,,Detached
+OrnateLegCuffsPoseClosed,,,Chain Closed
+OrnateAnkleCuffsPoseNone,,,Detached
+OrnateAnkleCuffsPoseClosed,,,Chain Closed
+OrnateLegCuffsRestrainNone,,,SourceCharacter detaches the chain from DestinationCharacter's Ornate leg cuffs.
+OrnateLegCuffsRestrainClosed,,,SourceCharacter attaches the Ornate leg cuffs chain on DestinationCharacter's legs.
+OrnateAnkleCuffsRestrainNone,,,SourceCharacter detaches the chain from DestinationCharacter's Ornate ankle cuffs.
+OrnateAnkleCuffsRestrainClosed,,,SourceCharacter attaches the Ornate ankle cuffs chain on DestinationCharacter's ankles.
 StraitJacketSelectTightness,,,How tight do you want to strap the jacket?
 StraitJacketPoseLoose,,,Loose
 StraitJacketPoseNormal,,,Normal
@@ -162,15 +189,30 @@ SturdyLeatherBeltsRestrainNone,,,SourceCharacter restrains DestinationCharacter 
 SturdyLeatherBeltsRestrainTwo,,,SourceCharacter restrains DestinationCharacter with two sturdy leather belts.
 SturdyLeatherBeltsRestrainThree,,,SourceCharacter restrains DestinationCharacter with three sturdy leather belts.
 SturdyLeatherBeltsRestrainFour,,,SourceCharacter restrains DestinationCharacter with four sturdy leather belts.
+BondageBenchStrapsSelectTightness,,,How many leather belts do you want to apply?
+BondageBenchStrapsPoseLight,,,Light
+BondageBenchStrapsPoseNormal,,,Normal
+BondageBenchStrapsPoseHeavy,,,Heavy
+BondageBenchStrapsPoseFull,,,Full
+BondageBenchStrapsRestrainNone,,,SourceCharacter loosely restrains DestinationCharacter to the bondage bench with few leather belts.
+BondageBenchStrapsRestrainNormal,,,SourceCharacter restrains DestinationCharacter to the bondage bench with a handful of leather belts.
+BondageBenchStrapsRestrainHeavy,,,SourceCharacter strictly restrains DestinationCharacter to the bondage bench with a good amount of leather belts.
+BondageBenchStrapsRestrainFull,,,SourceCharacter fully restrains DestinationCharacter to the bondage bench with a large amount of leather belts.
+BondageBenchSelectType,,,How do you want to restrain them?
+BondageBenchPoseStrapUp,,,Leather Belt Straps
+BondageBenchRestrainNone,,,SourceCharacter removes the leather belts from DestinationCharacter's body.
+BondageBenchRestrainStrapUp,,,SourceCharacter loosely restrains DestinationCharacter to the bondage bench with few leather belts.
 DuctTapePoseHands,,,Hands
 DuctTapePoseArms,,,Arms
 DuctTapePoseBottom,,,Skirt
 DuctTapePoseTop,,,Torso
 DuctTapePoseFull,,,Mummy
+DuctTapePoseComplete,,,Full Mummy
 DuctTapeRestrainHands,,,SourceCharacter wraps duct tape around DestinationCharacter's hands.
 DuctTapeRestrainBottom,,,SourceCharacter creates a duct tape skirt on DestinationCharacter and traps her hands in it.
 DuctTapeRestrainTop,,,SourceCharacter creates a duct tape top on DestinationCharacter and traps her arms in it.
 DuctTapeRestrainFull,,,SourceCharacter creates a duct tape mummy on DestinationCharacter and traps her arms in it.
+DuctTapeRestrainComplete,,,SourceCharacter creates a completed duct tape mummy on DestinationCharacter and traps her entire upper body in it.
 WristShacklesPoseInFront,,,In-front of body
 WristShacklesPoseBehind,,,Behind back.
 WristShacklesRestrainInFront,,,SourceCharacter shackles DestinationCharacter's wrist in-front of their body.
@@ -240,6 +282,14 @@ EggIncreaseTo0,,,DestinationCharacter's vibrating egg starts teasing her lightly
 EggIncreaseTo1,,,DestinationCharacter's vibrating egg builds up to a moderate pace.
 EggIncreaseTo2,,,DestinationCharacter's vibrating egg starts buzzing strongly!
 EggIncreaseTo3,,,DestinationCharacter's vibrating egg jumps up to maximum intensity!
+SybianDecreaseTo-1,,,DestinationCharacter's sybian stops vibrating.
+SybianDecreaseTo0,,,DestinationCharacter's sybian slows down into a light tease.
+SybianDecreaseTo1,,,DestinationCharacter's sybian returns to a moderate pace.
+SybianDecreaseTo2,,,DestinationCharacter's sybian slows down a tiny bit.
+SybianIncreaseTo0,,,DestinationCharacter's sybian starts teasing her lightly.
+SybianIncreaseTo1,,,DestinationCharacter's sybian builds up to a moderate pace.
+SybianIncreaseTo2,,,DestinationCharacter's sybian starts buzzing strongly!
+SybianIncreaseTo3,,,DestinationCharacter's sybian jumps up to maximum intensity!
 DildoDecreaseTo-1,,,DestinationCharacter's vibrating dildo stops vibrating.
 DildoDecreaseTo0,,,DestinationCharacter's vibrating dildo slows down into a light tease.
 DildoDecreaseTo1,,,DestinationCharacter's vibrating dildo returns to a moderate pace.
@@ -344,6 +394,18 @@ InflVibeButtPlug_PumppumpsTo1,,,SourceCharacter inflates DestinationCharacter's 
 InflVibeButtPlug_PumppumpsTo2,,,SourceCharacter inflates DestinationCharacter's inflatable vibrating butt plug till it's half full.
 InflVibeButtPlug_PumppumpsTo3,,,SourceCharacter inflates DestinationCharacter's inflatable vibrating butt plug till three quarters filled.
 InflVibeButtPlug_PumppumpsTo4,,,SourceCharacter inflates DestinationCharacter's inflatable vibrating butt plug to it's maximum amount.
+ButtPlugLockPoseBase,,,Nothing
+ButtPlugLockPoseChainShort,,,Short Chain
+ButtPlugLockPoseChainLong,,,Long Chain
+ButtPlugLockRestrainBase,,,SourceCharacter removes the chain from DestinationCharacter's locking butt plug.
+ButtPlugLockRestrainChainShort,,,SourceCharacter attaches a short chain to DestinationCharacter's locking butt plug.
+ButtPlugLockRestrainChainLong,,,SourceCharacter attaches a long chain to DestinationCharacter's locking butt plug.
+AnalHookPoseBase,,,Nothing
+AnalHookPoseChain,,,Chain
+AnalHookPoseHair,,,Hair
+AnalHookRestrainBase,,,SourceCharacter detaches DestinationCharacter's anal hook.
+AnalHookRestrainChain,,,SourceCharacter attaches a chain to DestinationCharacter's anal hook.
+AnalHookRestrainHair,,,SourceCharacter attaches DestinationCharacter's anal hook to her hair.
 PumpGagdeflatesTo0,,,SourceCharacter deflates DestinationCharacter's gag fully till it's empty.
 PumpGagdeflatesTo1,,,SourceCharacter deflates DestinationCharacter's gag till only slighty filled.
 PumpGagdeflatesTo2,,,SourceCharacter deflates DestinationCharacter's gag till it's half full.
@@ -434,32 +496,32 @@ LoveChastityBeltAddShockMessage,,,SourceCharacter locks shock device to Destinat
 SelectCollarNameTagType,,,Select what tag you want to use
 SelectCollarNameTagTypeLocked,,,You cannot change the tag while it's locked
 CollarNameTagSet,,,SourceCharacter uses a NameTagType name tag on DestinationCharacter's collar.
+CollarNameTagTypeAngel,,,Angel
 CollarNameTagTypeBadGirl,,,Bad Girl
 CollarNameTagTypeBindMe,,,Bind Me
 CollarNameTagTypeBitch,,,Bitch
-CollarNameTagTypeBunny,,,Bunny
-CollarNameTagTypeCookie,,,Cookie
+CollarNameTagTypeBoobs,,,Boobs
 CollarNameTagTypeCupcake,,,Cupcake
+CollarNameTagTypeDevil,,,Devil
 CollarNameTagTypeDom,,,Dom
-CollarNameTagTypeFoxy,,,Foxy
 CollarNameTagTypeFree,,,Free
 CollarNameTagTypeFuckMe,,,Fuck Me
 CollarNameTagTypeGagMe,,,GagMe
+CollarNameTagTypeGoddess,,,Goddess
 CollarNameTagTypeGoodGirl,,,Good Girl
 CollarNameTagTypeHoldMe,,,Hold Me
-CollarNameTagTypeKitten,,,Kitten
+CollarNameTagTypeJewel,,,Jewel
 CollarNameTagTypeLove,,,Love
 CollarNameTagTypeMaid,,,Maid
 CollarNameTagTypeMeat,,,Meat
-CollarNameTagTypeMuffin,,,Muffin
+CollarNameTagTypeMiss,,,Miss
+CollarNameTagTypeMummy,,,Mummy
 CollarNameTagTypeNeedy,,,Needy
+CollarNameTagTypeNice,,,Nice
 CollarNameTagTypeOwned,,,Owned
-CollarNameTagTypePanda,,,Panda
-CollarNameTagTypePet,,,Pet
-CollarNameTagTypePetMe,,,Pet Me
-CollarNameTagTypePixie,,,Pixie
-CollarNameTagTypePuppy,,,Puppy
-CollarNameTagTypeRacoon,,,Racoon
+CollarNameTagTypePrecious,,,Precious
+CollarNameTagTypePudding,,,Pudding
+CollarNameTagTypeQueen,,,Queen
 CollarNameTagTypeSlave,,,Slave
 CollarNameTagTypeSlut,,,Slut
 CollarNameTagTypeSub,,,Sub
@@ -469,6 +531,76 @@ CollarNameTagTypeToy,,,Toy
 CollarNameTagTypeUseless,,,Useless
 CollarNameTagTypeUseMe,,,Use Me
 CollarNameTagTypeWhore,,,Whore
+SelectCollarNameTagOvalType,,,Select what tag you want to use
+SelectCollarNameTagOvalTypeLocked,,,You cannot change the tag while it's locked
+CollarNameTagOvalSet,,,SourceCharacter uses a NameTagType oval name tag on DestinationCharacter's collar.
+CollarNameTagOvalTypeBabe,,,Babe
+CollarNameTagOvalTypeBandit,,,Bandit
+CollarNameTagOvalTypeBimbo,,,Bimbo
+CollarNameTagOvalTypeBratty,,,Bratty
+CollarNameTagOvalTypeChair,,,Chair
+CollarNameTagOvalTypeChaste,,,Chaste
+CollarNameTagOvalTypeCrazy,,,Crazy
+CollarNameTagOvalTypeCumslut,,,Cumslut
+CollarNameTagOvalTypeCutie,,,Cutie
+CollarNameTagOvalTypeDamsel,,,Damsel
+CollarNameTagOvalTypeDoll,,,Doll
+CollarNameTagOvalTypeEdgeMe,,,EdgeMe
+CollarNameTagOvalTypeEvil,,,Evil
+CollarNameTagOvalTypeForSale,,,ForSale
+CollarNameTagOvalTypeGreedy,,,Greedy
+CollarNameTagOvalTypeHappy,,,Happy
+CollarNameTagOvalTypeHorny,,,Horny
+CollarNameTagOvalTypeKinky,,,Kinky
+CollarNameTagOvalTypeLady,,,Lady
+CollarNameTagOvalTypeLockMe,,,LockMe
+CollarNameTagOvalTypeNude,,,Nude
+CollarNameTagOvalTypeNurse,,,Nurse
+CollarNameTagOvalTypeNympho,,,Nympho
+CollarNameTagOvalTypePainslut,,,Painslut
+CollarNameTagOvalTypePillow,,,Pillow
+CollarNameTagOvalTypePunish,,,Punish
+CollarNameTagOvalTypeRobber,,,Robber
+CollarNameTagOvalTypeSad,,,Sad
+CollarNameTagOvalTypeSwitch,,,Switch
+CollarNameTagOvalTypeTable,,,Table
+CollarNameTagOvalTypeTicklish,,,Ticklish
+CollarNameTagOvalTypeUndress,,,Undress
+CollarNameTagOvalTypeVictim,,,Victim
+CollarNameTagOvalTypeViolent,,,Violent
+CollarNameTagOvalTypeWorm,,,Worm
+SelectCollarNameTagPetType,,,Select what tag you want to use
+SelectCollarNameTagPetTypeLocked,,,You cannot change the tag while it's locked
+CollarNameTagPetSet,,,SourceCharacter uses a NameTagType pet name tag on DestinationCharacter's collar.
+CollarNameTagPetTypeBunny,,,Bunny
+CollarNameTagPetTypeCat,,,Cat
+CollarNameTagPetTypeDog,,,Dog
+CollarNameTagPetTypeFoxy,,,Foxy
+CollarNameTagPetTypeKitten,,,Kitten
+CollarNameTagPetTypeKitty,,,Kitty
+CollarNameTagPetTypeMochi,,,Mochi
+CollarNameTagPetTypePanda,,,Panda,,,
+CollarNameTagPetTypePet,,,Pet
+CollarNameTagPetTypePetMe,,,PetMe
+CollarNameTagPetTypePixie,,,Pixie
+CollarNameTagPetTypePony,,,Pony
+CollarNameTagPetTypePuppy,,,Puppy
+CollarNameTagPetTypeRacoon,,,Racoon
+CollarNameTagPetTypeSloth,,,Sloth
+SelectCollarNameTagLoverType,,,Select what tag you want to use
+SelectCollarNameTagLoverTypeLocked,,,You cannot change the tag while it's locked
+CollarNameTagLoverSet,,,SourceCharacter uses a NameTagType lover name tag on DestinationCharacter's collar.
+CollarNameTagLoverTypeCookie,,,Cookie
+CollarNameTagLoverTypeLover,,,Lover
+CollarNameTagLoverTypeMuffin,,,Muffin
+RoundPiercingPoseBase,,,Base
+RoundPiercingPoseChain,,,Chain
+RoundPiercingRestrainBase,,,SourceCharacter detaches extras from DestinationCharacter's round piercings.
+RoundPiercingRestrainChain,,,SourceCharacter attaches a chain from DestinationCharacter's round piercings to her collar.
+WeightedPiercingPoseBase,,,Base
+WeightedPiercingPoseChain,,,Chain
+WeightedPiercingRestrainBase,,,SourceCharacter detaches extras from DestinationCharacter's weighted piercings.
+WeightedPiercingRestrainChain,,,SourceCharacter attaches a chain from DestinationCharacter's weighted piercings to her collar.
 DuctTapePoseLegs,,,Legs
 DuctTapePoseHalfLegs,,,Half
 DuctTapePoseMostLegs,,,Most
@@ -500,3 +632,10 @@ TeddyBearSetKitty,,,SourceCharacter gives DestinationCharacter a cute kitty tedd
 TeddyBearSetPup,,,SourceCharacter gives DestinationCharacter a cute puppy teddy.
 TeddyBearSetBunny,,,SourceCharacter gives DestinationCharacter a cute Bunny teddy.
 TeddyBearSetPony,,,SourceCharacter gives DestinationCharacter a cute Pony teddy.
+HeadphoneEarPlugsSelectTightness,,,Turn the headphones on/off and adjust their volume.
+HeadphoneEarPlugsPoseOff,,,Off
+HeadphoneEarPlugsPoseLight,,,Light
+HeadphoneEarPlugsPoseHeavy,,,Heavy
+HeadphoneEarPlugsRestrainNone,,,SourceCharacter turns off DestinationCharacter's headphone earplugs.
+HeadphoneEarPlugsRestrainLight,,,SourceCharacter turns the volume to low on DestinationCharacter's headphone earplugs.
+HeadphoneEarPlugsRestrainHeavy,,,SourceCharacter turns the volume up to high on DestinationCharacter's headphone earplugs.
