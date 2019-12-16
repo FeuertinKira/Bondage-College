@@ -2,7 +2,7 @@
 
 // Loads the item extension properties
 function InventoryItemMouth2ClothGagLoad() {
-	if (DialogFocusItem.Property == null) DialogFocusItem.Property = { Type: null, Effect: ["GagLight"] };
+	if (DialogFocusItem.Property == null) DialogFocusItem.Property = { Type: null, Effect: ["GagVeryLight"] };
 }
 
 // Draw the item extension screen
@@ -18,9 +18,9 @@ function InventoryItemMouth2ClothGagDraw() {
 	DrawButton(1000, 550, 225, 225, "", (DialogFocusItem.Property.Type == null || DialogFocusItem.Property.Type == "Small") ? "#888888" : "White");
 	DrawImage("Screens/Inventory/" + DialogFocusItem.Asset.Group.Name + "/" + DialogFocusItem.Asset.Name + "/Small.png", 1000, 550);
 	DrawText(DialogFind(Player, "ClothGagTypeSmall"), 1115, 800, "white", "gray");
-	DrawButton(1250, 550, 225, 225, "", ((DialogFocusItem.Property.Type != null) && (DialogFocusItem.Property.Type == "Cleave")) ? "#888888" : "White");
-	DrawImage("Screens/Inventory/" + DialogFocusItem.Asset.Group.Name + "/" + DialogFocusItem.Asset.Name + "/Cleave.png", 1250, 550);
-	DrawText(DialogFind(Player, "ClothGagTypeCleave"), 1365, 800, "white", "gray");
+//	DrawButton(1250, 550, 225, 225, "", ((DialogFocusItem.Property.Type != null) && (DialogFocusItem.Property.Type == "Cleave")) ? "#888888" : "White");
+//	DrawImage("Screens/Inventory/" + DialogFocusItem.Asset.Group.Name + "/" + DialogFocusItem.Asset.Name + "/Cleave.png", 1250, 550);
+//	DrawText(DialogFind(Player, "ClothGagTypeCleave"), 1365, 800, "white", "gray");
 	DrawButton(1500, 550, 225, 225, "", ((DialogFocusItem.Property.Type != null) && (DialogFocusItem.Property.Type == "OTM")) ? "#888888" : "White");
 	DrawImage("Screens/Inventory/" + DialogFocusItem.Asset.Group.Name + "/" + DialogFocusItem.Asset.Name + "/OTM.png", 1500, 550);
 	DrawText(DialogFind(Player, "ClothGagTypeOTM"), 1615, 800, "white", "gray");
@@ -33,7 +33,7 @@ function InventoryItemMouth2ClothGagDraw() {
 function InventoryItemMouth2ClothGagClick() {
 	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) DialogFocusItem = null;
 	if ((MouseX >= 1000) && (MouseX <= 1225) && (MouseY >= 550) && (MouseY <= 775) && (DialogFocusItem.Property.Type != null)) InventoryItemMouth2ClothGagSetType(null);
-	if ((MouseX >= 1250) && (MouseX <= 1475) && (MouseY >= 550) && (MouseY <= 775) && ((DialogFocusItem.Property.Type == null) || (DialogFocusItem.Property.Type != "Cleave"))) InventoryItemMouth2ClothGagSetType("Cleave");
+//	if ((MouseX >= 1250) && (MouseX <= 1475) && (MouseY >= 550) && (MouseY <= 775) && ((DialogFocusItem.Property.Type == null) || (DialogFocusItem.Property.Type != "Cleave"))) InventoryItemMouth2ClothGagSetType("Cleave");
 	if ((MouseX >= 1500) && (MouseX <= 1725) && (MouseY >= 550) && (MouseY <= 775) && ((DialogFocusItem.Property.Type == null) || (DialogFocusItem.Property.Type != "OTM"))) InventoryItemMouth2ClothGagSetType("OTM");
 	if ((MouseX >= 1750) && (MouseX <= 1975) && (MouseY >= 550) && (MouseY <= 775) && ((DialogFocusItem.Property.Type == null) || (DialogFocusItem.Property.Type != "OTN"))) InventoryItemMouth2ClothGagSetType("OTN");
 }
@@ -46,10 +46,10 @@ function InventoryItemMouth2ClothGagSetType(NewType) {
 		InventoryItemMouth2ClothGagLoad();
 	}
 	DialogFocusItem.Property.Type = NewType;
-	if (NewType == null) DialogFocusItem.Property.Effect = ["GagLight"];
-	else if (NewType == "Cleave") DialogFocusItem.Property.Effect = ["GagLight"];
-	else if (NewType == "OTM") delete DialogFocusItem.Property.Effect;
-	else if (NewType == "OTN") delete DialogFocusItem.Property.Effect;
+	if (NewType == null) DialogFocusItem.Property.Effect = ["GagVeryLight"];
+//	else if (NewType == "Cleave") DialogFocusItem.Property.Effect = ["GagLight"];
+	else if (NewType == "OTM") DialogFocusItem.Property.Effect = ["GagEasy"];
+	else if (NewType == "OTN") DialogFocusItem.Property.Effect = ["GagEasy"];
 
 	CharacterRefresh(C);
 	ChatRoomCharacterUpdate(C);
