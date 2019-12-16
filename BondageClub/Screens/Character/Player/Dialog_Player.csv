@@ -16,6 +16,8 @@ LegsCannotClose,,,Legs cannot close.
 MustFreeFeetFirst,,,Must free feet frist.
 RemoveShacklesFirst,,,Must remove shackles first.
 CanOnlyEquipOneOfThisGag,,,Gag of this type already present.
+CannotBeUsedOverFlatGag,,,Gag cannot be used on top of a flat gag.
+CannotUseMultipleCorsetGags,,,Another Corset Gag already present.
 Cancel,,,Cancel
 Exit,,,Back to character
 Next,,,View next items
