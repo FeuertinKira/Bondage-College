@@ -8,7 +8,7 @@ function SpeechFullEmote(D) {
 // Returns the level of the gag for a given group of asset
 function SpeechGetGagLevel(C, AssetGroup) {
 	for (var A = 0; A < C.Appearance.length; A++) {
-		if (C.Appearance[A].Asset.Group.Name == AssetGroup) {
+		if (C.Appearance[A].Asset.Group.Name == AssetGroup && C.Appearance[A].Asset.Effect) {
 			for (var E = 0; E < C.Appearance[A].Asset.Effect.length; E++) {
 				if (C.Appearance[A].Asset.Effect[E] == "GagTotal") return 8;
 				else if (C.Appearance[A].Asset.Effect[E] == "GagVeryHeavy") return 7;
@@ -19,8 +19,10 @@ function SpeechGetGagLevel(C, AssetGroup) {
 				else if (C.Appearance[A].Asset.Effect[E] == "GagLight") return 2;
 				else if (C.Appearance[A].Asset.Effect[E] == "GagVeryLight") return 1;
 			}
+			return 0;
 		}
 	}
+	return 0;
 }
 
 // Garbles the speech if the character is gagged, anything between parentheses isn't touched
@@ -57,7 +59,7 @@ function SpeechGarble(C, CD) {
 	}
 
 	// VeryHeavy garble - Close to no letter stays the same
-	if ((GagEffect >= 7) || (C.ID != 0)) {
+	if (GagEffect >= 7) {
 		for (var L = 0; L < CD.length; L++) {
 			var H = CD.charAt(L).toLowerCase();
 			if (H == "(") Par = true;
@@ -129,7 +131,7 @@ function SpeechGarble(C, CD) {
 	}
 
 	// Medium garble - Some letters stays the same
-	if ((GagEffect >= 5) || (C.ID != 0)) {
+	if (GagEffect >= 5) {
 		for (var L = 0; L < CD.length; L++) {
 			var H = CD.charAt(L).toLowerCase();
 			if (H == "(") Par = true;
@@ -209,7 +211,7 @@ function SpeechGarble(C, CD) {
 	}
 
 	// Easy garble, keep vowels and a some letters the same
-	if ((GagEffect >= 3) || (C.ID != 0)) {
+	if (GagEffect >= 3) {
 		for (var L = 0; L < CD.length; L++) {
 			var H = CD.charAt(L).toLowerCase();
 			if (H == "(") Par = true;
@@ -295,7 +297,7 @@ function SpeechGarble(C, CD) {
 	}
 	
 	// Very Light garble, most of the letters stay the same
-	if ((GagEffect >= 1) || (C.ID != 0)) {
+	if (GagEffect >= 1) {
 		for (var L = 0; L < CD.length; L++) {
 			var H = CD.charAt(L).toLowerCase();
 			if (H == "(") Par = true;
