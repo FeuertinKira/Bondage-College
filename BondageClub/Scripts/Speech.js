@@ -5,6 +5,24 @@ function SpeechFullEmote(D) {
 	return ((D.indexOf("(") == 0) && (D.indexOf(")") == D.length - 1));
 }
 
+// Returns the level of the gag for a given group of asset
+function SpeechGetGagLevel(C, AssetGroup) {
+	for (var A = 0; A < C.Appearance.length; A++) {
+		if (C.Appearance[A].Asset.Group.Name == AssetGroup) {
+			for (var E = 0; E < C.Appearance[A].Asset.Effect.length; E++) {
+				if (C.Appearance[A].Asset.Effect[E] == "GagTotal") return 8;
+				else if (C.Appearance[A].Asset.Effect[E] == "GagVeryHeavy") return 7;
+				else if (C.Appearance[A].Asset.Effect[E] == "GagHeavy") return 6;
+				else if (C.Appearance[A].Asset.Effect[E] == "GagMedium") return 5;
+				else if (C.Appearance[A].Asset.Effect[E] == "GagNormal") return 4;
+				else if (C.Appearance[A].Asset.Effect[E] == "GagEasy") return 3;
+				else if (C.Appearance[A].Asset.Effect[E] == "GagLight") return 2;
+				else if (C.Appearance[A].Asset.Effect[E] == "GagVeryLight") return 1;
+			}
+		}
+	}
+}
+
 // Garbles the speech if the character is gagged, anything between parentheses isn't touched
 function SpeechGarble(C, CD) {
 
@@ -12,9 +30,16 @@ function SpeechGarble(C, CD) {
 	var NS = "";
 	var Par = false;
 	if (CD == null) CD = "";
+	var GagEffect = 0;
+	GagEffect += SpeechGetGagLevel(C, "ItemMouth");
+	GagEffect += SpeechGetGagLevel(C, "ItemMouth2");
+	GagEffect += SpeechGetGagLevel(C, "ItemMouth3");
+	GagEffect += SpeechGetGagLevel(C, "ItemHead");
+	GagEffect += SpeechGetGagLevel(C, "ItemNeck");
+	GagEffect += SpeechGetGagLevel(C, "ItemDevices");
 
 	// Total gags always returns mmmmm
-	if (C.Effect.indexOf("GagTotal") >= 0 || ((C.ID != 0) && (Player.Effect.indexOf("DeafTotal") >= 0))) {
+	if ((GagEffect >= 8) || ((C.ID != 0) && (Player.Effect.indexOf("DeafTotal") >= 0))) {
 		for (var L = 0; L < CD.length; L++) {
 			var H = CD.charAt(L).toLowerCase();
 			if (H == "(") Par = true;
@@ -32,7 +57,7 @@ function SpeechGarble(C, CD) {
 	}
 
 	// VeryHeavy garble - Close to no letter stays the same
-	if (C.Effect.indexOf("GagVeryHeavy") >= 0 || (C.ID != 0)) {
+	if ((GagEffect >= 7) || (C.ID != 0)) {
 		for (var L = 0; L < CD.length; L++) {
 			var H = CD.charAt(L).toLowerCase();
 			if (H == "(") Par = true;
@@ -67,7 +92,7 @@ function SpeechGarble(C, CD) {
 	}
 	
 	// Heavy garble - Almost no letter stays the same
-	if (C.Effect.indexOf("GagHeavy") >= 0 || ((C.ID != 0) && (Player.Effect.indexOf("DeafHeavy") >= 0))) {
+	if ((GagEffect >= 6) || ((C.ID != 0) && (Player.Effect.indexOf("DeafHeavy") >= 0))) {
 		for (var L = 0; L < CD.length; L++) {
 			var H = CD.charAt(L).toLowerCase();
 			if (H == "(") Par = true;
@@ -104,7 +129,7 @@ function SpeechGarble(C, CD) {
 	}
 
 	// Medium garble - Some letters stays the same
-	if (C.Effect.indexOf("GagMedium") >= 0 || (C.ID != 0)) {
+	if ((GagEffect >= 5) || (C.ID != 0)) {
 		for (var L = 0; L < CD.length; L++) {
 			var H = CD.charAt(L).toLowerCase();
 			if (H == "(") Par = true;
@@ -141,7 +166,7 @@ function SpeechGarble(C, CD) {
 	}
 	
 	// Normal garble, keep vowels and a few letters the same
-	if (C.Effect.indexOf("GagNormal") >= 0 || ((C.ID != 0) && (Player.Effect.indexOf("DeafNormal") >= 0))) {
+	if ((GagEffect >= 4) || ((C.ID != 0) && (Player.Effect.indexOf("DeafNormal") >= 0))) {
 		for (var L = 0; L < CD.length; L++) {
 			var H = CD.charAt(L).toLowerCase();
 			if (H == "(") Par = true;
@@ -184,7 +209,7 @@ function SpeechGarble(C, CD) {
 	}
 
 	// Easy garble, keep vowels and a some letters the same
-	if (C.Effect.indexOf("GagEasy") >= 0 || (C.ID != 0)) {
+	if ((GagEffect >= 3) || (C.ID != 0)) {
 		for (var L = 0; L < CD.length; L++) {
 			var H = CD.charAt(L).toLowerCase();
 			if (H == "(") Par = true;
@@ -227,7 +252,7 @@ function SpeechGarble(C, CD) {
 	}
 	
 	// Light garble, half of the letters stay the same
-	if (C.Effect.indexOf("GagLight") >= 0 || ((C.ID != 0) && (Player.Effect.indexOf("DeafLight") >= 0))) {
+	if ((GagEffect >= 2) || ((C.ID != 0) && (Player.Effect.indexOf("DeafLight") >= 0))) {
 		for (var L = 0; L < CD.length; L++) {
 			var H = CD.charAt(L).toLowerCase();
 			if (H == "(") Par = true;
@@ -270,7 +295,7 @@ function SpeechGarble(C, CD) {
 	}
 	
 	// Very Light garble, most of the letters stay the same
-	if (C.Effect.indexOf("GagVeryLight") >= 0 || (C.ID != 0)) {
+	if ((GagEffect >= 1) || (C.ID != 0)) {
 		for (var L = 0; L < CD.length; L++) {
 			var H = CD.charAt(L).toLowerCase();
 			if (H == "(") Par = true;
