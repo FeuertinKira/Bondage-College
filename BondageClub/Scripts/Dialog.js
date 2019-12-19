@@ -210,6 +210,7 @@ function DialogMenuButtonBuild(C) {
 		if ((Item != null) && !InventoryItemHasEffect(Item, "Lock", true) && InventoryItemHasEffect(Item, "Enclose", true) && Player.CanInteract() && InventoryAllow(C, Item.Asset.Prerequisite) && !InventoryGroupIsBlocked(C)) DialogMenuButton.push("Escape");
 		if (InventoryItemHasEffect(Item, "Egged") && InventoryAvailable(Player, "VibratorRemote", "ItemVulva") && Player.CanInteract()) DialogMenuButton.push("Remote");
 		if ((Item != null) && Item.Asset.Extended && Player.CanInteract() && !InventoryGroupIsBlocked(C) && (!Item.Asset.OwnerOnly || (C.IsOwnedByPlayer()))) DialogMenuButton.push("Use");
+		if (C.FocusGroup.Name == "ItemMouth" || C.FocusGroup.Name == "ItemMouth2" || C.FocusGroup.Name == "ItemMouth3") DialogMenuButton.push("ChangeLayersMouth");
 		if (Player.CanInteract()) DialogMenuButton.push("ColorPick");
 		if (C.ID == 0) {
 			if (DialogItemPermissionMode) DialogMenuButton.push("DialogNormalMode");
@@ -421,6 +422,20 @@ function DialogMenuButtonClick() {
 				if (InventoryItemHasEffect(Item, "Egged") && InventoryAvailable(Player, "VibratorRemote", "ItemVulva"))
 					DialogExtendItem(Item);
 				return;
+			}
+
+			// Cycle through the layers of restraints for the mouth
+			if (DialogMenuButton[I] == "ChangeLayersMouth") {
+				var NewLayerName;
+				if (C.FocusGroup.Name == "ItemMouth") NewLayerName = "ItemMouth2";
+				if (C.FocusGroup.Name == "ItemMouth2") NewLayerName = "ItemMouth3";
+				if (C.FocusGroup.Name == "ItemMouth3") NewLayerName = "ItemMouth";
+
+				for (var A = 0; A < AssetGroup.length; A++)
+					if (AssetGroup[A].Name == NewLayerName) {
+						C.FocusGroup = AssetGroup[A];
+						DialogInventoryBuild(C);
+					}
 			}
 
 			// Lock Icon - Rebuilds the inventory list with locking items

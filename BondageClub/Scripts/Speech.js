@@ -7,19 +7,28 @@ function SpeechFullEmote(D) {
 
 // Returns the level of the gag for a given group of asset
 function SpeechGetGagLevel(C, AssetGroup) {
+	function GetGagLevel(Effect) {
+		if (Effect == "GagTotal") return 8;
+		else if (Effect == "GagVeryHeavy") return 7;
+		else if (Effect == "GagHeavy") return 6;
+		else if (Effect == "GagMedium") return 5;
+		else if (Effect == "GagNormal") return 4;
+		else if (Effect == "GagEasy") return 3;
+		else if (Effect == "GagLight") return 2;
+		else if (Effect == "GagVeryLight") return 1;
+	}
+
 	for (var A = 0; A < C.Appearance.length; A++) {
-		if (C.Appearance[A].Asset.Group.Name == AssetGroup && C.Appearance[A].Asset.Effect) {
-			for (var E = 0; E < C.Appearance[A].Asset.Effect.length; E++) {
-				if (C.Appearance[A].Asset.Effect[E] == "GagTotal") return 8;
-				else if (C.Appearance[A].Asset.Effect[E] == "GagVeryHeavy") return 7;
-				else if (C.Appearance[A].Asset.Effect[E] == "GagHeavy") return 6;
-				else if (C.Appearance[A].Asset.Effect[E] == "GagMedium") return 5;
-				else if (C.Appearance[A].Asset.Effect[E] == "GagNormal") return 4;
-				else if (C.Appearance[A].Asset.Effect[E] == "GagEasy") return 3;
-				else if (C.Appearance[A].Asset.Effect[E] == "GagLight") return 2;
-				else if (C.Appearance[A].Asset.Effect[E] == "GagVeryLight") return 1;
-			}
-			return 0;
+		if (C.Appearance[A].Asset.Group.Name == AssetGroup) {
+			if (C.Appearance[A].Property && C.Appearance[A].Property.Effect)
+				for (var E = 0; E < C.Appearance[A].Property.Effect.length; E++)
+					return GetGagLevel(C.Appearance[A].Property.Effect[E]);
+			if (C.Appearance[A].Asset.Effect)
+				for (var E = 0; E < C.Appearance[A].Asset.Effect.length; E++)
+					return GetGagLevel(C.Appearance[A].Asset.Effect[E]);
+			else if (C.Appearance[A].Asset.Group.Effect)
+				for (var E = 0; E < C.Appearance[A].Asset.Group.Effect.length; E++)
+					return GetGagLevel(C.Appearance[A].Asset.Group.Effect[E]);
 		}
 	}
 	return 0;
