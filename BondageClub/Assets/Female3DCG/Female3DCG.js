@@ -1260,7 +1260,7 @@ var AssetFemale3DCG = [
 			{ Name: "PantiesMask", Effect: ["GagVeryLight"], Random: false, Value: 20, Time: 15, Block: ["ItemMouth"], BuyGroup: "PantiesMask" },
 			{ Name: "BoneGag", Difficulty: 6, Value: 50, Time: 10, Effect: ["GagLight"], AllowLock: true, Block: ["ItemMouth"], BuyGroup: "BoneGag", SetPose: ["GagUnique"], Prerequisite: "GagUnique" },
 			{ Name: "HarnessBallGag1", Effect: ["GagHeavy"], Difficulty: 4, Value: 75, Time: 20, AllowLock: true, Block: ["ItemMouth"], BuyGroup: "HarnessBallGag1", SetPose: ["GagUnique"], Prerequisite: "GagUnique" },
-			{ Name: "PumpkinGag", Effect: ["GagEasy"], Difficulty: 1, Value: 40, Time: 10, AllowLock: true, Block: ["ItemMouth"], SetPose: ["GagUnique"], Prerequisite: "GagUnique" },
+			{ Name: "PumpkinGag", Effect: ["GagEasy"], Difficulty: 1, Value: 40, Time: 10, AllowLock: true, BuyGroup: "PumpkinGag", Block: ["ItemMouth"], SetPose: ["GagUnique"], Prerequisite: "GagUnique" },
 			{
 				Name: "LipGag", Effect: ["GagLight"], Value: 40, Time: 5, AllowLock: true, Block: ["ItemMouth"], BuyGroup: "LipGag", SetPose: ["GagUnique"], Prerequisite: "GagUnique",
 				Layer: [
@@ -1328,7 +1328,7 @@ var AssetFemale3DCG = [
 			{ Name: "PantiesMask", Effect: ["GagVeryLight"], Random: false, Value: 20, Time: 15, Block: ["ItemMouth", "ItemMouth2"], BuyGroup: "PantiesMask" },
 			{ Name: "BoneGag", Difficulty: 6, Value: 50, Time: 10, Effect: ["GagLight"], AllowLock: true, Block: ["ItemMouth", "ItemMouth2"], BuyGroup: "BoneGag", SetPose: ["GagUnique"], Prerequisite: "GagUnique" },
 			{ Name: "HarnessBallGag1", Effect: ["GagHeavy"], Difficulty: 4, Value: 75, Time: 20, AllowLock: true, Block: ["ItemMouth", "ItemMouth2"], BuyGroup: "HarnessBallGag1", SetPose: ["GagUnique"], Prerequisite: "GagUnique" },
-			{ Name: "PumpkinGag", Effect: ["GagEasy"], Difficulty: 1, Value: 40, Time: 10, AllowLock: true, Block: ["ItemMouth", "ItemMouth2"], BuyGroup: "PumpkinGag", SetPose: ["GagUnique"], Prerequisite: "GagUnique" },
+			{ Name: "PumpkinGag", Effect: ["GagEasy"], Difficulty: 1, Value: 40, Time: 10, AllowLock: true, BuyGroup: "PumpkinGag", Block: ["ItemMouth", "ItemMouth2"], BuyGroup: "PumpkinGag", SetPose: ["GagUnique"], Prerequisite: "GagUnique" },
 			{
 				Name: "LipGag", Effect: ["GagLight"], Value: 40, Time: 5, AllowLock: true, Block: ["ItemMouth", "ItemMouth2"], BuyGroup: "LipGag", SetPose: ["GagUnique"], Prerequisite: "GagUnique",
 				Layer: [
