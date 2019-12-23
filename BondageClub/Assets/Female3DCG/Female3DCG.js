@@ -493,7 +493,7 @@ var AssetFemale3DCG = [
 		Priority: 9,
 		AllowNone: false,
 		Color: ["#6a3628", "#5e481e", "#666666", "#555588", "#558855", "#885555", "#202020", "#aa3333", "#33aa33", "#3333aa", "#aaaa33", "#33aaaa", "#aa33aa"],
-		AllowExpression: ["Closed", "Dazed", "Shy", "Sad", "Horny", "Lewd", "VeryLewd", "WinkL", "WinkR", "Angry", "Surprised", "Scared"],
+		AllowExpression: ["Closed", "Dazed", "Shy", "Sad", "Horny", "Lewd", "VeryLewd", "Heart", "LewdHeart", "Dizzy", "Daydream", "WinkL", "WinkR", "Angry", "Surprised", "Scared"],
 		Left: 200,
 		Top: 145,
 		FullAlpha: false,
@@ -574,7 +574,7 @@ var AssetFemale3DCG = [
 	
 	{
 		Group: "Fluids",
-		Priority: 10,
+		Priority: 11,
 		AllowNone: false,
 		AllowColorize: false,
 		AllowCustomize: false,
