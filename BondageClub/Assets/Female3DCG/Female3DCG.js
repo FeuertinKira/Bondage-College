@@ -559,18 +559,6 @@ var AssetFemale3DCG = [
 		Top: 120,
 		Asset: ["Eyebrows1"]
 	},
-	
-	{
-		Group: "Drool",
-		Priority: 9,
-		AllowNone: false,
-		AllowColorize: false,
-		AllowCustomize: false,
-		AllowExpression: ["Right", "Left", "Both", "Messy"],
-		Left: 240,
-		Top: 190,
-		Asset: ["Drool"]
-	},
 
 	{
 		Group: "Blush",
