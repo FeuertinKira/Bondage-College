@@ -148,7 +148,7 @@ function DialogEndExpression() {
 		DialogAllowFluids = false;
 	}
 }
-		
+
 // Leaves the item menu for both characters
 function DialogLeaveItemMenu() {
 	DialogEndExpression();
