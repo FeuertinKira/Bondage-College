@@ -571,7 +571,7 @@ var AssetFemale3DCG = [
 		Top: 100,
 		Asset: ["Blush"]
 	},
-	
+
 	{
 		Group: "Fluids",
 		Priority: 11,
@@ -583,7 +583,7 @@ var AssetFemale3DCG = [
 		Top: 145,
 		Asset: ["Fluids"]
 	},
-	
+
 	{
 		Group: "XEmoticon",
 		Priority: 49,
