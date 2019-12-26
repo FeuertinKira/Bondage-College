@@ -8,7 +8,10 @@ function SpeechFullEmote(D) {
 // Returns the level of the gag for a given group of asset
 function SpeechGetGagLevel(C, AssetGroup) {
 	function GetGagLevel(Effect) {
-		if (Effect == "GagTotal") return 8;
+		if (Effect == "GagTotal4") return 20;
+		else if (Effect == "GagTotal3") return 16;
+		else if (Effect == "GagTotal2") return 12;
+		else if (Effect == "GagTotal") return 8;
 		else if (Effect == "GagVeryHeavy") return 7;
 		else if (Effect == "GagHeavy") return 6;
 		else if (Effect == "GagMedium") return 5;
@@ -48,6 +51,63 @@ function SpeechGarble(C, CD) {
 	GagEffect += SpeechGetGagLevel(C, "ItemHead");
 	GagEffect += SpeechGetGagLevel(C, "ItemNeck");
 	GagEffect += SpeechGetGagLevel(C, "ItemDevices");
+
+	// GagTotal4 always returns mmmmm and muffles some frequent letters entirely, 75% least frequent letters
+	if (GagEffect >= 20) {
+		for (var L = 0; L < CD.length; L++) {
+			var H = CD.charAt(L).toLowerCase();
+			if (H == "(") Par = true;
+			if (Par) NS = NS + CD.charAt(L);
+			else {
+				if (H == " " || H == "." || H == "?" || H == "!" || H == "~" || H == "-") NS = NS + H;
+				else if (H == "z" || H == "q" || H == "j" || H == "x" || H == "k" || H == "v" || H == "b" || H == "y" || H == "w" || H == "g" || H == "p" || H == "f" || H == "u" || H == "c" || H == "d" || H == "l" || H == "h" || H == "r") NS = NS + " ";
+				else NS = NS + "m";
+			}
+
+			if (H == ")") Par = false;
+		}
+		NS = SpeechStutter(C, NS);
+		NS = SpeechBabyTalk(C, NS);
+		return NS;
+	}
+
+	// GagTotal3 always returns mmmmm and muffles some relatively frequent letters entirely, 50% least frequent letters
+	if (GagEffect >= 16) {
+		for (var L = 0; L < CD.length; L++) {
+			var H = CD.charAt(L).toLowerCase();
+			if (H == "(") Par = true;
+			if (Par) NS = NS + CD.charAt(L);
+			else {
+				if (H == " " || H == "." || H == "?" || H == "!" || H == "~" || H == "-") NS = NS + H;
+				else if (H == "z" || H == "q" || H == "j" || H == "x" || H == "k" || H == "v" || H == "b" || H == "y" || H == "w" || H == "g" || H == "p" || H == "f") NS = NS + " ";
+				else NS = NS + "m";
+			}
+
+			if (H == ")") Par = false;
+		}
+		NS = SpeechStutter(C, NS);
+		NS = SpeechBabyTalk(C, NS);
+		return NS;
+	}
+
+	// GagTotal2 always returns mmmmm and muffles some less frequent letters entirely; 25% least frequent letters
+	if (GagEffect >= 12) {
+		for (var L = 0; L < CD.length; L++) {
+			var H = CD.charAt(L).toLowerCase();
+			if (H == "(") Par = true;
+			if (Par) NS = NS + CD.charAt(L);
+			else {
+				if (H == " " || H == "." || H == "?" || H == "!" || H == "~" || H == "-") NS = NS + H;
+				else if (H == "z" || H == "q" || H == "j" || H == "x" || H == "k" || H == "v") NS = NS + " ";
+				else NS = NS + "m";
+			}
+
+			if (H == ")") Par = false;
+		}
+		NS = SpeechStutter(C, NS);
+		NS = SpeechBabyTalk(C, NS);
+		return NS;
+	}	
 
 	// Total gags always returns mmmmm
 	if ((GagEffect >= 8) || ((C.ID != 0) && (Player.Effect.indexOf("DeafTotal") >= 0))) {

@@ -1203,6 +1203,13 @@ var AssetFemale3DCG = [
 					{ Name: "Cloth", AllowColorize: true }
 				]
 			},
+			{
+				Name: "PantyStuffing", Effect: ["GagLight"], Difficulty: -20, Value: 10, Time: 5, BuyGroup: "PantyStuffing",
+				Layer: [
+					{ Name: "Lips", AllowColorize: false },
+					{ Name: "Cloth", AllowColorize: true }
+				]
+			},
 			{ Name: "ChloroformCloth", Effect: ["GagVeryLight"], Value: 40, Time: 2, ExpressionTrigger: [{ Group: "Blush", Name: "High", Timer: 20 }, { Group: "Eyebrows", Name: "Soft", Timer: 180 }, { Group: "Eyes", Name: "Wink", Timer: 180 }] },
 			{ Name: "ScarfGag", Effect: ["GagLight"], Value: 15, Time: 10, BuyGroup: "ScarfGag", SetPose: ["GagFlat"], Prerequisite: "GagFlat" },
 			{ Name: "LewdGag", Random: false, Effect: ["GagLight"], Value: 70, Time: 10, AllowLock: true, ExpressionTrigger: [{ Group: "Blush", Name: "Light", Timer: 5 }, { Group: "Eyes", Name: "Closed", Timer: 5 }], SetPose: ["GagFlat"], Prerequisite: "GagFlat" },
