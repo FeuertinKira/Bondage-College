@@ -19,6 +19,7 @@ function SpeechGetGagLevel(C, AssetGroup) {
 		else if (Effect == "GagEasy") return 3;
 		else if (Effect == "GagLight") return 2;
 		else if (Effect == "GagVeryLight") return 1;
+		else return 0;
 	}
 
 	for (var A = 0; A < C.Appearance.length; A++) {
