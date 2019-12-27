@@ -21,6 +21,7 @@ var DialogMenuButton = [];
 var DialogItemToLock = null;
 var DialogAllowBlush = false;
 var DialogAllowEyebrows = false;
+var DialogAllowDrool = false;
 var DialogFacialExpressions = [];
 var DialogItemPermissionMode = false;
 
@@ -142,7 +143,11 @@ function DialogEndExpression() {
 		TimerInventoryRemoveSet(Player, "Eyebrows", 5);
 		DialogAllowEyebrows = false;
 	}
-}
+	}
+	if (DialogAllowDrool) {
+		TimerInventoryRemoveSet(Player, "Drool", 5);
+		DialogAllowDrool = false;
+	}
 
 // Leaves the item menu for both characters
 function DialogLeaveItemMenu() {
@@ -321,6 +326,11 @@ function DialogStruggle(Reverse) {
 		if (DialogProgressStruggleCount == 15) CharacterSetFacialExpression(Player, "Blush", "Low");
 		if (DialogProgressStruggleCount == 50) CharacterSetFacialExpression(Player, "Blush", "Medium");
 		if (DialogProgressStruggleCount == 125) CharacterSetFacialExpression(Player, "Blush", "High");
+	}
+
+	// drool Expression
+	if (DialogAllowDrool && !Reverse) {
+		if (DialogProgressStruggleCount == 15) CharacterSetFacialExpression(Player, "Drool", "Right", "Left");
 	}
 
 	// Over 50 progress, the character frowns
@@ -632,8 +642,9 @@ function DialogClick() {
 		var C = (MouseX < 500) ? Player : CurrentCharacter;
 		var X = (MouseX < 500) ? 0 : 500;
 		var HeightRatio = CharacterAppearanceGetCurrentValue(C, "Height", "Zoom");
+		if ((Player != null) && (Player.VisualSettings != null) && (Player.VisualSettings.ForceFullHeight != null) && Player.VisualSettings.ForceFullHeight) HeightRatio = 1.0;
 		var Xoffset = 500 * (1 - HeightRatio) / 2;
-		var YOffset = 1000 * (1 - HeightRatio);		
+		var YOffset = 1000 * (1 - HeightRatio);
 		for (var A = 0; A < AssetGroup.length; A++)
 			if ((AssetGroup[A].Category == "Item") && (AssetGroup[A].Zone != null))
 				for (var Z = 0; Z < AssetGroup[A].Zone.length; Z++)
@@ -860,6 +871,7 @@ function DialogDrawItemMenu(C) {
 
 			// remove associated items at the same time
 			if (InventoryGet(C, "ItemNeck") == null) InventoryRemove(C, "ItemNeckAccessories");
+			if (InventoryGet(C, "ItemNeck") == null) InventoryRemove(C, "ItemNeckRestraints");
 
 			// The player can use another item right away, for another character we jump back to her reaction
 			if (C.ID == 0) {

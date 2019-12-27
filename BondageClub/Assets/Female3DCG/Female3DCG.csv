@@ -151,6 +151,7 @@ HairAccessory1,Ears1,Ears Small
 HairAccessory1,Ears2,Ears Large
 HairAccessory1,PonyEars1,Pony Ears
 HairAccessory1,Ribbons1,Hair Ribbon 1
+HairAccessory1,Ribbons2,Hair Ribbon 2
 HairAccessory1,GiantBow1, Giant Bow 1
 HairAccessory1,BunnyEars1,Bunny Ears
 HairAccessory1,BunnyEars2,Floppy Bunny Ears
@@ -168,6 +169,7 @@ HairAccessory2,Ears1,Ears Small
 HairAccessory2,Ears2,Ears Large
 HairAccessory2,PonyEars1,Pony Ears
 HairAccessory2,Ribbons1,Hair Ribbon 1
+HairAccessory2,Ribbons2,Hair Ribbon 2
 HairAccessory2,GiantBow1, Giant Bow 1
 HairAccessory2,BunnyEars1,Bunny Ears
 HairAccessory2,BunnyEars2,Floppy Bunny Ears
@@ -208,6 +210,7 @@ TailStraps,SuccubusStrap,Succubus Tail Strap
 TailStraps,SuccubusStrap2,Succubus2 Tail Strap
 TailStraps,RaccoonStrap,Raccoon Tail Strap
 TailStraps,RaccoonTailStrap,Raccoon2 Tail Strap
+TailStraps,PuppyTailStrap1,Puppy Fluffy Tail Strap
 Wings,,Wings
 Wings,SuccubusFeather,Succubus Feather 
 Wings,SuccubusWings,Succubus Wings
@@ -273,6 +276,7 @@ HairFront,HairFront10,Style 10
 HairFront,HairFront11,Style 11
 HairFront,HairFront12,Style 12
 HairFront,HairFront13,Style 13
+HairFront,HairFront14,Style 14
 Eyes,,Eyes
 Eyes,Eyes1,Style 1
 Eyes,Eyes2,Style 2
@@ -303,6 +307,8 @@ Pussy,PussyDark2,Dark 2
 Pussy,PussyDark3,Dark 3
 Eyebrows,,Eyebrows
 Eyebrows,Eyebrows1,Eyebrows
+Drool,,Drool
+Drool,Drool,Drool
 Blush,,Blush
 Blush,Blush,Blush
 ItemFeet,,Feet
@@ -356,6 +362,7 @@ ItemButt,BlackButtPlug,Black Butt Plug
 ItemButt,TailButtPlug,Kitty Butt Plug
 ItemButt,HorseButtPlug,Horse Butt Plug
 ItemButt,PuppyTailPlug,Puppy Butt Plug
+ItemButt,PuppyTailPlug1,Puppy Fluffy Butt Plug
 ItemButt,SuccubusButtPlug,Succubus Butt Plug
 ItemButt,SuccubusButtPlug2,Succubus Tail
 ItemButt,FoxTails,Fox Tails
@@ -493,10 +500,6 @@ ItemNeckAccessories,CollarBell,Bell
 ItemNeckAccessories,CollarBow,Bow
 ItemNeckAccessories,CollarShockUnit,Shock Unit
 ItemNeckAccessories,ShockCollarRemote,Shock Collar Remote
-ItemNeckAccessories,CollarChainLong,Long Chain
-ItemNeckAccessories,CollarChainShort,Short Chain
-ItemNeckAccessories,CollarLeash,Leash
-ItemNeckAccessories,CollarLeashTaken,Pulled Leash
 ItemNeckAccessories,CollarNameTag,Name Tag
 ItemNeckAccessories,CollarNameTagOval,Oval Name Tag
 ItemNeckAccessories,CollarNameTagPet,Pet Name Tag
@@ -504,10 +507,14 @@ ItemNeckAccessories,CollarNameTagLover,Lover Name Tag
 ItemNeckAccessories,CollarMoon,Moon Pendant
 ItemNeckAccessories,CollarSun,Sun Pendant
 ItemNeckAccessories,CollarLapis,Lapis Pendant
-ItemNeckAccessories,CollarCross,Cross Pendant
 ItemNeckAccessories,CollarPentagram,Pentagram Pendant
 ItemNeckAccessories,CollarFlower,Flower
 ItemNeckAccessories,CollarRose,Rose
+ItemNeckRestraints,,Collar
+ItemNeckRestraints,CollarChainLong,Long Chain
+ItemNeckRestraints,CollarChainShort,Short Chain
+ItemNeckRestraints,CollarLeash,Leash
+ItemNeckRestraints,CollarLeashTaken,Pulled Leash
 ItemMouth,,Mouth
 ItemMouth,ClothGag,Cloth Gag
 ItemMouth,WiffleGag,Wiffle Ball Gag
@@ -628,7 +635,9 @@ ItemMisc,MetalPadlock,Metal Padlock
 ItemMisc,IntricatePadlock,Intricate Padlock
 ItemMisc,TimerPadlock,Five Minutes Padlock
 ItemMisc,OwnerPadlock,Owner Padlock
+ItemMisc,OwnerTimerPadlock,Owner Timer Padlock
 ItemMisc,MistressPadlock,Mistress Padlock
+ItemMisc,MistressTimerPadlock,Mistress Timer Padlock
 ItemMisc,MetalPadlockKey,Metal Padlock Key
 ItemMisc,IntricatePadlockKey,Intricate Padlock Key
 ItemMisc,OwnerPadlockKey,Owner Padlock Key
