@@ -7,6 +7,7 @@ var MainHallMaid = null;
 var MainHallIsMaid = false;
 var MainHallIsHeadMaid = false;
 var MainHallHasOwnerLock = false;
+var MainHallHasSlaveCollar = false;
 
 // Returns TRUE if a dialog option is available
 function MainHallCanTrickMaid() { return (ManagementIsClubSlave() && SarahUnlockQuest) }
@@ -23,6 +24,10 @@ function MainHallLoad() {
 	MainHallIsMaid = LogQuery("JoinedSorority", "Maid");
 	MainHallIsHeadMaid = LogQuery("LeadSorority", "Maid");
 	MainHallHasOwnerLock = InventoryCharacterHasOwnerOnlyRestraint(Player);
+	for (var A = 0; A < Player.Appearance.length; A++)
+		if (Player.Appearance[A].Asset.Name == "SlaveCollar")
+			if (Player.Appearance[A].Property)
+				MainHallHasSlaveCollar = true;
 	CommonReadCSV("NoArravVar", "Room", "Management", "Dialog_NPC_Management_RandomGirl");
 	CommonReadCSV("NoArravVar", "Room", "KidnapLeague", "Dialog_NPC_KidnapLeague_RandomKidnapper");
 	CommonReadCSV("NoArravVar", "Room", "Private", "Dialog_NPC_Private_Custom");
@@ -256,12 +261,28 @@ function MainHallFreeSarah() {
 	DialogLeave();
 }
 
-// When the maid unlocks the player from an owner, she get forced naked for an hour and loses reputation
+// When the maid unlocks the player from an owner
 function MainHallMaidShamePlayer() {
 	CharacterRelease(Player);
-	CharacterNaked(Player);
 	MainHallHasOwnerLock = false;
-	LogAdd("BlockChange", "Rule", CurrentTime + 3600000);
+	MainHallMaidPunishmentPlayer();
+}
+
+// When the maid changes the slave collar model to default
+function MainHallMaidChangeCollarPlayer() {
+	for (var A = 0; A < Player.Appearance.length; A++)
+		if (Player.Appearance[A].Asset.Name == "SlaveCollar") {
+			Player.Appearance[A].Property = null;
+			Player.Appearance[A].Color = "Default";
+		}
+	MainHallHasSlaveCollar = false;
+	MainHallMaidPunishmentPlayer();
+}
+
+// When the maid punishes the player, she get forced naked for an hour and loses reputation
+function MainHallMaidPunishmentPlayer() {
+	CharacterNaked(Player);
+	LogAdd("BlockChange","Rule", CurrentTime + 3600000);
 	if (ReputationGet("Dominant") > 10) ReputationProgress("Dominant", -10);
 	if (ReputationGet("Dominant") < -10) ReputationProgress("Dominant", 10);
 }
