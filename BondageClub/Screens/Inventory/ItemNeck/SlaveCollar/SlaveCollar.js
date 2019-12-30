@@ -60,11 +60,11 @@ var InventoryItemNeckSlaveCollarTypes = [
 	},{
         Name: "StrictPostureCollar",
         Image: "StrictPostureCollar",
-        Property: { Type: "StrictPostureCollar", Effect: [], Block: [] }
+        Property: { Type: "StrictPostureCollar", Effect: ["GagNormal"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"] }
 	},{
         Name: "LatexPostureCollar",
         Image: "LatexPostureCollar",
-        Property: { Type: "LatexPostureCollar", Effect: [], Block: [] }
+        Property: { Type: "LatexPostureCollar", Effect: ["GagNormal"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"] }
 	},{
         Name: "HeartCollar",
         Image: "HeartCollar",
@@ -73,13 +73,17 @@ var InventoryItemNeckSlaveCollarTypes = [
         Name: "NobleCorsetCollar",
         Image: "NobleCorsetCollar",
         Property: { Type: "NobleCorsetCollar", Effect: [], Block: [] }
+	},{
+        Name: "OrnateCollar",
+        Image: "OrnateCollar",
+        Property: { Type: "OrnateCollar", Effect: [], Block: [] }
 	},
 ];
 
 // Loads the item extension properties
 function InventoryItemNeckSlaveCollarLoad() {
 	InventoryItemNeckSlaveCollarColorMode = false;
-    if (DialogFocusItem.Property == null) DialogFocusItem.Property = { Type: null, Effect: [], Block: []};
+    if (DialogFocusItem.Property == null) DialogFocusItem.Property = { Type: null, Effect: [], Block: [] };
 }
 
 // Draw the item extension screen
