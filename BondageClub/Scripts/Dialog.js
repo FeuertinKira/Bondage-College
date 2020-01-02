@@ -21,7 +21,7 @@ var DialogMenuButton = [];
 var DialogItemToLock = null;
 var DialogAllowBlush = false;
 var DialogAllowEyebrows = false;
-var DialogAllowFluids = false;
+var DialogAllowDrool = false;
 var DialogFacialExpressions = [];
 var DialogItemPermissionMode = false;
 
@@ -142,12 +142,12 @@ function DialogEndExpression() {
 	if (DialogAllowEyebrows) {
 		TimerInventoryRemoveSet(Player, "Eyebrows", 5);
 		DialogAllowEyebrows = false;
-	}		
-	if (DialogAllowFluids) {
-		TimerInventoryRemoveSet(Player, "Fluids", 5);
-		DialogAllowFluids = false;
 	}
-}
+	}
+	if (DialogAllowDrool) {
+		TimerInventoryRemoveSet(Player, "Drool", 5);
+		DialogAllowDrool = false;
+	}
 
 // Leaves the item menu for both characters
 function DialogLeaveItemMenu() {
@@ -327,9 +327,9 @@ function DialogStruggle(Reverse) {
 		if (DialogProgressStruggleCount == 125) CharacterSetFacialExpression(Player, "Blush", "High");
 	}
 
-	// At 15 hit: Start drooling
-	if (DialogAllowFluids && !Reverse) {
-		if (DialogProgressStruggleCount == 15) CharacterSetFacialExpression(Player, "Fluids", "DroolMessy");
+	// drool Expression
+	if (DialogAllowDrool && !Reverse) {
+		if (DialogProgressStruggleCount == 15) CharacterSetFacialExpression(Player, "Drool", "Right", "Left");
 	}
 
 	// Over 50 progress, the character frowns
