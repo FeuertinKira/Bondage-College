@@ -518,7 +518,7 @@ var AssetFemale3DCG = [
 		Color: ["#6a3628", "#5e481e", "#666666", "#555588", "#558855", "#885555", "#202020", "#aa3333", "#33aa33", "#3333aa", "#aaaa33", "#33aaaa", "#aa33aa"],
 		AllowExpression: ["Closed", "Dazed", "Shy", "Sad", "Horny", "Lewd", "VeryLewd", "Heart", "LewdHeart", "Dizzy", "Daydream", "WinkL", "WinkR", "Angry", "Surprised", "Scared"],
 		Left: 200,
-		Top: 150,
+		Top: 145,
 		FullAlpha: false,
 		Blink: true,
 		Asset: ["Eyes1", "Eyes2", "Eyes3", "Eyes4", "Eyes5", "Eyes6", "Eyes7", "Eyes8", "Eyes9", "Eyes10", "Eyes11"]
@@ -529,10 +529,22 @@ var AssetFemale3DCG = [
 		Priority: 10,
 		AllowNone: false,
 		Color: ["Default", "#803d26", "#aa5555", "#cc3333", "#55aa55", "#5555aa", "#55aaaa", "#aa55aa", "#aaaa55"],
-		AllowExpression: ["Frown"],
-		Left: 240,
-		Top: 190,
-		Asset: ["Mouth1", "Mouth2", "Mouth3", "Mouth4", "Mouth5"]
+		AllowExpression: ["Frown", "Sad", "Pained", "Angry", "HalfOpen", "Open", "Ahegao", "Moan", "TonguePinch", "LipBite", "Happy", "Devious", "Laughing", "Grin", "Smirk"],
+		Left: 235,
+		Top: 180,
+		Asset: [
+			{ Name: "Mouth", 
+			Layer: [
+					{ Name: "Lips", AllowColorize: true },
+					{ Name: "Inner", AllowColorize: false }
+				]
+			},
+			{ Name: "Mouth1" },
+			{ Name: "Mouth2" },
+			{ Name: "Mouth3" },
+			{ Name: "Mouth4" },
+			{ Name: "Mouth5" }
+		]
 	},
 
 	{
