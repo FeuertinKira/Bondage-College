@@ -233,6 +233,8 @@ function MaidQuartersFreeSarah() {
 // The maid can give a duster gag to the player if she's in the sorority
 function MaidQuartersGetDusterGag() {
 	InventoryAdd(Player, "DusterGag", "ItemMouth");
+	InventoryAdd(Player, "DusterGag", "ItemMouth2");
+	InventoryAdd(Player, "DusterGag", "ItemMouth3");
 }
 
 // When the online drink mini game starts
