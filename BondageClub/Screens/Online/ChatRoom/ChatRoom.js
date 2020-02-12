@@ -6,6 +6,7 @@ var ChatRoomLastMessage = [""];
 var ChatRoomLastMessageIndex = 0;
 var ChatRoomTargetMemberNumber = null;
 var ChatRoomOwnershipOption = "";
+var ChatRoomLovershipOption = "";
 var ChatRoomPlayerCanJoin = false;
 var ChatRoomMoneyForOwner = 0;
 var ChatRoomQuestGiven = [];
@@ -21,6 +22,7 @@ function ChatRoomCanAddFriend() { return ((CurrentCharacter != null) && (Current
 function ChatRoomCanRemoveFriend() { return ((CurrentCharacter != null) && (CurrentCharacter.MemberNumber != null) && (Player.FriendList.indexOf(CurrentCharacter.MemberNumber) >= 0)) }
 function ChatRoomCanChangeClothes() { return (Player.CanInteract() && (CurrentCharacter != null) && (CurrentCharacter.MemberNumber != null) && CurrentCharacter.AllowItem && !((InventoryGet(CurrentCharacter, "ItemNeck") != null) && (InventoryGet(CurrentCharacter, "ItemNeck").Asset.Name == "ClubSlaveCollar"))) }
 function ChatRoomOwnershipOptionIs(Option) { return (Option == ChatRoomOwnershipOption) }
+function ChatRoomLovershipOptionIs(Option) { return (Option == ChatRoomLovershipOption) }
 function ChatRoomCanTakeDrink() { return ((CurrentCharacter != null) && (CurrentCharacter.MemberNumber != null) && (CurrentCharacter.ID != 0) && Player.CanInteract() && (InventoryGet(CurrentCharacter, "ItemMisc") != null) && (InventoryGet(CurrentCharacter, "ItemMisc").Asset.Name == "WoodenMaidTrayFull")) }
 function ChatRoomIsCollaredByPlayer() { return ((CurrentCharacter != null) && (CurrentCharacter.Ownership != null) && (CurrentCharacter.Ownership.Stage == 1) && (CurrentCharacter.Ownership.MemberNumber == Player.MemberNumber)) }
 function ChatRoomCanServeDrink() { return ((CurrentCharacter != null) && CurrentCharacter.CanWalk() && (ReputationCharacterGet(CurrentCharacter, "Maid") > 0)) }
@@ -76,14 +78,22 @@ function ChatRoomOwnerInside() {
 // Draw the characters in the room
 function ChatRoomDrawCharacter(DoClick) {
 
-	// If there's 2 characters, it's zoomed in
-	if (!DoClick && (Player.Effect.indexOf("BlindHeavy") < 0) && (Player.Effect.indexOf("BlindNormal") < 0)) {
-		var Dark = (Player.Effect.indexOf("BlindLight") < 0) ? "" : "Dark";
-		if (ChatRoomCharacter.length <= 2) DrawImageZoomCanvas("Backgrounds/" + ChatRoomData.Background + Dark + ".jpg", MainCanvas, 500, 0, 1000, 1000, 0, 0, 1000, 1000);
-		if (ChatRoomCharacter.length == 3) DrawImageZoomCanvas("Backgrounds/" + ChatRoomData.Background + Dark + ".jpg", MainCanvas, 400, 0, 1200, 1000, 0, 50, 1000, 900);
-		if (ChatRoomCharacter.length == 4) DrawImageZoomCanvas("Backgrounds/" + ChatRoomData.Background + Dark + ".jpg", MainCanvas, 200, 0, 1600, 1000, 0, 150, 1000, 700);
-		if (ChatRoomCharacter.length == 5) DrawImageZoomCanvas("Backgrounds/" + ChatRoomData.Background + Dark + ".jpg", MainCanvas, 0, 0, 2000, 1000, 0, 250, 1000, 500);
-		if (ChatRoomCharacter.length >= 6) DrawImageZoomCanvas("Backgrounds/" + ChatRoomData.Background + Dark + ".jpg", MainCanvas, 0, 0, 2000, 1000, 0, 0, 1000, 500);
+	var DarkFactor = 1.0;
+	// If there's more than 2 characters, we apply a zoom factor, also apply the darkness factor if the player is blindfolded
+	if (!DoClick && (Player.Effect.indexOf("BlindHeavy") < 0)) {
+		
+		// Draws the zoomed background
+		if (ChatRoomCharacter.length <= 2) DrawImageZoomCanvas("Backgrounds/" + ChatRoomData.Background + ".jpg", MainCanvas, 500, 0, 1000, 1000, 0, 0, 1000, 1000);
+		if (ChatRoomCharacter.length == 3) DrawImageZoomCanvas("Backgrounds/" + ChatRoomData.Background + ".jpg", MainCanvas, 400, 0, 1200, 1000, 0, 50, 1000, 900);
+		if (ChatRoomCharacter.length == 4) DrawImageZoomCanvas("Backgrounds/" + ChatRoomData.Background + ".jpg", MainCanvas, 200, 0, 1600, 1000, 0, 150, 1000, 700);
+		if (ChatRoomCharacter.length == 5) DrawImageZoomCanvas("Backgrounds/" + ChatRoomData.Background + ".jpg", MainCanvas, 0, 0, 2000, 1000, 0, 250, 1000, 500);
+		if (ChatRoomCharacter.length >= 6) DrawImageZoomCanvas("Backgrounds/" + ChatRoomData.Background + ".jpg", MainCanvas, 0, 0, 2000, 1000, 0, 0, 1000, 500);
+
+		// Draws a black overlay if the character is blind
+		if (Player.Effect.indexOf("BlindNormal") >= 0) DarkFactor = 0.15;
+		else if (Player.Effect.indexOf("BlindLight") >= 0) DarkFactor = 0.3;
+		if (DarkFactor < 1.0) DrawRect(0, 0, 2000, 1000, "rgba(0,0,0," + (1.0 - DarkFactor) + ")");
+
 	}
 
 	// Sets the X position
@@ -124,8 +134,10 @@ function ChatRoomDrawCharacter(DoClick) {
 					ChatRoomBackground = ChatRoomData.Background;
 					ChatRoomCharacter[C].AllowItem = (ChatRoomCharacter[C].ID == 0);
 					ChatRoomOwnershipOption = "";
+					ChatRoomLovershipOption = "";
 					if (ChatRoomCharacter[C].ID != 0) ServerSend("ChatRoomAllowItem", { MemberNumber: ChatRoomCharacter[C].MemberNumber });
 					if (ChatRoomCharacter[C].ID != 0) ServerSend("AccountOwnership", { MemberNumber: ChatRoomCharacter[C].MemberNumber });
+					if (ChatRoomCharacter[C].ID != 0) ServerSend("AccountLovership", { MemberNumber: ChatRoomCharacter[C].MemberNumber });
 					CharacterSetCurrent(ChatRoomCharacter[C]);
 
 				} else {
@@ -138,7 +150,10 @@ function ChatRoomDrawCharacter(DoClick) {
 		else {
 			
 			// Draw the background a second time for characters 6 to 10 (we do it here to correct clipping errors from the first part)
-			if ((C == 5) && (Player.Effect.indexOf("BlindHeavy") < 0) && (Player.Effect.indexOf("BlindNormal") < 0)) DrawImageZoomCanvas("Backgrounds/" + ChatRoomData.Background + ((Player.Effect.indexOf("BlindLight") < 0) ? "" : "Dark") + ".jpg", MainCanvas, 0, 0, 2000, 1000, 0, 500, 1000, 500);
+			if ((C == 5) && (Player.Effect.indexOf("BlindHeavy") < 0)) {
+				DrawImageZoomCanvas("Backgrounds/" + ChatRoomData.Background + ".jpg", MainCanvas, 0, 0, 2000, 1000, 0, 500, 1000, 500);
+				if (DarkFactor < 1.0) DrawRect(0, 500, 1000, 500, "rgba(0,0,0," + (1.0 - DarkFactor) + ")");
+			}
 
 			// Draw the character
 			DrawCharacter(ChatRoomCharacter[C], (C % 5) * Space + X, Y + Math.floor(C / 5) * 500, Zoom);
@@ -365,19 +380,23 @@ function ChatRoomSendChat() {
 }
 
 // Publishes the player action (add, remove, swap) to the chat
-function ChatRoomPublishAction(C, DialogProgressPrevItem, DialogProgressNextItem, LeaveDialog) {
+function ChatRoomPublishAction(C, DialogProgressPrevItem, DialogProgressNextItem, LeaveDialog, Action = null) {
 	if (CurrentScreen == "ChatRoom") {
 
 		// Prepares the message
 		var msg = "";
 		var Dictionary = [];
-		if ((DialogProgressPrevItem != null) && (DialogProgressNextItem != null) && !DialogProgressNextItem.Asset.IsLock) msg = "ActionSwap";
-		else if ((DialogProgressPrevItem != null) && (DialogProgressNextItem != null) && DialogProgressNextItem.Asset.IsLock) msg = "ActionAddLock";
-		else if (InventoryItemHasEffect(DialogProgressNextItem, "Lock")) msg = "ActionLock";
-		else if (DialogProgressNextItem != null) msg = "ActionUse";
-		else if (InventoryItemHasEffect(DialogProgressPrevItem, "Lock")) msg = "ActionUnlock";
-		else msg = "ActionRemove";
-		
+
+		if (Action == null) {
+			if ((DialogProgressPrevItem != null) && (DialogProgressNextItem != null) && (DialogProgressPrevItem.Asset.Name == DialogProgressNextItem.Asset.Name) && (DialogProgressPrevItem.Color != DialogProgressNextItem.Color)) msg = "ActionChangeColor";
+		  else if ((DialogProgressPrevItem != null) && (DialogProgressNextItem != null) && !DialogProgressNextItem.Asset.IsLock) msg = "ActionSwap";
+			else if ((DialogProgressPrevItem != null) && (DialogProgressNextItem != null) && DialogProgressNextItem.Asset.IsLock) msg = "ActionAddLock";
+			else if (InventoryItemHasEffect(DialogProgressNextItem, "Lock")) msg = "ActionLock";
+			else if (DialogProgressNextItem != null) msg = "ActionUse";
+			else if (InventoryItemHasEffect(DialogProgressPrevItem, "Lock")) msg = "ActionUnlockAndRemove";
+			else msg = "ActionRemove";
+		} else msg = Action;
+
 		// Replaces the action tags to build the phrase
 		Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
 		Dictionary.push({Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber});
@@ -455,7 +474,8 @@ function ChatRoomMessage(data) {
 			}
 
 			// Replace actions by the content of the dictionary
-			if (data.Type && (data.Type == "Action")) {
+			if (data.Type && ((data.Type == "Action") || (data.Type == "ServerMessage"))) {
+			    if (data.Type == "ServerMessage") msg = "ServerMessage" + msg;
 				msg = DialogFind(Player, msg);
 				if (data.Dictionary) {
 					var dictionary = data.Dictionary;
@@ -497,7 +517,7 @@ function ChatRoomMessage(data) {
 					else msg = "*" + SenderCharacter.Name + " " + msg + "*";
 				}
 				else if (data.Type == "Action") msg = "(" + msg + ")";
-				else if (data.Type == "ServerMessage") msg = "<b>" + DialogFind(Player, "ServerMessage" + msg).replace("SourceCharacter", SenderCharacter.Name) + "</b>";
+				else if (data.Type == "ServerMessage") msg = "<b>" + msg + "</b>";
 			}
 
 			// Adds the message and scrolls down unless the user has scrolled up
@@ -666,6 +686,15 @@ function ChatRoomSendOwnershipRequest(RequestType) {
 	if ((ChatRoomOwnershipOption == "CanEndTrial") && (RequestType == "Accept")) DialogChangeReputation("Dominant", -20);
 	ChatRoomOwnershipOption = "";
 	ServerSend("AccountOwnership", { MemberNumber: CurrentCharacter.MemberNumber, Action: RequestType });
+	if (RequestType == "Accept") DialogLeave();
+}
+
+// When the player selects a lovership dialog option (can change money)
+function ChatRoomSendLovershipRequest(RequestType) {
+	if ((ChatRoomLovershipOption == "CanOfferBeginWedding") && (RequestType == "Propose")) CharacterChangeMoney(Player, -100);
+	if ((ChatRoomLovershipOption == "CanBeginWedding") && (RequestType == "Accept")) CharacterChangeMoney(Player, -100);
+	ChatRoomLovershipOption = "";
+	ServerSend("AccountLovership", { MemberNumber: CurrentCharacter.MemberNumber, Action: RequestType });
 	if (RequestType == "Accept") DialogLeave();
 }
 
