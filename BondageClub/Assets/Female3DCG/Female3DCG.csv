@@ -148,6 +148,7 @@ Socks,Socks6,Frill Socks
 Socks,SocksFur,Socks with Fur
 Socks,SocksStriped1,Striped Socks
 Socks,LatexSocks1,Latex Socks
+Socks,FootlessSocks1,Footless Socks
 Shoes,,Shoes
 Shoes,Shoes1,Style 1
 Shoes,Shoes2,Style 2
@@ -176,6 +177,7 @@ Hat,PirateBandana1,Pirate Bandana
 Hat,PoliceWomanHat,Police Woman Hat
 Hat,HeadTowel1,Towel
 Hat,CollegeDunce,Dunce Hat
+Hat,Tiara1,Tiara
 HairAccessory1,,Hair Accessory
 HairAccessory1,Ears1,Ears Small
 HairAccessory1,Ears2,Ears Large
@@ -202,6 +204,7 @@ HairAccessory1,FoxEars2,Fox Ears Large
 HairAccessory1,FoxEars3,Fox Ears Bell
 HairAccessory1,PuppyEars2,Floppy Puppy Ears
 HairAccessory1,RaccoonEars1,Raccoon Ears
+HairAccessory1,WeddingVeil1,Wedding Veil
 HairAccessory2,,Hair Accessory
 HairAccessory2,Ears1,Ears Small
 HairAccessory2,Ears2,Ears Large
@@ -228,6 +231,7 @@ HairAccessory2,FoxEars2,Fox Ears Large
 HairAccessory2,FoxEars3,Fox Ears Bell
 HairAccessory2,PuppyEars2,Floppy Puppy Ears
 HairAccessory2,RaccoonEars1,Raccoon Ears
+HairAccessory2,WeddingVeil1,Wedding Veil
 Gloves,,Gloves
 Gloves,Gloves1,Short Gloves
 Gloves,Gloves2,Long Gloves
@@ -496,6 +500,7 @@ ItemNipplesPiercings,NippleAccessory3,Nipple Gems Piercings
 ItemNipplesPiercings,BarbellPiercing,Barbell Piercing
 ItemNipplesPiercings,NippleChastityPiercing1,Chastity Guard Shield
 ItemNipplesPiercings,NippleChastityPiercing2,Chastity Cross Shield
+ItemNipplesPiercings,VibeHeartPiercings,Vibrating Heart Piercings
 ItemBreast,,Breast
 ItemBreast,MetalChastityBra,Metal Chastity Bra
 ItemBreast,PolishedChastityBra,Polished Chastity Bra
@@ -643,6 +648,7 @@ ItemMouth,HookGagMask,Hook Gag Mask
 ItemMouth,DildoPlugGag,Dildo Plug Gag
 ItemMouth,SteelMuzzleGag,Steel Muzzle Gag
 ItemMouth,StitchedMuzzleGag,Stitched Muzzle Gag
+ItemMouth,LatexBallMuzzleGag,Latex Ball Muzzle Gag
 ItemMouth2,,Mouth
 ItemMouth2,ClothGag,Cloth Gag
 ItemMouth2,WiffleGag,Wiffle Ball Gag
@@ -675,6 +681,7 @@ ItemMouth2,BallGag,Ball Gag
 ItemMouth2,BallGagMask,Ball Gag Mask
 ItemMouth2,SteelMuzzleGag,Steel Muzzle Gag
 ItemMouth2,StitchedMuzzleGag,Stitched Muzzle Gag
+ItemMouth2,LatexBallMuzzleGag,Latex Ball Muzzle Gag
 ItemMouth3,,Mouth
 ItemMouth3,ClothGag,Cloth Gag
 ItemMouth3,WiffleGag,Wiffle Ball Gag
@@ -707,6 +714,7 @@ ItemMouth3,BallGag,Ball Gag
 ItemMouth3,BallGagMask,Ball Gag Mask
 ItemMouth3,SteelMuzzleGag,Steel Muzzle Gag
 ItemMouth3,StitchedMuzzleGag,Stitched Muzzle Gag
+ItemMouth3,LatexBallMuzzleGag,Latex Ball Muzzle Gag
 ItemHead,,Head
 ItemHead,ClothBlindfold,Cloth Blindfold
 ItemHead,LeatherBlindfold,Leather Blindfold
