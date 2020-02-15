@@ -128,10 +128,13 @@ IndoorPool,,,Indoor Pool
 OutdoorPool,,,Outdoor Pool
 MaidCafe,,,Maid Café
 PublicBath,,,Public Bath
+Onsen,,,Onsen
 ParkDay,,,Park Day
 ParkNight,,,Park Night
 ChillRoom,,,Chill Room
 Boudoir,,,Boudoir
+Kitchen,,,Kitchen
+DiningRoom,,,Dining Room
 BondageBedChamber,,,Bondage Bedchamber
 Beach,,,Beach
 SheikhPrivate,,,Sheikh Private Room
@@ -142,9 +145,11 @@ DeepForest,,,Deep Forest
 SpookyForest,,,Spooky Forest
 SlumRuins,,,Slum Ruins
 AbandonedBuilding,,,Abandoned Building
+AbandonedSideRoom,,,Abandoned Side Room
 BalconyNight,,,Balcony Night
 CozyLivingRoom,,,Cozy Living Room
 RooftopParty,,,Rooftop Party
+PartyBasement,,,Party Basement
 CosyChalet,,,Cosy Chalet
 AlchemistOffice,,,Alchemist Office
 HellEntrance,,,Entrance to Hell
@@ -155,6 +160,8 @@ Dungeon,,,Dungeon
 Industrial,,,Industrial
 SunTemple,,,Sun Temple
 BackAlley,,,Back Alley
+CreepyBasement,,,Creepy Basement
+Cellar,,,Cellar
 BarRestaurant,,,Bar Restaurant
 DungeonRuin,,,Ruined Dungeon
 SecretChamber,,,Secret Chamber
