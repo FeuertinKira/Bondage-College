@@ -247,7 +247,8 @@ var AssetFemale3DCG = [
 			{ Name: "StarHarnessBra", Priority: 20, Value: 40, Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
 			{ Name: "HeartTop", Priority: 20, Value: 35, Hide: ["ItemNipples", "ItemNipplesPiercings"] },
 			{ Name: "ChineseBra1", Value: 35, Hide: ["ItemNipples", "ItemNipplesPiercings"] },
-			{ Name: "LatexCorset1", Priority: 20, Value: 40, BuyGroup: ["LatexCorset1"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] }
+			{ Name: "LatexCorset1", Priority: 20, Value: 40, BuyGroup: ["LatexCorset1"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
+			{ Name: "LeatherStrapBra1", Value: 15, Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], BuyGroup: ["LeatherStrapBra1"] }
 		]
 	},
 
@@ -280,12 +281,15 @@ var AssetFemale3DCG = [
 			{ Name: "StringPanties1", Value: 15, HideItem: ["ItemButtAnalBeads2","ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup"] },
 			{ Name: "StringPasty1", Value: 10, HideItem: ["ItemButtAnalBeads2","ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup"] },
 			{ Name: "ZipPanties1", Value: 15, HideItem: ["ItemButtAnalBeads2","ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup"] },
-			{ Name: "HarnessPanties1", Value: 40, Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], AllowPose: ["LegsClosed", "Kneel"] },
+			{ Name: "HarnessPanties1", Value: 35, Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], AllowPose: ["LegsClosed", "Kneel"], BuyGroup: ["HarnessPanties1"] },
+			{ Name: "HarnessPanties2", Left: 85, Top: 395, Value: 40, Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], AllowPose: ["LegsClosed", "Kneel", "Horse", "KneelingSpread"], BuyGroup: ["HarnessPanties2"] },
 			{ Name: "KittyPanties1", Value: 20, HideItem: ["ItemButtAnalBeads2","ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup"] },
 			{ Name: "PearlPanties1", Value: 20, Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"] },
 			{ Name: "SunstripePanties1", Value: 20, HideItem: ["ItemButtAnalBeads2","ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup"] },
 			{ Name: "SexyBeachPanties1", Value: 20, HideItem: ["ItemButtAnalBeads2","ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup"] },
-			{ Name: "ChinesePanties1", Value: 25, HideItem: ["ItemButtAnalBeads2","ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup"] }
+			{ Name: "ChinesePanties1", Value: 25, HideItem: ["ItemButtAnalBeads2","ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup"] },
+			{ Name: "LeatherStrapPanties1", Value: 20, HideItem: ["ItemButtAnalBeads2","ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup"], BuyGroup: ["LeatherStrapPanties1"] }
+			
 		]
 	},
 
@@ -962,7 +966,9 @@ var AssetFemale3DCG = [
 				]
 			},
 			{ Name: "SteelChastityPanties", Effect: ["Chaste"], Block: ["ItemVulva", "ItemButt", "ItemVulvaPiercings"], Hide: ["ItemVulva", "ItemVulvaPiercings"], Value: 150, Prerequisite: "AccessVulva", AllowLock: true, Difficulty: 50, Time: 50, RemoveTime: 60, ExpressionTrigger: [{ Group: "Eyebrows", Name: "Soft", Timer: 10 }] },
-			{ Name: "HarnessPanties1", Priority: 19, Value: 40, Prerequisite: "AccessVulva", AllowLock: true, Difficulty: 8, Time: 10, RemoveTime: 15, BuyGroup: ["HarnessPanties1"], Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], AllowPose: ["LegsClosed", "Kneel"] },
+			{ Name: "HarnessPanties1", Priority: 19, Value: 35, Prerequisite: "AccessVulva", AllowLock: true, Difficulty: 8, Time: 10, RemoveTime: 15, BuyGroup: ["HarnessPanties1"], Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], AllowPose: ["LegsClosed", "Kneel"] },
+			{ Name: "HarnessPanties2", Left: 85, Top: 395, Priority: 19, Value: 40, Prerequisite: "AccessVulva", AllowLock: true, Difficulty: 9, Time: 10, RemoveTime: 15, BuyGroup: ["HarnessPanties2"], Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], AllowPose: ["LegsClosed", "Kneel", "Horse", "KneelingSpread"] },
+			{ Name: "LeatherStrapPanties1", Left: 150, Top: 395, Effect: ["Chaste"], Block: ["ItemVulva", "ItemButt", "ItemVulvaPiercings"], HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo", "ItemVulvaHeavyWeightClamp", "ItemVulvaPenisDildo"], Value: 20, Prerequisite: "AccessVulva", AllowLock: true, Difficulty: 5, Time: 20, RemoveTime: 10, ExpressionTrigger: [{ Group: "Eyebrows", Name: "Soft", Timer: 10 }], BuyGroup: ["LeatherStrapPanties1"] },
 			{
 				Name: "LoveChastityBelt", HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo", "ItemVulvaHeavyWeightClamp", "ItemVulvaPenisDildo"], Value: 250, Prerequisite: "AccessVulva", Difficulty: 50, Time: 20, RemoveTime: 10, Extended: true,
 				Effect: ["Lock"], OwnerOnly: true,
@@ -1032,6 +1038,7 @@ var AssetFemale3DCG = [
 			{ Name: "Corset5", Priority: 21, Value: 20, Prerequisite: "AccessTorso", Time: 15, RemoveTime: 10, Difficulty: 8, BuyGroup: ["Corset5"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], AllowLock: true },
 			{ Name: "LeatherBreastBinder", Value: 30, Prerequisite: "AccessTorso", Time: 15, RemoveTime: 10, Difficulty: 50, AllowLock: true },
 			{ Name: "LatexCorset1", Priority: 20, Value: 40, Prerequisite: "AccessTorso", Time: 15, RemoveTime: 10, Difficulty: 8, BuyGroup: ["LatexCorset1"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], AllowLock: true },
+			{ Name: "LeatherStrapBra1", Left: 150, Top: 200, Value: 15, Prerequisite: "AccessTorso", Time: 15, RemoveTime: 10, Difficulty: 5, AllowLock: true, BuyGroup: ["LeatherStrapBra1"] },
 			AssetSpankingToys
 		]
 	},
