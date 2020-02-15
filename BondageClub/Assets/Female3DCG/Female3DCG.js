@@ -1062,7 +1062,7 @@ var AssetFemale3DCG = [
 			{ Name: "AdultBabyHarness", DefaultColor: "#aaaaaa", Value: 50, Priority: 33, Time: 15, RemoveTime: 10, Difficulty: 3, AllowLock: true, ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }] },
 			{ Name: "HarnessBra1", Priority: 20, Value: 30, Prerequisite: "AccessTorso", Time: 15, RemoveTime: 10, Difficulty: 8, BuyGroup: ["HarnessBra1"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], AllowLock: true },
 			{ Name: "HarnessBra2", Priority: 20, Value: 40, Prerequisite: "AccessTorso", Time: 15, RemoveTime: 10, Difficulty: 8, BuyGroup: ["HarnessBra2"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], AllowLock: true },
-			{ Name: "Corset2", Priority: 21, Value: 30, Prerequisite: "AccessTorso", Time: 15, RemoveTime: 10, Diffiuculty: 8, BuyGroup: ["Corset2"], Hide: ["ItemNipples", "ItemNipplesPiercings"], AllowLock: true },
+			{ Name: "Corset2", Priority: 21, Value: 30, Prerequisite: "AccessTorso", Time: 15, RemoveTime: 10, Difficulty: 8, BuyGroup: ["Corset2"], Hide: ["ItemNipples", "ItemNipplesPiercings"], AllowLock: true },
 			{ Name: "Corset3", Priority: 21, Value: 25, Prerequisite: "AccessTorso", Time: 15, RemoveTime: 10, Difficulty: 8, BuyGroup: ["Corset3"], Hide: ["ItemNipples", "ItemNipplesPiercings"], AllowLock: true },
 			{ Name: "Corset4", Priority: 21, Value: 15, Prerequisite: "AccessTorso", Time: 15, RemoveTime: 10, Difficulty: 8, BuyGroup: ["Corset4"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], AllowLock: true },
 			{ Name: "Corset5", Priority: 21, Value: 20, Prerequisite: "AccessTorso", Time: 15, RemoveTime: 10, Difficulty: 8, BuyGroup: ["Corset5"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], AllowLock: true },
