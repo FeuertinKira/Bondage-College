@@ -690,7 +690,7 @@ FullLatexSuitTypeUnZip,,,Unzipped
 FullLatexSuitTypeWand,,,Wand Attachment
 FullLatexSuitSetZipped,,,SourceCharacter zips up TargetCharacter suit.
 FullLatexSuitSetUnZip,,,SourceCharacter unzips TargetCharacter suit.
-FullLatexSuitSetWand,,,SourceCharacter attachs a wand to TargetCharacter suit.
+FullLatexSuitSetWand,,,SourceCharacter attaches a wand to TargetCharacter suit.
 BitchSuitTypeZipped,,,Zipped Up
 BitchSuitTypeUnZip,,,Unzipped
 BitchSuitSetZipped,,,SourceCharacter zips up TargetCharacter suit.
@@ -828,6 +828,7 @@ SelectCollarNameTagLoverType,,,Select what tag you want to use
 SelectCollarNameTagLoverTypeLocked,,,You cannot change the tag while it's locked
 CollarNameTagLoverSet,,,SourceCharacter uses a NameTagType lover name tag on DestinationCharacter collar.
 CollarNameTagLoverTypeCookie,,,Cookie
+CollarNameTagLoverTypeFeather,,,Feather
 CollarNameTagLoverTypeLover,,,Lover
 CollarNameTagLoverTypeMuffin,,,Muffin
 RoundPiercingPoseBase,,,Base
