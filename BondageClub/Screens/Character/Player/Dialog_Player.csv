@@ -403,9 +403,9 @@ SelectStrapType,,,Select if you want straps
 SelectIfDontType,,,Select if you want straps removed
 LeatherArmbinderTypeStrap,,,Binder Straps
 LeatherArmbinderStrapTypeNone,,,No straps
-LeatherArmbinderSetStrap,,,SourceCharacter puts an armbinder on DestinationCharacter with straps.
-LeatherArmbinderSetWrapStrap,,,SourceCharacter puts an armbinder on DestinationCharacter with straps.
-LeatherArmbinderStrapSetNone,,,SourceCharacter puts an armbinder on DestinationCharacter that's strapless.
+LeatherArmbinderSetStrap,,,SourceCharacter puts an armbinder with ring straps on DestinationCharacter arms.
+LeatherArmbinderSetWrapStrap,,,SourceCharacter puts an armbinder with wrapping straps on DestinationCharacter arms.
+LeatherArmbinderStrapSetNone,,,SourceCharacter puts a strapless armbinder on DestinationCharacter arms.
 SelectGagType,,,Select the type of gag
 ClothGagTypeSmall,,,Small
 ClothGagTypeCleave,,,Cleave
