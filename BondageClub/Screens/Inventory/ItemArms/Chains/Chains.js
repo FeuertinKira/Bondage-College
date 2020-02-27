@@ -53,7 +53,7 @@ function InventoryItemArmsChainsSetPose(NewType) {
 	}
 
 	// Validates a few parameters before hogtied
-	if ((NewType != null) && !InventoryAllow(C, ["NotKneeling", "NotMounted", "NotChained", "NotSuspended"], true)) { DialogExtendedMessage = DialogText; return; }
+	if ((NewType != null) && !InventoryAllow(C, ["NotKneeling", "NotMounted", "NotChained", "NotSuspended", "CannotBeHogtiedWithAlphaHood"], true)) { DialogExtendedMessage = DialogText; return; }
 
 	// Sets the new pose with it's effects
 	if (!InventoryItemHasEffect(DialogFocusItem, "Lock", true)) {
@@ -93,7 +93,7 @@ function InventoryItemArmsChainsSetPose(NewType) {
 		var msg = "ArmsChainSet" + ((NewType) ? NewType : "BoxTie");
 		var Dictionary = [];
 		Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
-		Dictionary.push({Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber});
+		Dictionary.push({Tag: "TargetCharacter", Text: C.Name, MemberNumber: C.MemberNumber});
 		ChatRoomPublishCustomAction(msg, true, Dictionary);
 	} else {
 		DialogFocusItem = null;
