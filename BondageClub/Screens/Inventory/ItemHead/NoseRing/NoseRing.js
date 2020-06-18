@@ -34,8 +34,8 @@ function InventoryItemHeadNoseRingDraw() {
 	DrawImage("Screens/Inventory/" + DialogFocusItem.Asset.Group.Name + "/" + DialogFocusItem.Asset.Name + "/ChainLong.png", 1500, 550);
 	DrawText(DialogFind(Player, "NoseRingPoseChainLong"), 1625, 800, "white", "gray");
 	DrawButton(1750, 550, 225, 225, "", ((DialogFocusItem.Property.Restrain != null) && (DialogFocusItem.Property.Restrain == "Leash")) ? "#888888" : "White");
-	DrawImage("Screens/Inventory/" + DialogFocusItem.Asset.Group.Name + "/" + DialogFocusItem.Asset.Name + "/Leash.png", 1500, 550);
-	DrawText(DialogFind(Player, "NoseRingPoseLeash"), 1625, 800, "white", "gray");
+	DrawImage("Screens/Inventory/" + DialogFocusItem.Asset.Group.Name + "/" + DialogFocusItem.Asset.Name + "/Leash.png", 1750, 550);
+	DrawText(DialogFind(Player, "NoseRingPoseLeash"), 1875, 800, "white", "gray");
 }
 
 // Catches the item extension clicks
