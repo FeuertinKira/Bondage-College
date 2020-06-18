@@ -11,7 +11,7 @@ function CreationLoad() {
 		ImportBondageCollegeData = true;
 		if (localStorage.getItem("BondageCollegeExportName") != null) DefaultName = localStorage.getItem("BondageCollegeExportName");
 	} else ImportBondageCollegeData = null;
-	
+
 	// Creates the text fields element
 	ElementCreateInput("InputCharacter", "text", DefaultName, "20");
 	ElementCreateInput("InputName", "text", "", "20");
@@ -23,7 +23,7 @@ function CreationLoad() {
 
 // Run the character creation screen 
 function CreationRun() {
-	
+
 	// Places the controls on the screen
 	ElementPosition("InputCharacter", 1250, 175, 500);
 	ElementPosition("InputName", 1250, 305, 500);
@@ -69,6 +69,7 @@ function CreationResponse(data) {
 			Player.BlackList = [];
 			Player.FriendList = [];
 			Player.GhostList = [];
+			Player.Lovership = [];
 
 			// Imports logs, inventory and Sarah status from the Bondage College
 			CreationMessage = "";

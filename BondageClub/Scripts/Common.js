@@ -11,6 +11,28 @@ var CurrentOnlinePlayers = 0;
 var CommonIsMobile = false;
 var CommonCSVCache = {};
 var CutsceneStage = 0;
+var CommonBackgroundList = [
+	"Introduction", "KidnapLeague", "MaidQuarters", "MainHall", "Management", "Private", "Shibari", "MaidCafe", 
+	"HorseStable", "Nursery", "Bedroom", "PrisonHall", "Kennels",
+	"BDSMRoomBlue", "BDSMRoomPurple", "BDSMRoomRed", "BondageBedChamber",
+	"CeremonialVenue", "WeddingRoom", "WeddingArch", "WeddingBeach",
+	"ParkDay", "ParkNight", "Gardens", "ParkWinter", "XmasEve", "XmasDay", "StreetNight", "SnowyStreet", "DystopianCity",
+	"IndoorPool", "OutdoorPool", "PublicBath", "Onsen", "Beach", "BeachCafe", "BeachHotel",
+	"PirateIsland", "PirateIslandNight", "ShipDeck", "CaptainCabin", "Shipwreck", 
+	"UnderwaterOne",
+	"MedinaMarket",	"SheikhPrivate", "SheikhTent",
+	"ForestPath", "WoodenCabin", "DeepForest", "ForestCave", "SpookyForest", "WitchWood", "DesolateVillage",
+	"ThroneRoom", "SecretChamber", "Dungeon", "DungeonRuin", "Confessions",
+	"AncientRuins", "JungleTemple", "SunTemple",
+	"AlchemistOffice", "ResearchPrep", "ResearchProgress",
+	"MiddletownSchool", "SlipperyClassroom", "LockerRoom", "SchoolHospital", "SchoolRuins", "SlumRuins", 
+	"SlumApartment", "AbandonedBuilding", "AbandonedSideRoom", "Industrial", "BackAlley", "CreepyBasement", "Cellar", "SlumCellar",
+	"VaultCorridor", "SciFiCell", "SpaceCaptainBedroom",
+	"HellEntrance", "HeavenEntrance", 
+	"BarRestaurant", "LostVages",
+	"ChillRoom", "Boudoir", "Kitchen", "DiningRoom", "CozyLivingRoom", "TiledBathroom",
+	"RooftopParty", "PartyBasement", "CosyChalet", "BalconyNight"
+];
 
 // Returns TRUE if the variable is a number
 function CommonIsNumeric(n) {
@@ -207,6 +229,24 @@ function CommonDynamicFunctionParams(FunctionName) {
 
 }
 
+
+/**
+ *  Calls a named global function with the passed in arguments, if the named function exists. Differs from
+ *  CommonDynamicFunctionParams in that arguments are not parsed from the passed in FunctionName string, but
+ *  passed directly into the function call, allowing for more complex JS objects to be passed in. This
+ *  function will not log to console if the provided function name does not exist as a global function.
+ *
+ * @param {string} FunctionName - The name of the global function to call
+ * @param {...*} [args] - zero or more arguments to be passed to the function (optional)
+ */
+function CommonCallFunctionByName(FunctionName/*, ...args */) {
+	var Function = window[FunctionName];
+	if (typeof Function === "function") {
+		var args = Array.prototype.slice.call(arguments, 1);
+		return Function.apply(null, args);
+	}
+}
+
 // Sets the current screen and calls the loading script if needed, only allow the change screen if the player can walk
 function CommonSetScreen(NewModule, NewScreen) {
 	CurrentModule = NewModule;
@@ -256,4 +296,10 @@ function CommonConvertArrayToString(Arr) {
 		S = S + Arr[P].toString();
 	}
 	return S;
+}
+
+// Waits for X milliseconds, gives time to the server to do an async call
+function CommonWait(MS) {
+	var waitUntil = new Date().getTime() + MS;
+	while(new Date().getTime() < waitUntil) true;
 }

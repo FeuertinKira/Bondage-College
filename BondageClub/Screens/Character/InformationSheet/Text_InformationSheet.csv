@@ -26,6 +26,7 @@ TitlePonyUnicorn,Shining Unicorn
 TitlePonyPegasus,Flying Pegasus
 MemberNumber,Member Number:
 NoMemberNumber,-
+Relationships,- Relationships -
 Lover,Lover:
 Owner,Owner:
 LoverNone,None
@@ -49,11 +50,20 @@ ReputationMaidPositive,Maid Sorority:
 ReputationKidnapPositive,Kidnappers League:
 ReputationAsylumPositive,Asylum Nurse:
 ReputationAsylumNegative,Asylum Patient:
+ReputationLARPPositive,LARP Battles:
 ReputationGamblingPositive,Gambling Hall:
 ReputationABDLPositive,ABDL:
+LARPClass,LARP Class:
+LARPClassMatron,Matron
+LARPClassSeducer,Seducer
+LARPClassTrickster,Trickster
+LARPClassServant,Servant
+LARPClassArtist,Artist
+LARPClassProtector,Protector
 Skill,- Skills -
 SkillNone,None
 SkillBondage,Bondage:
+SkillSelfBondage,Self-bondage:
 SkillEvasion,Evasion:
 SkillWillpower,Willpower:
 SkillDressage,Dressage:
@@ -83,10 +93,10 @@ RelationshipPoor,(Poor)
 RelationshipBad,(Bad)
 RelationshipHorrible,(Horrible)
 RelationshipAtrocious,(Atrocious)
-ItemPermission,Item permission:
+ItemPermission,Permission:
 PermissionLevel0,"Everyone, no exceptions"
 PermissionLevel1,"Everyone, except blacklist"
-PermissionLevel2,"Owner, Lover, whitelist & Dominants"
-PermissionLevel3,"Owner, Lover and whitelist only"
-PermissionLevel4,Owner and Lover only
+PermissionLevel2,"Owner, Lovers, whitelist & Dominants"
+PermissionLevel3,"Owner, Lovers and whitelist only"
+PermissionLevel4,Owner and Lovers only
 PermissionLevel5,Owner only

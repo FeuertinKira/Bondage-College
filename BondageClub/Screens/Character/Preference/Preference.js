@@ -16,6 +16,7 @@ var PreferenceSettingsSensDepList = ["Normal", "SensDepNames", "SensDepTotal"];
 var PreferenceSettingsSensDepIndex = 0;
 var PreferenceSettingsVolumeList = [1, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
 var PreferenceSettingsVolumeIndex = 0;
+var PreferenceEmailStatusReceived = false;
 var PreferenceArousalActiveList = ["Inactive", "NoMeter", "Manual", "Hybrid", "Automatic"];
 var PreferenceArousalActiveIndex = 0;
 var PreferenceArousalVisibleList = ["All", "Access", "Self"];
@@ -96,7 +97,7 @@ function PreferenceGetFactorColor(Factor) {
 
 // Returns TRUE if we must active the preference controls
 function PreferenceArousalIsActive() {
-	return (PreferenceArousalActiveList[PreferenceArousalActiveIndex] == "Hybrid") || (PreferenceArousalActiveList[PreferenceArousalActiveIndex] == "Automatic");
+	return (PreferenceArousalActiveList[PreferenceArousalActiveIndex] != "Inactive");
 }
 
 // Loads the activity factor combo boxes based on the current activity selected
@@ -109,14 +110,22 @@ function PreferenceLoadActivityFactor() {
 function PreferenceInit(C) {
 
 	// If the settings aren't set before, construct them to replicate the default behavior
-	if (!C.ChatSettings) C.ChatSettings = { DisplayTimestamps: true, ColorNames: true, ColorActions: true, ColorEmotes: true, ShowActivities: true };
+	if (!C.ChatSettings) C.ChatSettings = { DisplayTimestamps: true, ColorNames: true, ColorActions: true, ColorEmotes: true, ShowActivities: true, AutoBanGhostList: true, AutoBanBlackList: false };
 	if (C.ChatSettings.DisplayTimestamps == null) C.ChatSettings.DisplayTimestamps = true;
 	if (C.ChatSettings.ColorNames == null) C.ChatSettings.ColorNames = true;
 	if (C.ChatSettings.ColorActions == null) C.ChatSettings.ColorActions = true;
 	if (C.ChatSettings.ColorEmotes == null) C.ChatSettings.ColorEmotes = true;
 	if (C.ChatSettings.ShowActivities == null) C.ChatSettings.ShowActivities = true;
+	if (C.ChatSettings.AutoBanBlackList == null) C.ChatSettings.AutoBanBlackList = false;
+	if (C.ChatSettings.AutoBanGhostList == null) C.ChatSettings.AutoBanGhostList = true;
 	if (!C.VisualSettings) C.VisualSettings = { ForceFullHeight: false };
-    if (!C.AudioSettings || (typeof C.AudioSettings.Volume !== "number") || (typeof C.AudioSettings.PlayBeeps !== "boolean")) C.AudioSettings = { Volume: 1, PlayBeeps: false };
+
+	// Sets the default audio settings
+	if (!C.AudioSettings) C.AudioSettings = { Volume: 1, PlayBeeps: false, PlayItem: false, PlayItemPlayerOnly: false };
+	if (typeof C.AudioSettings.Volume !== "number") C.AudioSettings.Volume = 1;
+	if (typeof C.AudioSettings.PlayBeeps !== "boolean") C.AudioSettings.PlayBeeps = false;
+	if (typeof C.AudioSettings.PlayItem !== "boolean") C.AudioSettings.PlayItem = false;
+	if (typeof C.AudioSettings.PlayItemPlayerOnly !== "boolean") C.AudioSettings.PlayItemPlayerOnly = false;
 
 	// Sets the default arousal settings
 	if (!C.ArousalSettings) C.ArousalSettings = { Active: "Hybrid", Visible: "Access", ShowOtherMeter: true, AffectExpression: true, AffectStutter: "All", Progress: 0, ProgressTimer: 0, Activity: [], Zone: [] };
@@ -179,7 +188,7 @@ function PreferenceLoad() {
 
 	// Sets up the player label color
 	if (!CommonIsColor(Player.LabelColor)) Player.LabelColor = "#ffffff";
-	ElementCreateInput("InputCharacterLabelColor", "text", Player.LabelColor);
+	PreferenceMainScreenLoad();
 	PreferenceInit(Player);
 
 	// Sets the chat themes
@@ -212,6 +221,7 @@ function PreferenceRun() {
 	if (PreferenceSubscreen == "Chat") return PreferenceSubscreenChatRun();
 	if (PreferenceSubscreen == "Audio") return PreferenceSubscreenAudioRun();
 	if (PreferenceSubscreen == "Arousal") return PreferenceSubscreenArousalRun();
+	if (PreferenceSubscreen == "Security") return PreferenceSubscreenSecurityRun();
 
 	// Draw the online preferences
 	MainCanvas.textAlign = "left";
@@ -226,7 +236,7 @@ function PreferenceRun() {
 	DrawButton(500, 280, 90, 90, "", "White", "Icons/Next.png");
 	DrawText(TextGet("ItemPermission") + " " + TextGet("PermissionLevel" + Player.ItemPermission.toString()), 615, 325, "Black", "Gray");
 	DrawText(TextGet("SensDepSetting"), 800, 428, "Black", "Gray");
-	
+
 	// Checkboxes
 	DrawCheckbox(500, 472, 64, 64, TextGet("BlindDisableExamine"), Player.GameplaySettings.BlindDisableExamine);
 	DrawCheckbox(500, 552, 64, 64, TextGet("DisableAutoRemoveLogin"), Player.GameplaySettings.DisableAutoRemoveLogin);
@@ -248,6 +258,7 @@ function PreferenceRun() {
 		DrawButton(1815, 190, 90, 90, "", "White", "Icons/Chat.png");
 		DrawButton(1815, 305, 90, 90, "", "White", "Icons/Audio.png");
 		DrawButton(1815, 420, 90, 90, "", "White", "Icons/Activity.png");
+		DrawButton(1815, 535, 90, 90, "", "White", "Icons/Lock.png");
 	}
 }
 
@@ -258,26 +269,36 @@ function PreferenceClick() {
 	if (PreferenceSubscreen == "Chat") return PreferenceSubscreenChatClick();
 	if (PreferenceSubscreen == "Audio") return PreferenceSubscreenAudioClick();
 	if (PreferenceSubscreen == "Arousal") return PreferenceSubscreenArousalClick();
+	if (PreferenceSubscreen == "Security") return PreferenceSubscreenSecurityClick();
 
 	// If the user clicks on "Exit"
 	if ((MouseX >= 1815) && (MouseX < 1905) && (MouseY >= 75) && (MouseY < 165) && (PreferenceColorPick == "")) PreferenceExit();
 
 	// If the user clicks on the chat settings button
 	if ((MouseX >= 1815) && (MouseX < 1905) && (MouseY >= 190) && (MouseY < 280) && (PreferenceColorPick == "")) {
-		ElementRemove("InputCharacterLabelColor");
+		PreferenceMainScreenExit();
 		PreferenceSubscreen = "Chat";
 	}
 
 	// If the user clicks on the audio settings button
 	if ((MouseX >= 1815) && (MouseX < 1905) && (MouseY >= 305) && (MouseY < 395) && (PreferenceColorPick == "")) {
-		ElementRemove("InputCharacterLabelColor");
+		PreferenceMainScreenExit();
 		PreferenceSubscreen = "Audio";
 	}
 
 	// If the user clicks on the arousal settings button
 	if ((MouseX >= 1815) && (MouseX < 1905) && (MouseY >= 420) && (MouseY < 510) && (PreferenceColorPick == "")) {
-		ElementRemove("InputCharacterLabelColor");
+		PreferenceMainScreenExit();
 		PreferenceSubscreen = "Arousal";
+	}
+
+	// If the user clicks on the security settings button
+	if ((MouseX >= 1815) && (MouseX < 1905) && (MouseY >= 535) && (MouseY < 625) && (PreferenceColorPick == "")) {
+		PreferenceMainScreenExit();
+		ElementCreateInput("InputEmailOld", "text", "", "100");
+		ElementCreateInput("InputEmailNew", "text", "", "100");
+		ServerSend("AccountQuery", { Query: "EmailStatus" });
+		PreferenceSubscreen = "Security";
 	}
 	
 	// If we must change the restrain permission level
@@ -323,7 +344,7 @@ function PreferenceExit() {
 		};
 		ServerSend("AccountUpdate", P);
 		PreferenceMessage = "";
-		ElementRemove("InputCharacterLabelColor");
+		PreferenceMainScreenExit();
 		CommonSetScreen("Character", "InformationSheet");
 	} else PreferenceMessage = "ErrorInvalidColor";
 }
@@ -334,10 +355,9 @@ function PreferenceSubscreenAudioRun() {
 	MainCanvas.textAlign = "left";
 	DrawText(TextGet("AudioPreferences"), 500, 125, "Black", "Gray");
 	DrawText(TextGet("AudioVolume"), 800, 225, "Black", "Gray");
-	DrawText(TextGet("AudioPlayBeeps"), 600, 305, "Black", "Gray");
-    DrawButton(500, 272, 64, 64, "", "White", (Player.AudioSettings && Player.AudioSettings.PlayBeeps) ? "Icons/Checked.png" : "");
-    DrawText(TextGet("AudioPlayItem"), 600, 385, "Black", "Gray");
-	DrawButton(500, 352, 64, 64, "", "White", (Player.AudioSettings && Player.AudioSettings.PlayItem) ? "Icons/Checked.png" : "");
+	DrawCheckbox(500, 272, 64, 64, TextGet("AudioPlayBeeps"), Player.AudioSettings.PlayBeeps);
+	DrawCheckbox(500, 352, 64, 64, TextGet("AudioPlayItem"), Player.AudioSettings.PlayItem);
+	DrawCheckbox(500, 432, 64, 64, TextGet("AudioPlayItemPlayerOnly"), Player.AudioSettings.PlayItemPlayerOnly);
 	MainCanvas.textAlign = "center";
     DrawBackNextButton(500, 193, 250, 64, Player.AudioSettings.Volume * 100 + "%", "White", "",
         () => PreferenceSettingsVolumeList[(PreferenceSettingsVolumeIndex + PreferenceSettingsVolumeList.length - 1) % PreferenceSettingsVolumeList.length] * 100 + "%",
@@ -352,11 +372,13 @@ function PreferenceSubscreenChatRun() {
 	DrawText(TextGet("ColorTheme"), 500, 225, "Black", "Gray");
 	DrawText(TextGet("EnterLeaveStyle"), 500, 325, "Black", "Gray");
 	DrawText(TextGet("DisplayMemberNumbers"), 500, 425, "Black", "Gray");
-	DrawText(TextGet("DisplayTimestamps"), 600, 525, "Black", "Gray");
-	DrawText(TextGet("ColorNames"), 600, 605, "Black", "Gray");
-	DrawText(TextGet("ColorActions"), 600, 685, "Black", "Gray");
-	DrawText(TextGet("ColorEmotes"), 600, 765, "Black", "Gray");
-	DrawText(TextGet("ShowActivities"), 600, 845, "Black", "Gray");
+	DrawCheckbox(500, 492, 64, 64, TextGet("DisplayTimestamps"), Player.ChatSettings.DisplayTimestamps);
+	DrawCheckbox(500, 572, 64, 64, TextGet("ColorNames"), Player.ChatSettings.ColorNames);
+	DrawCheckbox(500, 652, 64, 64, TextGet("ColorActions"), Player.ChatSettings.ColorActions);
+	DrawCheckbox(500, 732, 64, 64, TextGet("ColorEmotes"), Player.ChatSettings.ColorEmotes);
+	DrawCheckbox(500, 812, 64, 64, TextGet("ShowActivities"), Player.ChatSettings.ShowActivities);
+	DrawCheckbox(1200, 492, 64, 64, TextGet("AutoBanBlackList"), Player.ChatSettings.AutoBanBlackList);
+	DrawCheckbox(1200, 572, 64, 64, TextGet("AutoBanGhostList"), Player.ChatSettings.AutoBanGhostList);
 	MainCanvas.textAlign = "center";
 	DrawBackNextButton(1000, 190, 350, 70, TextGet(PreferenceChatColorThemeSelected), "White", "",
 		() => TextGet((PreferenceChatColorThemeIndex == 0) ? PreferenceChatColorThemeList[PreferenceChatColorThemeList.length - 1] : PreferenceChatColorThemeList[PreferenceChatColorThemeIndex - 1]),
@@ -367,11 +389,6 @@ function PreferenceSubscreenChatRun() {
 	DrawBackNextButton(1000, 390, 350, 70, TextGet(PreferenceChatMemberNumbersSelected), "White", "",
 		() => TextGet((PreferenceChatMemberNumbersIndex == 0) ? PreferenceChatMemberNumbersList[PreferenceChatMemberNumbersList.length - 1] : PreferenceChatMemberNumbersList[PreferenceChatMemberNumbersIndex - 1]),
 		() => TextGet((PreferenceChatMemberNumbersIndex >= PreferenceChatMemberNumbersList.length - 1) ? PreferenceChatMemberNumbersList[0] : PreferenceChatMemberNumbersList[PreferenceChatMemberNumbersIndex + 1]));
-	DrawButton(500, 492, 64, 64, "", "White", (Player.ChatSettings && Player.ChatSettings.DisplayTimestamps) ? "Icons/Checked.png" : "");
-	DrawButton(500, 572, 64, 64, "", "White", (Player.ChatSettings && Player.ChatSettings.ColorNames) ? "Icons/Checked.png" : "");
-	DrawButton(500, 652, 64, 64, "", "White", (Player.ChatSettings && Player.ChatSettings.ColorActions) ? "Icons/Checked.png" : "");
-	DrawButton(500, 732, 64, 64, "", "White", (Player.ChatSettings && Player.ChatSettings.ColorEmotes) ? "Icons/Checked.png" : "");
-	DrawButton(500, 812, 64, 64, "", "White", (Player.ChatSettings && Player.ChatSettings.ShowActivities) ? "Icons/Checked.png" : "");
 	DrawButton(1815, 75, 90, 90, "", "White", "Icons/Exit.png");
 	DrawCharacter(Player, 50, 50, 0.9);
 }
@@ -422,13 +439,6 @@ function PreferenceSubscreenArousalRun() {
 		DrawBackNextButton(900, 593, 300, 64, TextGet("ArousalActivityLove" + PreferenceArousalActivityFactorSelf), PreferenceGetFactorColor(PreferenceGetActivityFactor(Player, PreferenceArousalActivityList[PreferenceArousalActivityIndex], true)), "", () => "", () => "");
 		DrawBackNextButton(1605, 593, 300, 64, TextGet("ArousalActivityLove" + PreferenceArousalActivityFactorOther), PreferenceGetFactorColor(PreferenceGetActivityFactor(Player, PreferenceArousalActivityList[PreferenceArousalActivityIndex], false)), "", () => "", () => "");
 
-	} else if (PreferenceArousalActiveList[PreferenceArousalActiveIndex] == "Manual") {
-
-		// In manual, you can only select if the meter is visible to others or not
-		DrawText(TextGet("ArousalVisible"), 1240, 225, "Black", "Gray");
-		MainCanvas.textAlign = "center";
-		DrawBackNextButton(1505, 193, 400, 64, TextGet("ArousalVisible" + PreferenceArousalVisibleList[PreferenceArousalVisibleIndex]), "White", "", () => "", () => "");
-
 	}
 
 	// We always draw the active & stutter control
@@ -439,13 +449,28 @@ function PreferenceSubscreenArousalRun() {
 
 }
 
+// Redirected to from the main Run function if the player is in the security settings subscreen
+function PreferenceSubscreenSecurityRun() {
+	DrawCharacter(Player, 50, 50, 0.9);
+	MainCanvas.textAlign = "left";
+	DrawText(TextGet("SecurityPreferences"), 500, 125, "Black", "Gray");
+	DrawText(TextGet("UpdateEmailOld"), 500, 225, "Black", "Gray");
+	DrawText(TextGet("UpdateEmailNew"), 500, 305, "Black", "Gray");
+	ElementPosition("InputEmailOld", 1200, 225, 800);
+	ElementPosition("InputEmailNew", 1200, 305, 800);
+	DrawText(TextGet("UpdateEmailDescription"), 800, 397, "Black", "Gray");
+	MainCanvas.textAlign = "center";
+	DrawButton(500, 365, 250, 64, TextGet("UpdateEmail"), "White", "");
+	DrawButton(1815, 75, 90, 90, "", "White", "Icons/Exit.png");
+}
+
 // When the user clicks in the audio preference subscreen
 function PreferenceSubscreenAudioClick() {
 
 	// If the user clicked the exit icon to return to the main screen
 	if ((MouseX >= 1815) && (MouseX < 1905) && (MouseY >= 75) && (MouseY < 165) && (PreferenceColorPick == "")) {
 		PreferenceSubscreen = "";
-		ElementCreateInput("InputCharacterLabelColor", "text", Player.LabelColor);
+		PreferenceMainScreenLoad();
 	}
 
 	// Volume increase/decrease control
@@ -459,6 +484,7 @@ function PreferenceSubscreenAudioClick() {
 	if ((MouseX >= 500) && (MouseX < 564)) {
 		if ((MouseY >= 272) && (MouseY < 336)) Player.AudioSettings.PlayBeeps = !Player.AudioSettings.PlayBeeps;
 		if ((MouseY >= 352) && (MouseY < 416)) Player.AudioSettings.PlayItem = !Player.AudioSettings.PlayItem;
+		if ((MouseY >= 432) && (MouseY < 496)) Player.AudioSettings.PlayItemPlayerOnly = !Player.AudioSettings.PlayItemPlayerOnly;
 	}
 
 }
@@ -473,6 +499,11 @@ function PreferenceSubscreenChatClick() {
 		if ((MouseY >= 652) && (MouseY <= 716)) Player.ChatSettings.ColorActions = !Player.ChatSettings.ColorActions;
 		if ((MouseY >= 732) && (MouseY <= 796)) Player.ChatSettings.ColorEmotes = !Player.ChatSettings.ColorEmotes;
 		if ((MouseY >= 812) && (MouseY <= 876)) Player.ChatSettings.ShowActivities = !Player.ChatSettings.ShowActivities;
+	}
+	
+	if ((MouseX >= 1200) && (MouseX <= 1264)) { 
+		if ((MouseY >= 492) && (MouseY <= 556)) Player.ChatSettings.AutoBanBlackList = !Player.ChatSettings.AutoBanBlackList;
+		if ((MouseY >= 572) && (MouseY <= 636)) Player.ChatSettings.AutoBanGhostList = !Player.ChatSettings.AutoBanGhostList;
 	}
 
 	// If the user used one of the BackNextButtons
@@ -498,7 +529,7 @@ function PreferenceSubscreenChatClick() {
 	// If the user clicked the exit icon to return to the main screen
 	if ((MouseX >= 1815) && (MouseX < 1905) && (MouseY >= 75) && (MouseY < 165) && (PreferenceColorPick == "")) {
 		PreferenceSubscreen = "";
-		ElementCreateInput("InputCharacterLabelColor", "text", Player.LabelColor);
+		PreferenceMainScreenLoad();
 	}
 
 }
@@ -510,7 +541,7 @@ function PreferenceSubscreenArousalClick() {
 	if ((MouseX >= 1815) && (MouseX < 1905) && (MouseY >= 75) && (MouseY < 165) && (PreferenceColorPick == "")) {
 		PreferenceSubscreen = "";
 		Player.FocusGroup = null;
-		ElementCreateInput("InputCharacterLabelColor", "text", Player.LabelColor);
+		PreferenceMainScreenLoad();
 	}
 
 	// Arousal active control
@@ -589,6 +620,40 @@ function PreferenceSubscreenArousalClick() {
 
 	}
 		
+}
+
+// When the user clicks in the security preference subscreen
+function PreferenceSubscreenSecurityClick() {
+
+	// If the user clicked the exit icon to return to the main screen
+	if ((MouseX >= 1815) && (MouseX < 1905) && (MouseY >= 75) && (MouseY < 165) && (PreferenceColorPick == "")) {
+		PreferenceSubscreen = "";
+		ElementRemove("InputEmailOld");
+		ElementRemove("InputEmailNew");
+		PreferenceMainScreenLoad();
+	}
+
+	// If we must update the email
+	if ((MouseX >= 500) && (MouseX < 750) && (MouseY >= 365) && (MouseY < 415)) {
+		var EmailOld = ElementValue("InputEmailOld");
+		var EmailNew = ElementValue("InputEmailNew");
+		var E = /^[a-zA-Z0-9@.!#$%&'*+/=?^_`{|}~-]+$/;
+		if ((EmailOld.match(E) || (EmailOld == "")) && (EmailOld.length <= 100) && (EmailNew.match(E) || (EmailNew == "")) && (EmailNew.length <= 100))
+			ServerSend("AccountUpdateEmail", { EmailOld: EmailOld, EmailNew: EmailNew });
+		else
+			ElementValue("InputEmailNew", TextGet("UpdateEmailInvalid"));
+	}
+
+}
+
+// Handles the loading of the main preferences screen
+function PreferenceMainScreenLoad() {
+	ElementCreateInput("InputCharacterLabelColor", "text", Player.LabelColor);
+}
+
+// Handles the exiting of the main preferences screen
+function PreferenceMainScreenExit() {
+	ElementRemove("InputCharacterLabelColor");
 }
 
 // Return true if sensory deprivation is active

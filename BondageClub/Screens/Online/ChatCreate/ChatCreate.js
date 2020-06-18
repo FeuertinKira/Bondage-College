@@ -10,6 +10,12 @@ var ChatCreateBackgroundList = null;
 // When the chat creation screens loads
 function ChatCreateLoad() {
 
+	// Resets the room game statuses
+	if ((ChatRoomSpace == "LARP") && (Player.Game.LARP.Status != "")) {
+		Player.Game.LARP.Status = "";
+		ServerSend("AccountUpdate", { Game: Player.Game });
+	}
+
 	// If the current background isn't valid, we pick the first one
 	ChatCreateBackgroundIndex = ChatCreateBackgroundList.indexOf(ChatCreateBackgroundSelect);
 	if (ChatCreateBackgroundIndex < 0) {
@@ -110,6 +116,8 @@ function ChatCreateResponse(data) {
 // Creates the chat room
 function ChatCreateRoom() {
 	ChatRoomPlayerCanJoin = true;
+	ChatRoomPlayerJoiningAsAdmin = true;
+	// Push the new room
 	var NewRoom = {
 		Name: ElementValue("InputName").trim(),
 		Description: ElementValue("InputDescription").trim(),
